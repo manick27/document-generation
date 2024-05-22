@@ -1,0 +1,596 @@
+package org.xtext.example.generator
+
+import org.xtext.example.myDsl.Document
+import org.xtext.example.myDsl.Style
+import org.xtext.example.myDsl.Data
+import org.xtext.example.myDsl.Col
+import org.xtext.example.myDsl.Row
+import org.xtext.example.myDsl.Function
+import org.xtext.example.myDsl.ProdFunction
+import org.xtext.example.myDsl.SumFunction
+import org.xtext.example.myDsl.Argument1
+import org.xtext.example.myDsl.DivFunction
+import org.xtext.example.myDsl.Page
+import org.xtext.example.myDsl.Value
+
+class HtmlCodeGenerator {
+	def generate(Document document, String fileName, Context context1) {
+        val StringBuilder cssCode = extractCssFromDocument(document.style)
+        val StringBuilder buildCode = buildDocument(document, context1)
+        
+		return '''
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+			    <meta charset="UTF-8">
+			    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			    <title>''' + fileName + '''</title>
+                <style>''' + cssCode + '''</style>
+			</head>
+			<body>
+			    <h1>''' + fileName + '''</h1>
+			    ''' + buildCode + '''
+			</body>
+		</html>'''
+	}
+	
+	def getValueOfVariableInData (String variable, Data data, Context context1) {		
+		for(keyValue : data.keyValue) {
+			if(keyValue.string.toString == variable.toString) {
+				if(keyValue.value.string !== null) {
+					return keyValue.value.string
+				} else if(keyValue.value.integer !== 0 || keyValue.value.integer === 0) {
+					return keyValue.value.integer
+				} else if(keyValue.value.trueV !== null){
+					return true
+				} else if(keyValue.value.falseV !== null){
+					return false
+				} else {
+					return variable
+				}
+			}
+		}
+	}
+	
+	def getValueOfVariableInArray (String variable, int position, Data data, Context context1) {		
+		for(keyValue : data.keyValue) {
+			if(keyValue.string.toString == variable.toString) {
+				var p = 0
+				for(value : keyValue.value.array.values) {
+					if(p == position) {
+						if(value.string !== null) {
+							return value.string
+						} else if(value.integer !== 0 || value.integer === 0) {
+							return value.integer
+						} else if(value.trueV.toString !== null) {
+							return value.trueV
+						} else if(value.falseV.toString !== null) {
+							return value.falseV
+						} else {
+							return variable
+						}
+					}
+					p = p + 1
+				}
+			}
+		}		
+	}
+	
+	def getLengthForArray (String variable, Data data, Context context1) {	
+		var p = 0	
+		for(keyValue : data.keyValue) {
+			if(keyValue.string.toString == variable.toString) {
+				for(value : keyValue.value.array.values) {
+					p = p + 1
+				}
+			}
+		}	
+		return p	
+	}
+	
+	def numberOfArgumentsOfAFunction(Function function, Context context1) {
+		var nbr = 0
+		if(function.sumFunction !== null && function.sumFunction.argument1 !== null) {
+			for(argument : function.sumFunction.argument1) {
+				nbr ++
+			}
+		} else if(function.prodFunction !== null && function.prodFunction.argument1 !== null) {
+			for(argument : function.prodFunction.argument1) {
+				nbr ++
+			}			
+		} else if(function.divFunction !== null && function.divFunction.argument1 !== null) {
+			for(argument : function.divFunction.argument1) {
+				nbr ++
+			}
+		}
+		return nbr
+	}
+	
+	def sumElementsInArray(String variable, Data data, Context context1) {	
+		var total = 0.0
+		for(keyValue : data.keyValue) {
+			if(keyValue.string.toString == variable) {
+				for(value : keyValue.value.array.values) {
+					if(value.integer !== 0 || value.integer === 0){
+						total += value.integer
+					}	
+				}
+			}
+		}	
+		return total	
+	}
+	
+	def prodElementsInArray(String variable, Data data, Context context1) {	
+		var total = 0.0
+		for(keyValue : data.keyValue) {
+			if(keyValue.string.toString == variable) {
+				for(value : keyValue.value.array.values) {
+					if(value.integer !== 0 || value.integer === 0){
+						total *= value.integer
+					}	
+				}
+			}
+		}	
+		return total	
+	}
+	
+	def prodAllElementInArgument(ProdFunction prodFunction, Data data, int position, Context context1) {
+		var total = 1.0
+		if(prodFunction.argument1 !== null) {
+			for(argument : prodFunction.argument1) {
+				if(argument.string !== null) {
+					return argument.string
+				} else if(argument.variable !== null) {
+					if(argument.arrayC !== null && argument.arrayC.position !== null){
+						if(argument.arrayC.position.variable !== null) {
+							var v = getValueOfVariableInArray(argument.variable.name, position, data, context1)
+							if (v instanceof Integer) {
+								total *= v
+							} else if(v instanceof Float) {
+								total *= v
+							} else {
+								return v
+							}
+						} else {
+							var v = getValueOfVariableInArray(argument.variable.name, argument.arrayC.position.integer, data, context1)
+							if (v instanceof Integer) {
+								total *= v
+							} else if(v instanceof Float) {
+								total *= v
+							} else {
+								return v
+							}				
+						}
+					} else {
+						var v = getValueOfVariableInData(argument.variable.name, data, context1)
+						if (v instanceof Integer) {
+								total *= v
+							} else if(v instanceof Float) {
+								total *= v
+							} else {
+								return v
+							}
+					}
+				} else if(argument.integer !== 0 || argument.integer === 0) {
+					total *= argument.integer
+				}
+			}
+		}
+		return total
+	}
+	
+	def sumAllElementInArgument(SumFunction sumFunction, Data data, int position, Context context1) {
+		var total = 0.0
+		if(sumFunction.argument1 !== null) {
+			for(argument : sumFunction.argument1) {
+				if(argument.string !== null) {
+					return argument.string
+				} else if(argument.variable !== null) {
+					if(argument.arrayC !== null && argument.arrayC.position !== null){
+						if(argument.arrayC.position.variable !== null) {
+							var v = getValueOfVariableInArray(argument.variable.name, position, data, context1)
+							if (v instanceof Integer) {
+								total += v
+							} else if(v instanceof Float) {
+								total += v
+							} else {
+								return v
+							}
+						} else {
+							var v = getValueOfVariableInArray(argument.variable.name, argument.arrayC.position.integer, data, context1)
+							if (v instanceof Integer) {
+								total *= v
+							} else if(v instanceof Float) {
+								total *= v
+							} else {
+								return v
+							}				
+						}
+					} else {
+						var v = getValueOfVariableInData(argument.variable.name, data, context1)
+						if (v instanceof Integer) {
+								total *= v
+							} else if(v instanceof Float) {
+								total *= v
+							} else {
+								return v
+							}
+					}
+				} else if(argument.integer !== 0 || argument.integer === 0) {
+					total += argument.integer
+				}
+			}
+		}
+		return total
+	}
+	
+	def div2Arguments(DivFunction divFunction, Data data, int position, Context context1) {
+		var i = 1
+		if(divFunction.argument1 !== null) {
+			var valueOfFirstArgument = 0.0
+			for(argument : divFunction.argument1) {
+				if(i == 1){
+					var v1  = getArgument1ForDivFunction(argument, position, data, context1)
+					if(v1 instanceof Integer) {
+						valueOfFirstArgument = v1
+					}
+				}
+				if(i == 2) {
+					var v2  = getArgument1ForDivFunction(argument, position, data, context1)
+					if(v2 instanceof Integer) {
+						return String::format("%.2f", valueOfFirstArgument / v2)
+					}
+				}
+				i ++
+			}
+		}
+		return null
+	}
+	
+	def getArgument1ForDivFunction(Argument1 argument, int position, Data data, Context context1) {
+		if(argument.string !== null) {
+			return argument.string
+		} else if(argument.variable !== null) {
+			if(argument.arrayC !== null && argument.arrayC.position !== null){
+				if(argument.arrayC.position.variable !== null) {
+					var v = getValueOfVariableInArray(argument.variable.name, position, data, context1)
+					return v
+				} else {
+					var v = getValueOfVariableInArray(argument.variable.name, argument.arrayC.position.integer, data, context1)
+					return v			
+				}
+			} else {
+				var v = getValueOfVariableInData(argument.variable.name, data, context1)
+				return v
+			}
+		} else if(argument.integer !== 0 || argument.integer === 0) {
+			return argument.integer
+		}
+	}
+	
+	def buildDocument(Document document, Context context1) {
+		val StringBuilder buildCode = new StringBuilder
+		
+		if (document.build !== null) {
+			for (elementBuild : document.build.elementBuild) {
+				if (elementBuild.page !== null) {
+					buildPage(buildCode, elementBuild.page, document, -1, context1)
+				} else if(elementBuild.loop !== null) {
+					if(elementBuild.loop.forLoop !== null) {
+						if(0 <= elementBuild.loop.forLoop.initWithInteger) {
+							var p = elementBuild.loop.forLoop.initWithInteger
+							for(otherElement : elementBuild.loop.forLoop.otherElement) {
+								if(otherElement.page !== null) {
+									 if(elementBuild.loop.forLoop.endWithVariable !== null) {
+										context1.setVariable(elementBuild.loop.forLoop.increment.name, p)
+										for (var i = p; i < getLengthForArray(elementBuild.loop.forLoop.endWithVariable.name, document.data, context1); i++) {
+									        //val po = context1.getVariable(elementBuild.loop.forLoop.increment.name) as Integer
+									        buildPage(buildCode, otherElement.page, document, context1)
+											context1.incrementVariable(elementBuild.loop.forLoop.increment.name, 1)
+										}										
+									} else if(0 <= elementBuild.loop.forLoop.endWithInteger){
+										context1.setVariable(elementBuild.loop.forLoop.increment.name, p)
+										for(var i = p; i<=elementBuild.loop.forLoop.endWithInteger; i++) {
+									        //val po = context1.getVariable(elementBuild.loop.forLoop.increment.name) as Integer
+									        buildPage(buildCode, otherElement.page, document, context1)
+											context1.incrementVariable(elementBuild.loop.forLoop.increment.name, 1)
+										}									
+									}
+								}
+							}							
+						}
+					} else if(elementBuild.loop.withLoop !== null) {
+						if(elementBuild.loop.withLoop.init !== null && elementBuild.loop.withLoop.variable !== null) {
+							for(otherElement : elementBuild.loop.withLoop.otherElement) {
+								if(otherElement.page !== null) {
+									for(var i=0; i<getLengthForArray(elementBuild.loop.withLoop.variable.name, document.data, context1); i++) {
+										buildPage(buildCode, otherElement.page, document, )
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		return buildCode
+	}
+	
+	def buildPage(StringBuilder buildCode, Page page, Document document, Context context1) {
+		buildCode.append("<h3>")
+		if (page.string !== null) {
+			buildCode.append(page.string)
+		} else if (page.variable !== null && page.arrayC !== null) {
+			if(0 <= page.arrayC.position.integer && page.arrayC.position.variable === null) {
+				buildCode.append(getValueOfVariableInArray(page.variable.name, page.arrayC.position.integer, document.data, context1))				
+			} else if(page.arrayC.position.variable !== null) {
+			    val i = context1.getVariable(page.arrayC.position.variable.name) as Integer
+				buildCode.append(getValueOfVariableInArray(page.variable.name, i, document.data, context1))	
+			}
+		} else if (page.variable !== null) {
+			buildCode.append(getValueOfVariableInData(page.variable.name, document.data, context1))
+		}
+		buildCode.append("</h3>")
+		buildCode.append("<table border='1' cellspacing='0'>\n")
+		for (elementPage : page.elementPage) {
+			if (elementPage.row !== null) {
+				buildRow(elementPage.row, buildCode, document, -1, context1)
+			}
+			if(elementPage.loop !== null && elementPage.loop.forLoop !== null && elementPage.loop.forLoop.otherElement !== null) {
+				var p = elementPage.loop.forLoop.initWithInteger
+				for(otherElement : elementPage.loop.forLoop.otherElement) {
+					if(otherElement.row !== null) {
+						if(elementPage.loop.forLoop.endWithVariable !== null) {
+							context1.setVariable(elementPage.loop.forLoop.increment.name, p)
+							for (var i = p; i < getLengthForArray(elementPage.loop.forLoop.endWithVariable.name, document.data, context1); i++) {
+								val po = context1.getVariable(elementPage.loop.forLoop.increment.name) as Integer
+						        buildRow(otherElement.row, buildCode, document, po, context1)
+								context1.incrementVariable(elementPage.loop.forLoop.increment.name, 1)
+							}
+						} else if(0 <= elementPage.loop.forLoop.endWithInteger) {
+							context1.setVariable(elementPage.loop.forLoop.increment.name, p)
+							for(var i = p; i<=elementPage.loop.forLoop.endWithInteger; i++) {
+								val po = context1.getVariable(elementPage.loop.forLoop.increment.name) as Integer
+						        buildRow(otherElement.row, buildCode, document, po, context1)
+								context1.incrementVariable(elementPage.loop.forLoop.increment.name, 1)
+							}
+						}
+					}
+				}
+			}
+		}
+		buildCode.append("</table>\n")
+	}
+	
+	def getValueForSimpleCol(Col col, Document document, int position, Context context1) {
+		if (col.string !== null) {
+			return col.string
+		} else if(col.variable !== null && col.arrayC !== null) {
+			if(0 <= col.arrayC.position.integer && col.arrayC.position.variable === null) {
+				return getValueOfVariableInArray(col.variable.name, col.arrayC.position.integer, document.data, context1)			
+			} else if(col.arrayC.position.variable !== null) {
+				val po = context1.getVariable(col.arrayC.position.variable.name) as Integer
+				return getValueOfVariableInArray(col.variable.name, po, document.data, context1)			
+			}
+		} else if(col.variable !== null) {
+			return getValueOfVariableInData(col.variable.name, document.data, context1)
+		} else if(col.img !== null && col.img.string !== null){
+			val StringBuilder c = new StringBuilder
+			val StringBuilder a = new StringBuilder
+			if(col.img.classD !== null) {
+				c.append(col.img.classD.string)
+			}
+			if(col.img.stringAlt !== null) {
+				a.append(col.img.stringAlt)
+			}
+			return "<img src='" + col.img.string + "' alt='" + a + "' class='" + c + "'>"
+		} else if(col.function !== null) {
+			var nberArguments = 0
+			if(col.function.sumFunction !== null && col.function.sumFunction.argument1 !== null) {
+				nberArguments = numberOfArgumentsOfAFunction(col.function, context1)
+				if(nberArguments == 1) {
+					for(argument : col.function.sumFunction.argument1) {
+						if((argument.integer !== 0 || argument.integer === 0) && argument.variable === null && argument.string === null) {
+							return argument.integer
+						} else if(argument.string !== null && argument.variable === null) {
+							return argument.string
+						} else if(argument.variable !== null && argument.arrayC !== null) {
+							if(0 <= argument.arrayC.position.integer && argument.arrayC.position.variable === null) {
+								return getValueOfVariableInArray(argument.variable.name, argument.arrayC.position.integer, document.data, context1)								
+							} else if(argument.arrayC.position.variable !== null) {
+								val po = context1.getVariable(argument.arrayC.position.variable.name) as Integer
+								return getValueOfVariableInArray(argument.variable.name, po, document.data, context1)				
+							}
+						} else if(argument.variable !== null && argument.arrayC === null) {
+							return sumElementsInArray(argument.variable.name, document.data, context1)
+						}
+					}
+				} else {
+					return sumAllElementInArgument(col.function.sumFunction, document.data, position, context1)
+				}
+			} else if(col.function.prodFunction !== null && col.function.prodFunction.argument1 !== null) {
+				nberArguments = numberOfArgumentsOfAFunction(col.function, context1)
+				if(nberArguments == 1) {
+					for(argument : col.function.prodFunction.argument1) {
+						if((argument.integer !== 0 || argument.integer === 0) && argument.variable === null && argument.string === null) {
+							return argument.integer
+						} else if(argument.string !== null && argument.variable === null) {
+							return argument.string
+						} else if(argument.variable !== null && argument.arrayC !== null) {
+							if(0 <= argument.arrayC.position.integer && argument.arrayC.position.variable === null) {
+								return getValueOfVariableInArray(argument.variable.name, argument.arrayC.position.integer, document.data, context1)							
+							} else if(argument.arrayC.position.variable !== null) {
+								val po = context1.getVariable(argument.arrayC.position.variable.name) as Integer
+								return getValueOfVariableInArray(argument.variable.name, po, document.data, context1)							
+							}
+						} else if(argument.variable !== null && argument.arrayC === null) {
+							return prodElementsInArray(argument.variable.name, document.data, context1)
+						}
+					}
+				} else {
+					return prodAllElementInArgument(col.function.prodFunction, document.data, position, context1)
+				}			
+			} else if(col.function.divFunction !== null && col.function.divFunction.argument1 !== null) {
+				nberArguments = numberOfArgumentsOfAFunction(col.function, context1)
+				if(nberArguments == 2) {
+					return div2Arguments(col.function.divFunction, document.data, position, context1)
+				}
+			}
+		} else if (col.integer !== 0 || col.integer === 0) {
+			return col.integer
+		}
+	}
+	
+	def buildSimpleCol(Col col, StringBuilder buildCode, Document document, int position, Context context1) {
+		val StringBuilder classDC = new StringBuilder
+		if(col.classD !== null){
+			classDC.append(" class='" + col.classD.string +"'")
+		}
+		val StringBuilder fu = new StringBuilder
+		if(col.fusion !== null) {
+			if(col.fusion.colspan !== null) {
+				fu.append(" colspan='")
+				if(0 < col.fusion.colspan.integer) {
+					fu.append(col.fusion.colspan.integer + "'")
+				}
+			}
+			if(col.fusion.rowspan !== null) {
+				fu.append(" rowspan='")
+				if(0 < col.fusion.rowspan.integer) {
+					fu.append(col.fusion.rowspan.integer + "'")
+				}
+			}
+		}
+		buildCode.append("<td" + fu + classDC + ">\n")
+		
+		val value = getValueForSimpleCol(col, document, position, context1)
+		
+		buildCode.append(value)
+		
+		buildCode.append("\n</td>\n")
+	}
+	
+	def getValueForWithLoopCol(Value value, String globalVariable, Context context1) {
+		if(value.string !== null) {
+			return value.string
+		} else if(value.integer !== 0 || value.integer === 0) {
+			return value.integer
+		} else if(value.trueV.toString !== null) {
+			return "true"
+		} else if(value.falseV.toString !== null) {
+			return "false"
+		} else {
+			return globalVariable
+		}
+	}
+	
+	def buildWithLoopCol(Col col, StringBuilder buildCode, String globalVariable, Data data, Context context1) {
+		val StringBuilder classDC = new StringBuilder
+		if(col.classD !== null){
+			classDC.append(" class='" + col.classD.string +"'")
+		}	
+		
+		val StringBuilder fu = new StringBuilder
+		if(col.fusion !== null) {
+			if(col.fusion.colspan !== null) {
+				fu.append(" colspan='")
+				if(0 < col.fusion.colspan.integer) {
+					fu.append(col.fusion.colspan.integer + "'")
+				}
+			}
+			if(col.fusion.rowspan !== null) {
+				fu.append(" rowspan='")
+				if(0 < col.fusion.rowspan.integer) {
+					fu.append(col.fusion.rowspan.integer + "'")
+				}
+			}
+		}
+			
+		for(keyValue : data.keyValue) {
+			if(keyValue.string.toString == globalVariable.toString) {
+				for(value : keyValue.value.array.values) {
+					buildCode.append("<td" + fu + classDC + ">\n")
+					
+					val valeur = getValueForWithLoopCol(value, globalVariable, context1)
+					
+					buildCode.append(valeur)
+					
+					buildCode.append("\n</td>\n")
+				}
+			}
+		}	
+	}
+	
+	def buildRow(Row row, StringBuilder buildCode, Document document, int position, Context context1) {
+		buildCode.append("<tr>\n")
+		for (elementRow : row.elementRow) {
+			if(elementRow.loop !== null && elementRow.loop.withLoop !== null && elementRow.loop.withLoop.otherElement !== null) {
+				for(otherElement : elementRow.loop.withLoop.otherElement) {
+					if(otherElement.col !== null) {
+						buildWithLoopCol(otherElement.col, buildCode, elementRow.loop.withLoop.variable.name, document.data, context1)
+					}
+				}
+			}
+			if (elementRow.col !== null) {
+				buildSimpleCol(elementRow.col, buildCode, document, position, context1)
+			}
+		}
+		buildCode.append("</tr>\n")
+	}
+	
+	def extractCssFromDocument(Style style) {
+	    val StringBuilder cssCode = new StringBuilder
+	
+	    if (style !== null) {
+	        for (rule : style.css.rules) {
+	            if (rule.selector.idSelector !== null) {
+	            	cssCode.append("#")
+	            	cssCode.append(rule.selector.idSelector.name)
+	            } else if (rule.selector.classSelector !== null) {
+	            	cssCode.append(".")
+	            	cssCode.append(rule.selector.classSelector.name)	            	
+	            } else {
+	            	cssCode.append(rule.selector.typeSelector.name)
+	            }
+	            cssCode.append(" { ")
+	            for (declaration : rule.declarations) {
+	                cssCode.append(declaration.property)
+	                cssCode.append(": ")
+	                for (value : declaration.cssValue) {
+	                	var space = false
+	                	if (value.name !== null) {
+	                    	cssCode.append(value.name)	
+	                    	space = true                		
+	                	} else if (value.coma !== null) {
+	                    	cssCode.append(",")
+	                    	space = true
+	                    } else if (value.integer !== 0 || value.integer === 0) {
+	                    	cssCode.append(value.integer)	                    	
+	                    } else if (value.string !== null) {
+	                    	cssCode.append(value.string)
+	                		space = true
+	                	} else if(value.hashtag !== null) {
+	                    	cssCode.append("#")
+	                    	space = false
+	                	} else if(value.pourcent !== null) {
+	                    	cssCode.append("%")
+	                    	space = true
+	                	} else if(value.apostrophe !== null) {
+	                    	cssCode.append("'")
+	                    	space = false
+	                	}
+	                    if (space) {
+	                    	cssCode.append(" ")
+	                    }
+	                }
+	                cssCode.append("; ")
+	            }
+	            cssCode.append(" } ")
+	        }
+	    }
+	
+	    return cssCode
+	}
+	
+}

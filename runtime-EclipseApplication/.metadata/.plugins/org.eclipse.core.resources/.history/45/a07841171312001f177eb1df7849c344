@@ -1,0 +1,71 @@
+data {
+	"students": ["Manick Di laPanick", "Nguewouo Manick"],
+	"header": ["Matières", "Notes", "Coefficients", "NotesXCoefs"],
+	"footer": ["Total", "Moyenne", "Tableau d'honneur"],
+	"studentsC": [{
+		"name": "Manick Di laPanick",
+		"courses": ["Anglais", "Chimie", "Mathématiques", "Physiques"],
+		"tableau": "Oui",
+		"marks": [6, 19, 14, 15],
+		"coefs": [1, 2, 5, 3]
+	}, {
+		"name": "Nguewouo Manick",
+		"courses": ["Anglais", "Chimie", "Mathématiques", "Physiques", "SVT"],
+		"tableau": "Non",
+		"marks": [7, 20, 15, 16, 9],
+		"coefs": [2, 1, 5, 4, 2]
+	}], 
+	"name": "Report Card 1"
+}  
+
+document $name allInOne=false {
+	with $s in $studentsC {
+		page ($s.name) {
+			row {
+				with $h in $header {
+					col $h class="bold italic center"				
+				}
+			}
+			
+			$i from 0 to $s.courses {
+				row {
+					col $s.courses[$i] class="italic"
+					col $s.marks[$i] class="center"
+					//col SUM($s.coefs[$i]) class="center"
+					col PROD($s.marks[$i], $s.coefs[$i]) class="center"
+				}
+			}
+			
+			row { 
+				col $footer[0] class="italic bold center"
+				col SUM($s.marks) class="center"
+				col SUM($s.coefs) class="center"
+				col SUM(0, 2, $s.coefs[2], 2, $s.coefs[0]) class="center bold"
+			}
+			
+			row {
+				col SUM($footer[1]) class="italic bold center"
+				col DIV(160, 12) class="center"
+				col $footer[2] class="center"
+				col $s.tableau class="center bold"
+			}
+		}
+	}
+}
+style { 
+  .red {
+  	color: red;
+  }
+  .blue {
+  	color: blue;
+  }
+  .bold {
+  	font-weight: bold;
+  }
+  .center{
+  	text-align: center;
+  }
+  .italic{
+    font-style: italic;
+  }
+}

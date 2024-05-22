@@ -1,0 +1,65 @@
+data {
+	"name": "Manick Di laPanick",
+	"header": ["Matières", "Notes", "Coefficients", "NotesXCoefs"],
+	"courses": ["Anglais", "Chimie", "Mathématiques", "Physiques"],
+	"marks": [6 , 19, 14, 15],
+	"coefs": [2, 1, 6, 3],
+	"footer": ["Total", "Moyenne", "Tableau d'honneur"],
+	"oui": "Oui",
+	"b": true
+}
+
+document $name {
+	page ($name) {
+		row {
+			with $h in $header {
+				col $h class="bold italic center"				
+			}
+		} 
+		
+		$i from 0 to $courses {
+			row {
+				col $courses[$i] class="italic"
+				col $marks[$i] class="center"
+				col SUM($coefs[$i]) class="center"
+				col PROD($marks[$i], $coefs[$i]) class="center"
+			}
+		}
+		
+		row {
+			col $footer[0] class="italic bold center"
+			col SUM($marks) class="center"
+			col SUM($coefs) class="center"
+			col SUM(0, 2, $coefs[2], 2, $coefs[0]) class="center bold"
+		}
+		
+		row {
+			col SUM($footer[1]) class="italic bold center"
+			col DIV(160, 12) class="center"
+			col $footer[2] class="center"
+			col $oui class="center bold"
+		}
+	}
+	page ($name) {
+		row {
+			col "Bonjour"
+		}
+	}
+}
+style { 
+  .red {
+  	color: red;
+  }
+  .blue {
+  	color: blue;
+  }
+  .bold {
+  	font-weight: bold;
+  }
+  .center{
+  	text-align: center;
+  }
+  .italic{
+    font-style: italic;
+  }
+}

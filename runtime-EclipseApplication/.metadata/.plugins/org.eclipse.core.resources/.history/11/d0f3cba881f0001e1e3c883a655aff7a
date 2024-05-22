@@ -1,0 +1,28 @@
+data {
+	"name":"Pop Smoke",
+	"str":"string",
+	"nber":34,
+	"bool":true
+}
+document $name {
+	
+}
+style {
+  .header {
+    font-size: 18px;
+    color: #333;
+  }
+
+  #main-content {
+    background-color: #f0f0f0;
+    margin: 10px;
+  }
+
+  #submit-button {
+    padding: 5px 10px;
+    background-color: #008000;
+    color: #fff;
+    border: 1px solid #006400;
+    cursor: pointer;
+  }
+}

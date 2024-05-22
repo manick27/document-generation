@@ -1,0 +1,12 @@
+# convert_to_pdf.py
+from weasyprint import HTML
+
+def convert_html_to_pdf(html_file_path, pdf_file_path):
+    HTML(html_file_path).write_pdf(pdf_file_path)
+
+if __name__ == "__main__":
+    import sys
+    html_file_path = sys.argv[1]
+    pdf_file_path = sys.argv[2]
+    convert_html_to_pdf(html_file_path, pdf_file_path)
+

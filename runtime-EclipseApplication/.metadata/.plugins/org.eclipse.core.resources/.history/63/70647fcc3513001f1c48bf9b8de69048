@@ -1,0 +1,36 @@
+data {
+	"name":"Manick",
+	"str":"string",
+	"nber":34,
+	"bool":true,
+	"tab": ["Bonjour"]
+}
+document $name allInOne=true{
+	page ("azerty") {
+		row {
+			col "Bonjour"
+			col "Bonsoir" class="bold"
+		}
+		row{
+			col "6" class="blue bold center"
+			col "18" class="red"
+		}
+		row{
+			col "Continuons"
+		}
+	}
+}
+style { 
+  .red {
+  	color: red;
+  }
+  .blue {
+  	color: blue;
+  }
+  .bold {
+  	font-weight: bold;
+  }
+  .center{
+  	text-align: center;
+  }
+}

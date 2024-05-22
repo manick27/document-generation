@@ -1,0 +1,48 @@
+data {
+    "name":"Factures",
+    "nberOfPages":1,
+    "header":["Place", "Firstname", "Lastname", "Team"],
+    "person":[
+        {
+            "firstname":"Manick",
+            "lastname":"Nguewouo",
+            "team":"Team 1",
+            "place":1
+        },
+        {
+            "firstname":"LaPanick",
+            "lastname":"Mbakop",
+            "team":"Team 2",
+            "place":2
+        },
+        {
+            "firstname":"Rivaldes",
+            "lastname":"Tiyo",
+            "team":"Team 3",
+            "place":3
+        }
+    ],
+    "test": "d"
+}
+document $name allInOne=true{
+    page ($name) {
+        row{
+            with $h in $header{
+                col $h
+            }
+        }
+        with $p in $person{
+            row{
+                col $p.place
+                col $p.firstname
+                col $p.lastname
+                col $p.team
+            }
+        }
+    }
+}
+style {
+	#id {
+		color: blue;
+	}
+}

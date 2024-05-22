@@ -1,0 +1,54 @@
+data {
+	global:{
+		name:"test2"
+	},
+	page1:{
+		paragraph1: "Juste un petit texte pour texte ma grammaire",
+		paragraph2: "Juste un petit texte pour texte ma grammaire"
+	},
+	test:{
+		nber: 34,
+		tab: [4,54,{ e1:"aaaaaa" },23,"rett"],
+		str: "string",
+		str1: "s"
+	}
+}
+document $global.name {
+	
+}
+style {
+	body {
+	  font-family: 'Arial', sans-serif;
+	  background-color: #f4f4f4;
+	}
+	
+	.header {
+	  background-color: #333;
+	  color: white;
+	  padding: 10px;
+	}
+	
+	.container {
+	  width: 80%;
+	  margin: 0 auto;
+	}
+	
+	.article {
+	  float: left;
+	  width: 70%;
+	  margin-right: 5%;
+	}
+	
+	.sidebar {
+	  float: left;
+	  width: 25%;
+	}
+	
+	.footer {
+	  clear: both;
+	  background-color: #333;
+	  color: white;
+	  padding: 10px;
+	  text-align: center;
+	}
+}
