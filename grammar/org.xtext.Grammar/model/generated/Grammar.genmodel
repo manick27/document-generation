@@ -53,10 +53,13 @@
     <genClasses ecoreClass="Grammar.ecore#//Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Variable/name"/>
     </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//SuperVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//SuperVariable/name"/>
+    </genClasses>
     <genClasses ecoreClass="Grammar.ecore#//VariableD">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//VariableD/variable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//VariableD/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//VariableD/superVariable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//VariableD/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//VariableD/classVariable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//VariableD/function"/>
     </genClasses>
     <genClasses ecoreClass="Grammar.ecore#//Page">
@@ -64,6 +67,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Page/objectC"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Page/arrayC"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Page/string"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Page/titles"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Page/elementPage"/>
     </genClasses>
     <genClasses ecoreClass="Grammar.ecore#//ElementPage">
@@ -71,6 +75,32 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//ElementPage/loop"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//ElementPage/conditional"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//ElementPage/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//Title">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Title/bigTitle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Title/subTitle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Title/subSubTitle"/>
+    </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//BigTitle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//BigTitle/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//BigTitle/objectC"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//BigTitle/arrayC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//BigTitle/string"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//BigTitle/classD"/>
+    </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//SubTitle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//SubTitle/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//SubTitle/objectC"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//SubTitle/arrayC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//SubTitle/string"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//SubTitle/classD"/>
+    </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//SubSubTitle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//SubSubTitle/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//SubSubTitle/objectC"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//SubSubTitle/arrayC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//SubSubTitle/string"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//SubSubTitle/classD"/>
     </genClasses>
     <genClasses ecoreClass="Grammar.ecore#//Row">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Row/elementRow"/>
@@ -148,6 +178,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Argument1/integer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Argument1/floatValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Argument1/string"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Argument1/classVariable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Argument1/variable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Argument1/objectC"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Argument1/arrayC"/>
@@ -159,18 +190,34 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Argument2/integerEnd2"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Argument2/integerEnd3"/>
     </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//ClassVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//ClassVariable/name"/>
+    </genClasses>
     <genClasses ecoreClass="Grammar.ecore#//Conditional">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Conditional/equalCondition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Conditional/notEqualCondition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Conditional/otherElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Conditional/ifCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Conditional/elseCondion"/>
     </genClasses>
-    <genClasses ecoreClass="Grammar.ecore#//EqualCondition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//EqualCondition/variable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//EqualCondition/value"/>
+    <genClasses ecoreClass="Grammar.ecore#//IfCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//IfCondition/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//IfCondition/otherElement"/>
     </genClasses>
-    <genClasses ecoreClass="Grammar.ecore#//NoEqualCondition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//NoEqualCondition/variable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//NoEqualCondition/value"/>
+    <genClasses ecoreClass="Grammar.ecore#//ElseCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//ElseCondition/OtherElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//ElseCondition/ifCondition"/>
+    </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//Condition1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Condition1/firstPart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Condition1/compare"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Condition1/secondPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//Part">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Part/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Part/objectC"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Part/arrayC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Part/string"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Part/integer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Part/superVariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Part/classVariable"/>
     </genClasses>
     <genClasses ecoreClass="Grammar.ecore#//Loop">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Loop/withLoop"/>

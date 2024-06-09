@@ -20,10 +20,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.myDsl.Conditional;
-import org.xtext.example.myDsl.EqualCondition;
+import org.xtext.example.myDsl.ElseCondition;
+import org.xtext.example.myDsl.IfCondition;
 import org.xtext.example.myDsl.MyDslPackage;
-import org.xtext.example.myDsl.NoEqualCondition;
-import org.xtext.example.myDsl.OtherElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,9 +32,8 @@ import org.xtext.example.myDsl.OtherElement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.myDsl.impl.ConditionalImpl#getEqualCondition <em>Equal Condition</em>}</li>
- *   <li>{@link org.xtext.example.myDsl.impl.ConditionalImpl#getNotEqualCondition <em>Not Equal Condition</em>}</li>
- *   <li>{@link org.xtext.example.myDsl.impl.ConditionalImpl#getOtherElement <em>Other Element</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.impl.ConditionalImpl#getIfCondition <em>If Condition</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.impl.ConditionalImpl#getElseCondion <em>Else Condion</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,34 +41,24 @@ import org.xtext.example.myDsl.OtherElement;
 public class ConditionalImpl extends MinimalEObjectImpl.Container implements Conditional
 {
   /**
-   * The cached value of the '{@link #getEqualCondition() <em>Equal Condition</em>}' containment reference.
+   * The cached value of the '{@link #getIfCondition() <em>If Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEqualCondition()
+   * @see #getIfCondition()
    * @generated
    * @ordered
    */
-  protected EqualCondition equalCondition;
+  protected IfCondition ifCondition;
 
   /**
-   * The cached value of the '{@link #getNotEqualCondition() <em>Not Equal Condition</em>}' containment reference.
+   * The cached value of the '{@link #getElseCondion() <em>Else Condion</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNotEqualCondition()
+   * @see #getElseCondion()
    * @generated
    * @ordered
    */
-  protected NoEqualCondition notEqualCondition;
-
-  /**
-   * The cached value of the '{@link #getOtherElement() <em>Other Element</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOtherElement()
-   * @generated
-   * @ordered
-   */
-  protected EList<OtherElement> otherElement;
+  protected EList<ElseCondition> elseCondion;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,9 +87,9 @@ public class ConditionalImpl extends MinimalEObjectImpl.Container implements Con
    * @generated
    */
   @Override
-  public EqualCondition getEqualCondition()
+  public IfCondition getIfCondition()
   {
-    return equalCondition;
+    return ifCondition;
   }
 
   /**
@@ -109,13 +97,13 @@ public class ConditionalImpl extends MinimalEObjectImpl.Container implements Con
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetEqualCondition(EqualCondition newEqualCondition, NotificationChain msgs)
+  public NotificationChain basicSetIfCondition(IfCondition newIfCondition, NotificationChain msgs)
   {
-    EqualCondition oldEqualCondition = equalCondition;
-    equalCondition = newEqualCondition;
+    IfCondition oldIfCondition = ifCondition;
+    ifCondition = newIfCondition;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CONDITIONAL__EQUAL_CONDITION, oldEqualCondition, newEqualCondition);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CONDITIONAL__IF_CONDITION, oldIfCondition, newIfCondition);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -127,20 +115,20 @@ public class ConditionalImpl extends MinimalEObjectImpl.Container implements Con
    * @generated
    */
   @Override
-  public void setEqualCondition(EqualCondition newEqualCondition)
+  public void setIfCondition(IfCondition newIfCondition)
   {
-    if (newEqualCondition != equalCondition)
+    if (newIfCondition != ifCondition)
     {
       NotificationChain msgs = null;
-      if (equalCondition != null)
-        msgs = ((InternalEObject)equalCondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CONDITIONAL__EQUAL_CONDITION, null, msgs);
-      if (newEqualCondition != null)
-        msgs = ((InternalEObject)newEqualCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CONDITIONAL__EQUAL_CONDITION, null, msgs);
-      msgs = basicSetEqualCondition(newEqualCondition, msgs);
+      if (ifCondition != null)
+        msgs = ((InternalEObject)ifCondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CONDITIONAL__IF_CONDITION, null, msgs);
+      if (newIfCondition != null)
+        msgs = ((InternalEObject)newIfCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CONDITIONAL__IF_CONDITION, null, msgs);
+      msgs = basicSetIfCondition(newIfCondition, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CONDITIONAL__EQUAL_CONDITION, newEqualCondition, newEqualCondition));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CONDITIONAL__IF_CONDITION, newIfCondition, newIfCondition));
   }
 
   /**
@@ -149,63 +137,13 @@ public class ConditionalImpl extends MinimalEObjectImpl.Container implements Con
    * @generated
    */
   @Override
-  public NoEqualCondition getNotEqualCondition()
+  public EList<ElseCondition> getElseCondion()
   {
-    return notEqualCondition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetNotEqualCondition(NoEqualCondition newNotEqualCondition, NotificationChain msgs)
-  {
-    NoEqualCondition oldNotEqualCondition = notEqualCondition;
-    notEqualCondition = newNotEqualCondition;
-    if (eNotificationRequired())
+    if (elseCondion == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CONDITIONAL__NOT_EQUAL_CONDITION, oldNotEqualCondition, newNotEqualCondition);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      elseCondion = new EObjectContainmentEList<ElseCondition>(ElseCondition.class, this, MyDslPackage.CONDITIONAL__ELSE_CONDION);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setNotEqualCondition(NoEqualCondition newNotEqualCondition)
-  {
-    if (newNotEqualCondition != notEqualCondition)
-    {
-      NotificationChain msgs = null;
-      if (notEqualCondition != null)
-        msgs = ((InternalEObject)notEqualCondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CONDITIONAL__NOT_EQUAL_CONDITION, null, msgs);
-      if (newNotEqualCondition != null)
-        msgs = ((InternalEObject)newNotEqualCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CONDITIONAL__NOT_EQUAL_CONDITION, null, msgs);
-      msgs = basicSetNotEqualCondition(newNotEqualCondition, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CONDITIONAL__NOT_EQUAL_CONDITION, newNotEqualCondition, newNotEqualCondition));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<OtherElement> getOtherElement()
-  {
-    if (otherElement == null)
-    {
-      otherElement = new EObjectContainmentEList<OtherElement>(OtherElement.class, this, MyDslPackage.CONDITIONAL__OTHER_ELEMENT);
-    }
-    return otherElement;
+    return elseCondion;
   }
 
   /**
@@ -218,12 +156,10 @@ public class ConditionalImpl extends MinimalEObjectImpl.Container implements Con
   {
     switch (featureID)
     {
-      case MyDslPackage.CONDITIONAL__EQUAL_CONDITION:
-        return basicSetEqualCondition(null, msgs);
-      case MyDslPackage.CONDITIONAL__NOT_EQUAL_CONDITION:
-        return basicSetNotEqualCondition(null, msgs);
-      case MyDslPackage.CONDITIONAL__OTHER_ELEMENT:
-        return ((InternalEList<?>)getOtherElement()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.CONDITIONAL__IF_CONDITION:
+        return basicSetIfCondition(null, msgs);
+      case MyDslPackage.CONDITIONAL__ELSE_CONDION:
+        return ((InternalEList<?>)getElseCondion()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -238,12 +174,10 @@ public class ConditionalImpl extends MinimalEObjectImpl.Container implements Con
   {
     switch (featureID)
     {
-      case MyDslPackage.CONDITIONAL__EQUAL_CONDITION:
-        return getEqualCondition();
-      case MyDslPackage.CONDITIONAL__NOT_EQUAL_CONDITION:
-        return getNotEqualCondition();
-      case MyDslPackage.CONDITIONAL__OTHER_ELEMENT:
-        return getOtherElement();
+      case MyDslPackage.CONDITIONAL__IF_CONDITION:
+        return getIfCondition();
+      case MyDslPackage.CONDITIONAL__ELSE_CONDION:
+        return getElseCondion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -259,15 +193,12 @@ public class ConditionalImpl extends MinimalEObjectImpl.Container implements Con
   {
     switch (featureID)
     {
-      case MyDslPackage.CONDITIONAL__EQUAL_CONDITION:
-        setEqualCondition((EqualCondition)newValue);
+      case MyDslPackage.CONDITIONAL__IF_CONDITION:
+        setIfCondition((IfCondition)newValue);
         return;
-      case MyDslPackage.CONDITIONAL__NOT_EQUAL_CONDITION:
-        setNotEqualCondition((NoEqualCondition)newValue);
-        return;
-      case MyDslPackage.CONDITIONAL__OTHER_ELEMENT:
-        getOtherElement().clear();
-        getOtherElement().addAll((Collection<? extends OtherElement>)newValue);
+      case MyDslPackage.CONDITIONAL__ELSE_CONDION:
+        getElseCondion().clear();
+        getElseCondion().addAll((Collection<? extends ElseCondition>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -283,14 +214,11 @@ public class ConditionalImpl extends MinimalEObjectImpl.Container implements Con
   {
     switch (featureID)
     {
-      case MyDslPackage.CONDITIONAL__EQUAL_CONDITION:
-        setEqualCondition((EqualCondition)null);
+      case MyDslPackage.CONDITIONAL__IF_CONDITION:
+        setIfCondition((IfCondition)null);
         return;
-      case MyDslPackage.CONDITIONAL__NOT_EQUAL_CONDITION:
-        setNotEqualCondition((NoEqualCondition)null);
-        return;
-      case MyDslPackage.CONDITIONAL__OTHER_ELEMENT:
-        getOtherElement().clear();
+      case MyDslPackage.CONDITIONAL__ELSE_CONDION:
+        getElseCondion().clear();
         return;
     }
     super.eUnset(featureID);
@@ -306,12 +234,10 @@ public class ConditionalImpl extends MinimalEObjectImpl.Container implements Con
   {
     switch (featureID)
     {
-      case MyDslPackage.CONDITIONAL__EQUAL_CONDITION:
-        return equalCondition != null;
-      case MyDslPackage.CONDITIONAL__NOT_EQUAL_CONDITION:
-        return notEqualCondition != null;
-      case MyDslPackage.CONDITIONAL__OTHER_ELEMENT:
-        return otherElement != null && !otherElement.isEmpty();
+      case MyDslPackage.CONDITIONAL__IF_CONDITION:
+        return ifCondition != null;
+      case MyDslPackage.CONDITIONAL__ELSE_CONDION:
+        return elseCondion != null && !elseCondion.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -12,13 +12,10 @@ import org.xtext.example.myDsl.Page
 import org.xtext.example.myDsl.Value
 import java.util.HashMap
 import java.util.ArrayList
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.html2pdf.HtmlConverter
 import java.io.FileOutputStream
-import java.io.File;
-import java.io.FileInputStream
-import java.io.IOException
+import java.io.File
+import java.util.List
 
 /**
  * Generates code from your model files on save.
@@ -36,9 +33,9 @@ class GrammarGenerator extends AbstractGenerator {
             if (element instanceof Document) {
                     
                 //val fileName = resource.URI.trimFileExtension.lastSegment
-		        val seqgeneratorHtml = new HtmlCodeGenerator
+		        val seqgeneratorHtml = new HtmlCodeGenerator(context1)
 		        
-		        var String fileName = seqgeneratorHtml.getValueOfVariableInData(element.build.variable.name, element.data, context1) as String
+		        var String fileName = seqgeneratorHtml.getValueOfVariableInData(element.build.variable.name, element.data) as String
             	fileName = fileName.replace(' ', '_')
             	if (element.build !== null) {
             		if(element.build.allInOne !== null && element.build.falseF !== null) {
@@ -46,8 +43,8 @@ class GrammarGenerator extends AbstractGenerator {
 							if (elementBuild.page !== null) {
 			                	val StringBuilder seqgeneratedCode = new StringBuilder
 			                	val StringBuilder nameOfPage = new StringBuilder
-								seqgeneratedCode.append(buildHtmlCodeForPage(elementBuild.page, element, null, seqgeneratorHtml, context1))
-								nameOfPage.append(seqgeneratorHtml.getNameOfPage(elementBuild.page, element.data, null, context1))
+								seqgeneratedCode.append(buildHtmlCodeForPage(elementBuild.page, element, null, seqgeneratorHtml))
+								nameOfPage.append(seqgeneratorHtml.getNameOfPage(elementBuild.page, element.data, null))
 			                	fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
 			                	fsa.generateFile(fileName+'/txt/' + nameOfPage + ".txt", seqgeneratedCode)
 							} else if(elementBuild.loop !== null) { 
@@ -58,11 +55,11 @@ class GrammarGenerator extends AbstractGenerator {
 											if(otherElement.page !== null) {
 												context1.setVariable(elementBuild.loop.forLoop.increment.name, p)
 												 if(elementBuild.loop.forLoop.endWithVariable !== null) {
-													for (var i = p; i < seqgeneratorHtml.getLengthForArray(elementBuild.loop.forLoop.endWithVariable.name, element.data, context1); i++) {
+													for (var i = p; i < seqgeneratorHtml.getLengthForArray(elementBuild.loop.forLoop.endWithVariable.name, element.data); i++) {
 			                							val StringBuilder seqgeneratedCode = new StringBuilder
 			                							val StringBuilder nameOfPage = new StringBuilder
-												        seqgeneratedCode.append(buildHtmlCodeForPage(otherElement.page, element, null, seqgeneratorHtml, context1))
-														nameOfPage.append(seqgeneratorHtml.getNameOfPage(otherElement.page, element.data, null, context1))
+												        seqgeneratedCode.append(buildHtmlCodeForPage(otherElement.page, element, null, seqgeneratorHtml))
+														nameOfPage.append(seqgeneratorHtml.getNameOfPage(otherElement.page, element.data, null))
 			                							fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
 			                							context1.incrementVariable(elementBuild.loop.forLoop.increment.name, 1)
 													}										
@@ -70,8 +67,8 @@ class GrammarGenerator extends AbstractGenerator {
 													for(var i = p; i<=elementBuild.loop.forLoop.endWithInteger; i++) {
 			                							val StringBuilder seqgeneratedCode = new StringBuilder
 			                							val StringBuilder nameOfPage = new StringBuilder
-														seqgeneratedCode.append(buildHtmlCodeForPage(otherElement.page, element, null, seqgeneratorHtml, context1))
-														nameOfPage.append(seqgeneratorHtml.getNameOfPage(otherElement.page, element.data, null, context1))
+														seqgeneratedCode.append(buildHtmlCodeForPage(otherElement.page, element, null, seqgeneratorHtml))
+														nameOfPage.append(seqgeneratorHtml.getNameOfPage(otherElement.page, element.data, null))
 			                							fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
 			                							context1.incrementVariable(elementBuild.loop.forLoop.increment.name, 1)
 													}							
@@ -83,13 +80,13 @@ class GrammarGenerator extends AbstractGenerator {
 									if(elementBuild.loop.withLoop.init !== null && elementBuild.loop.withLoop.variable !== null) {
 										for(otherElement : elementBuild.loop.withLoop.otherElement) {
 											if(otherElement.page !== null) { 
-												for(var i=0; i<seqgeneratorHtml.getLengthForArray(elementBuild.loop.withLoop.variable.name, element.data, context1); i++) {
+												for(var i=0; i<seqgeneratorHtml.getLengthForArray(elementBuild.loop.withLoop.variable.name, element.data); i++) {
 													val StringBuilder seqgeneratedCode = new StringBuilder
 													val StringBuilder nameOfPage = new StringBuilder
-													var object = seqgeneratorHtml.getObjetInArray(elementBuild.loop.withLoop.variable.name, element.data, i, context1)
+													var object = seqgeneratorHtml.getObjetInArray(elementBuild.loop.withLoop.variable.name, element.data, i)
 													context1.setVariable(elementBuild.loop.withLoop.init.name, object)
-													seqgeneratedCode.append(buildHtmlCodeForPage(otherElement.page, element, elementBuild.loop.withLoop.init.name, seqgeneratorHtml, context1))
-													nameOfPage.append(seqgeneratorHtml.getNameOfPage(otherElement.page, element.data, object, context1))
+													seqgeneratedCode.append(buildHtmlCodeForPage(otherElement.page, element, elementBuild.loop.withLoop.init.name, seqgeneratorHtml))
+													nameOfPage.append(seqgeneratorHtml.getNameOfPage(otherElement.page, element.data, object))
 		                							fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
 												}
 											}
@@ -99,17 +96,21 @@ class GrammarGenerator extends AbstractGenerator {
 							}
 						}
             		} else {
-	                	val seqgeneratedCode =  seqgeneratorHtml.generate(element, fileName.toString, context1)		
+	                	val seqgeneratedCode =  seqgeneratorHtml.generate(element, fileName.toString)		
 	                	
-    					val htmlFilePath = fileName + '/html/' + fileName + ".html"			
-	                	fsa.generateFile(htmlFilePath, seqgeneratedCode) 
+						val htmlFilePath = fileName + '/html/' + fileName + ".html"
+						fsa.generateFile(htmlFilePath, seqgeneratedCode)
+						
+						//val seqgenerateExcel = new ExcelFileGenerator 
+						//val String filePath = fileName + '/excel/'
+						//seqgenerateExcel.generate(element, fileName.toString, filePath)
             		}
 				}
             }
         }
-    }
+    }	    
     
-    def	buildHtmlCodeForPage(Page page, Document document, String withLoopInitName, HtmlCodeGenerator seqgeneratorHtml, Context context1) {
+    def	buildHtmlCodeForPage(Page page, Document document, String withLoopInitName, HtmlCodeGenerator seqgeneratorHtml) {
     	val seqgeneratorCss = new CssCodeGenerator
     	val StringBuilder cssCode = seqgeneratorCss.generate(document.style)
     	val StringBuilder buildCode = new StringBuilder
@@ -117,9 +118,9 @@ class GrammarGenerator extends AbstractGenerator {
     	var Value object = null as Value
     	if(withLoopInitName !== null) {
     		object = context1.getVariable(withLoopInitName) as Value 
-    		seqgeneratorHtml.buildWithLoopPage(buildCode, page, document, withLoopInitName, context1)
+    		seqgeneratorHtml.buildWithLoopPage(buildCode, page, document, withLoopInitName)
     	} else {
-	    	seqgeneratorHtml.buildPage(buildCode, page, document, context1)
+	    	seqgeneratorHtml.buildPage(buildCode, page, document)
     	}
     	
     	val StringBuilder code = new StringBuilder
@@ -129,7 +130,7 @@ class GrammarGenerator extends AbstractGenerator {
 			<head>
 			    <meta charset="UTF-8">
 			    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-			    <title>''' + seqgeneratorHtml.getNameOfPage(page, document.data, object, context1) + '''</title>
+			    <title>''' + seqgeneratorHtml.getNameOfPage(page, document.data, object) + '''</title>
 				<style>''' + cssCode + '''</style>
 			</head>
 			<body>
@@ -137,7 +138,7 @@ class GrammarGenerator extends AbstractGenerator {
 			</body>
 		</html>''')
 		
-		return code
+		return code 
     }
 
 }
@@ -148,7 +149,7 @@ class Context {
     // Méthode pour définir la valeur d'une variable
     def setVariable(String name, Object value) {  
         variables.put(name, value);
-    }
+    } 
 
     // Méthode pour obtenir la valeur d'une variable
     def getVariable(String name) {
@@ -177,8 +178,93 @@ class Context {
         array.add(value)
         variables.put(name, array)
     }
-    
+
+    // Méthode spécifique pour récupérer un tableau associé à une chaîne
     def getArray(String name) {
-        return variables.getOrDefault(name, new ArrayList<Number>()); 
+        return variables.getOrDefault(name, new ArrayList<Object>()) as ArrayList<Object>;
+    }
+
+    // Méthode spécifique pour récupérer le premier élément d'un tableau associé à une chaîne
+    def getFirstValueInArray(String name) {
+        val ArrayList<Object> array = getArray(name);
+        return array.get(0);
+    }
+
+    // Méthode pour ajouter un élément à un tableau spécifique dans la HashMap
+    def addToClassVariable(String name, Object element) {
+        val list = variables.getOrDefault(name, new ArrayList<Object>()) as ArrayList<Object>
+        list.add(element)
+        variables.put(name, list)
+    }
+
+    // Méthode pour ajouter des valeurs aux tableaux de toutes les classes définies dans classDC
+    def addToAllClassVariables(String classDC, Object element) {
+        for (String className : classDC.split(" ")) {
+        	if(className.replace(" ", "").length() != 0) {
+	            addToClassVariable(className, element)
+            }
+        }
+    }
+    
+    // Méthode pour calculer la somme des éléments d'un tableau Float
+	def double sumArray(String name) {
+	    val List<Object> objectList = getArray(name) as List<Object>;
+	    val List<Double> doubleList = objectList.map[ obj | obj as Double ];  // Convertit chaque élément en Float
+	    return doubleList.stream().mapToDouble([ floatElement | floatElement.doubleValue() ]).sum();
+	}
+	
+	// Méthode pour calculer le produit des éléments d'un tableau Float
+	def double productArray(String name) {
+	    val List<Object> objectList = getArray(name) as List<Object>;
+	    val List<Double> doubleList = objectList.map[ obj | obj as Double ];  // Convertit chaque élément en Float
+	    return doubleList.stream().reduce(1.0, [Double a, Double b | a * b]);  // Utilisation de 1.0f comme valeur initiale
+	}
+
+    // Nouvelle méthode pour effectuer la division
+    def double divideArraysFirstElement(String name1, String name2) {
+        val ArrayList<Object> array1 = getArray(name1);
+        val ArrayList<Object> array2 = getArray(name2);
+
+        // Liste pour stocker les résultats des divisions
+        val ArrayList<Double> result = new ArrayList<Double>();
+
+        // Assurer que les deux listes ont la même taille et non vides
+        if (array1.size() != array2.size() || array1.isEmpty()) {
+            throw new IllegalArgumentException("Les tableaux doivent avoir la même taille et ne pas être vides.");
+        }
+
+        // Effectuer la division
+        for (var i = 0; i < array1.size(); i++) {
+            // Conversion en Double
+            val Double value1 = (array1.get(i) instanceof Number) ? (array1.get(i) as Number).doubleValue() : throw new IllegalArgumentException("Les éléments doivent être des nombres.");
+            val Double value2 = (array2.get(i) instanceof Number) ? (array2.get(i) as Number).doubleValue() : throw new IllegalArgumentException("Les éléments doivent être des nombres.");
+            
+            if (value2 == 0) {
+                throw new ArithmeticException("Division par zéro à l'indice " + i);
+            }
+            result.add(value1 / value2);
+        }
+
+        // Renvoyer le premier élément du tableau des résultats
+        //return result.get(0);
+        return Math.round(result.get(0) * 100) / 100.0;
+    }
+
+    // Méthode d'aide pour convertir un objet en Double
+    def Double toDouble(Object obj) {
+        if (!(obj instanceof Number)) {
+            throw new IllegalArgumentException("Les éléments doivent être des nombres.");
+        }
+        return (obj as Number).doubleValue();
+    }
+
+    // Méthode d'aide pour formater un Double à deux chiffres après la virgule
+    def double formatDouble(Double value) {
+        return Math.round(value * 100) / 100.0;
+    }
+
+    // Méthode pour effacer toutes les variables
+    def clearVariables() {
+        variables.clear();
     }
 }

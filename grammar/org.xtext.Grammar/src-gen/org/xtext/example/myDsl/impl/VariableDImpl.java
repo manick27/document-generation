@@ -19,10 +19,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.myDsl.ClassVariable;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.MyDslPackage;
+import org.xtext.example.myDsl.SuperVariable;
 import org.xtext.example.myDsl.Value;
-import org.xtext.example.myDsl.Variable;
 import org.xtext.example.myDsl.VariableD;
 
 /**
@@ -33,9 +34,9 @@ import org.xtext.example.myDsl.VariableD;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.myDsl.impl.VariableDImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.xtext.example.myDsl.impl.VariableDImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.impl.VariableDImpl#getSuperVariable <em>Super Variable</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.VariableDImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.impl.VariableDImpl#getClassVariable <em>Class Variable</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.VariableDImpl#getFunction <em>Function</em>}</li>
  * </ul>
  *
@@ -44,44 +45,34 @@ import org.xtext.example.myDsl.VariableD;
 public class VariableDImpl extends MinimalEObjectImpl.Container implements VariableD
 {
   /**
-   * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
+   * The cached value of the '{@link #getSuperVariable() <em>Super Variable</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVariable()
+   * @see #getSuperVariable()
    * @generated
    * @ordered
    */
-  protected Variable variable;
+  protected SuperVariable superVariable;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference list.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected EList<Value> value;
+  protected Value value;
+
+  /**
+   * The cached value of the '{@link #getClassVariable() <em>Class Variable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClassVariable()
+   * @generated
+   * @ordered
+   */
+  protected ClassVariable classVariable;
 
   /**
    * The cached value of the '{@link #getFunction() <em>Function</em>}' containment reference list.
@@ -120,9 +111,9 @@ public class VariableDImpl extends MinimalEObjectImpl.Container implements Varia
    * @generated
    */
   @Override
-  public Variable getVariable()
+  public SuperVariable getSuperVariable()
   {
-    return variable;
+    return superVariable;
   }
 
   /**
@@ -130,13 +121,13 @@ public class VariableDImpl extends MinimalEObjectImpl.Container implements Varia
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVariable(Variable newVariable, NotificationChain msgs)
+  public NotificationChain basicSetSuperVariable(SuperVariable newSuperVariable, NotificationChain msgs)
   {
-    Variable oldVariable = variable;
-    variable = newVariable;
+    SuperVariable oldSuperVariable = superVariable;
+    superVariable = newSuperVariable;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_D__VARIABLE, oldVariable, newVariable);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_D__SUPER_VARIABLE, oldSuperVariable, newSuperVariable);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -148,20 +139,20 @@ public class VariableDImpl extends MinimalEObjectImpl.Container implements Varia
    * @generated
    */
   @Override
-  public void setVariable(Variable newVariable)
+  public void setSuperVariable(SuperVariable newSuperVariable)
   {
-    if (newVariable != variable)
+    if (newSuperVariable != superVariable)
     {
       NotificationChain msgs = null;
-      if (variable != null)
-        msgs = ((InternalEObject)variable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_D__VARIABLE, null, msgs);
-      if (newVariable != null)
-        msgs = ((InternalEObject)newVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_D__VARIABLE, null, msgs);
-      msgs = basicSetVariable(newVariable, msgs);
+      if (superVariable != null)
+        msgs = ((InternalEObject)superVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_D__SUPER_VARIABLE, null, msgs);
+      if (newSuperVariable != null)
+        msgs = ((InternalEObject)newSuperVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_D__SUPER_VARIABLE, null, msgs);
+      msgs = basicSetSuperVariable(newSuperVariable, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_D__VARIABLE, newVariable, newVariable));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_D__SUPER_VARIABLE, newSuperVariable, newSuperVariable));
   }
 
   /**
@@ -170,38 +161,98 @@ public class VariableDImpl extends MinimalEObjectImpl.Container implements Varia
    * @generated
    */
   @Override
-  public String getName()
+  public Value getValue()
   {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_D__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<Value> getValue()
-  {
-    if (value == null)
-    {
-      value = new EObjectContainmentEList<Value>(Value.class, this, MyDslPackage.VARIABLE_D__VALUE);
-    }
     return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetValue(Value newValue, NotificationChain msgs)
+  {
+    Value oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_D__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setValue(Value newValue)
+  {
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_D__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_D__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_D__VALUE, newValue, newValue));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ClassVariable getClassVariable()
+  {
+    return classVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetClassVariable(ClassVariable newClassVariable, NotificationChain msgs)
+  {
+    ClassVariable oldClassVariable = classVariable;
+    classVariable = newClassVariable;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_D__CLASS_VARIABLE, oldClassVariable, newClassVariable);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setClassVariable(ClassVariable newClassVariable)
+  {
+    if (newClassVariable != classVariable)
+    {
+      NotificationChain msgs = null;
+      if (classVariable != null)
+        msgs = ((InternalEObject)classVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_D__CLASS_VARIABLE, null, msgs);
+      if (newClassVariable != null)
+        msgs = ((InternalEObject)newClassVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_D__CLASS_VARIABLE, null, msgs);
+      msgs = basicSetClassVariable(newClassVariable, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_D__CLASS_VARIABLE, newClassVariable, newClassVariable));
   }
 
   /**
@@ -229,10 +280,12 @@ public class VariableDImpl extends MinimalEObjectImpl.Container implements Varia
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_D__VARIABLE:
-        return basicSetVariable(null, msgs);
+      case MyDslPackage.VARIABLE_D__SUPER_VARIABLE:
+        return basicSetSuperVariable(null, msgs);
       case MyDslPackage.VARIABLE_D__VALUE:
-        return ((InternalEList<?>)getValue()).basicRemove(otherEnd, msgs);
+        return basicSetValue(null, msgs);
+      case MyDslPackage.VARIABLE_D__CLASS_VARIABLE:
+        return basicSetClassVariable(null, msgs);
       case MyDslPackage.VARIABLE_D__FUNCTION:
         return ((InternalEList<?>)getFunction()).basicRemove(otherEnd, msgs);
     }
@@ -249,12 +302,12 @@ public class VariableDImpl extends MinimalEObjectImpl.Container implements Varia
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_D__VARIABLE:
-        return getVariable();
-      case MyDslPackage.VARIABLE_D__NAME:
-        return getName();
+      case MyDslPackage.VARIABLE_D__SUPER_VARIABLE:
+        return getSuperVariable();
       case MyDslPackage.VARIABLE_D__VALUE:
         return getValue();
+      case MyDslPackage.VARIABLE_D__CLASS_VARIABLE:
+        return getClassVariable();
       case MyDslPackage.VARIABLE_D__FUNCTION:
         return getFunction();
     }
@@ -272,15 +325,14 @@ public class VariableDImpl extends MinimalEObjectImpl.Container implements Varia
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_D__VARIABLE:
-        setVariable((Variable)newValue);
-        return;
-      case MyDslPackage.VARIABLE_D__NAME:
-        setName((String)newValue);
+      case MyDslPackage.VARIABLE_D__SUPER_VARIABLE:
+        setSuperVariable((SuperVariable)newValue);
         return;
       case MyDslPackage.VARIABLE_D__VALUE:
-        getValue().clear();
-        getValue().addAll((Collection<? extends Value>)newValue);
+        setValue((Value)newValue);
+        return;
+      case MyDslPackage.VARIABLE_D__CLASS_VARIABLE:
+        setClassVariable((ClassVariable)newValue);
         return;
       case MyDslPackage.VARIABLE_D__FUNCTION:
         getFunction().clear();
@@ -300,14 +352,14 @@ public class VariableDImpl extends MinimalEObjectImpl.Container implements Varia
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_D__VARIABLE:
-        setVariable((Variable)null);
-        return;
-      case MyDslPackage.VARIABLE_D__NAME:
-        setName(NAME_EDEFAULT);
+      case MyDslPackage.VARIABLE_D__SUPER_VARIABLE:
+        setSuperVariable((SuperVariable)null);
         return;
       case MyDslPackage.VARIABLE_D__VALUE:
-        getValue().clear();
+        setValue((Value)null);
+        return;
+      case MyDslPackage.VARIABLE_D__CLASS_VARIABLE:
+        setClassVariable((ClassVariable)null);
         return;
       case MyDslPackage.VARIABLE_D__FUNCTION:
         getFunction().clear();
@@ -326,33 +378,16 @@ public class VariableDImpl extends MinimalEObjectImpl.Container implements Varia
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_D__VARIABLE:
-        return variable != null;
-      case MyDslPackage.VARIABLE_D__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MyDslPackage.VARIABLE_D__SUPER_VARIABLE:
+        return superVariable != null;
       case MyDslPackage.VARIABLE_D__VALUE:
-        return value != null && !value.isEmpty();
+        return value != null;
+      case MyDslPackage.VARIABLE_D__CLASS_VARIABLE:
+        return classVariable != null;
       case MyDslPackage.VARIABLE_D__FUNCTION:
         return function != null && !function.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //VariableDImpl

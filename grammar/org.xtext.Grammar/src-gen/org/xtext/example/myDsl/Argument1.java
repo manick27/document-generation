@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.myDsl.Argument1#getInteger <em>Integer</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Argument1#getFloatValue <em>Float Value</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Argument1#getString <em>String</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.Argument1#getClassVariable <em>Class Variable</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Argument1#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Argument1#getObjectC <em>Object C</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Argument1#getArrayC <em>Array C</em>}</li>
@@ -93,6 +94,28 @@ public interface Argument1 extends EObject
    * @generated
    */
   void setString(String value);
+
+  /**
+   * Returns the value of the '<em><b>Class Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Class Variable</em>' containment reference.
+   * @see #setClassVariable(ClassVariable)
+   * @see org.xtext.example.myDsl.MyDslPackage#getArgument1_ClassVariable()
+   * @model containment="true"
+   * @generated
+   */
+  ClassVariable getClassVariable();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.myDsl.Argument1#getClassVariable <em>Class Variable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Class Variable</em>' containment reference.
+   * @see #getClassVariable()
+   * @generated
+   */
+  void setClassVariable(ClassVariable value);
 
   /**
    * Returns the value of the '<em><b>Variable</b></em>' containment reference.

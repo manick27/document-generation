@@ -5,6 +5,12 @@ package org.xtext.example.generator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.function.BinaryOperator;
+import java.util.function.ToDoubleFunction;
+import org.eclipse.xtext.xbase.lib.DoubleExtensions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 @SuppressWarnings("all")
 public class Context {
@@ -54,8 +60,119 @@ public class Context {
     return _xblockexpression;
   }
 
-  public Object getArray(final String name) {
-    ArrayList<Number> _arrayList = new ArrayList<Number>();
-    return this.variables.getOrDefault(name, _arrayList);
+  public ArrayList<Object> getArray(final String name) {
+    ArrayList<Object> _arrayList = new ArrayList<Object>();
+    Object _orDefault = this.variables.getOrDefault(name, _arrayList);
+    return ((ArrayList<Object>) _orDefault);
+  }
+
+  public Object getFirstValueInArray(final String name) {
+    final ArrayList<Object> array = this.getArray(name);
+    return array.get(0);
+  }
+
+  public Object addToClassVariable(final String name, final Object element) {
+    Object _xblockexpression = null;
+    {
+      ArrayList<Object> _arrayList = new ArrayList<Object>();
+      Object _orDefault = this.variables.getOrDefault(name, _arrayList);
+      final ArrayList<Object> list = ((ArrayList<Object>) _orDefault);
+      list.add(element);
+      _xblockexpression = this.variables.put(name, list);
+    }
+    return _xblockexpression;
+  }
+
+  public void addToAllClassVariables(final String classDC, final Object element) {
+    String[] _split = classDC.split(" ");
+    for (final String className : _split) {
+      int _length = className.replace(" ", "").length();
+      boolean _notEquals = (_length != 0);
+      if (_notEquals) {
+        this.addToClassVariable(className, element);
+      }
+    }
+  }
+
+  public double sumArray(final String name) {
+    ArrayList<Object> _array = this.getArray(name);
+    final List<Object> objectList = ((List<Object>) _array);
+    final Function1<Object, Double> _function = (Object obj) -> {
+      return ((Double) obj);
+    };
+    final List<Double> doubleList = ListExtensions.<Object, Double>map(objectList, _function);
+    final ToDoubleFunction<Double> _function_1 = (Double floatElement) -> {
+      return floatElement.doubleValue();
+    };
+    return doubleList.stream().mapToDouble(_function_1).sum();
+  }
+
+  public double productArray(final String name) {
+    ArrayList<Object> _array = this.getArray(name);
+    final List<Object> objectList = ((List<Object>) _array);
+    final Function1<Object, Double> _function = (Object obj) -> {
+      return ((Double) obj);
+    };
+    final List<Double> doubleList = ListExtensions.<Object, Double>map(objectList, _function);
+    final BinaryOperator<Double> _function_1 = (Double a, Double b) -> {
+      return Double.valueOf(DoubleExtensions.operator_multiply(a, b));
+    };
+    return (doubleList.stream().reduce(Double.valueOf(1.0), _function_1)).doubleValue();
+  }
+
+  public double divideArraysFirstElement(final String name1, final String name2) {
+    final ArrayList<Object> array1 = this.getArray(name1);
+    final ArrayList<Object> array2 = this.getArray(name2);
+    final ArrayList<Double> result = new ArrayList<Double>();
+    if (((array1.size() != array2.size()) || array1.isEmpty())) {
+      throw new IllegalArgumentException("Les tableaux doivent avoir la même taille et ne pas être vides.");
+    }
+    for (int i = 0; (i < array1.size()); i++) {
+      {
+        double _xifexpression = (double) 0;
+        Object _get = array1.get(i);
+        if ((_get instanceof Number)) {
+          Object _get_1 = array1.get(i);
+          _xifexpression = ((Number) _get_1).doubleValue();
+        } else {
+          throw new IllegalArgumentException("Les éléments doivent être des nombres.");
+        }
+        final Double value1 = Double.valueOf(_xifexpression);
+        double _xifexpression_1 = (double) 0;
+        Object _get_2 = array2.get(i);
+        if ((_get_2 instanceof Number)) {
+          Object _get_3 = array2.get(i);
+          _xifexpression_1 = ((Number) _get_3).doubleValue();
+        } else {
+          throw new IllegalArgumentException("Les éléments doivent être des nombres.");
+        }
+        final Double value2 = Double.valueOf(_xifexpression_1);
+        if (((value2).doubleValue() == 0)) {
+          throw new ArithmeticException(("Division par zéro à l\'indice " + Integer.valueOf(i)));
+        }
+        double _divide = DoubleExtensions.operator_divide(value1, value2);
+        result.add(Double.valueOf(_divide));
+      }
+    }
+    Double _get = result.get(0);
+    double _multiply = ((_get).doubleValue() * 100);
+    long _round = Math.round(_multiply);
+    return (_round / 100.0);
+  }
+
+  public Double toDouble(final Object obj) {
+    if ((!(obj instanceof Number))) {
+      throw new IllegalArgumentException("Les éléments doivent être des nombres.");
+    }
+    return Double.valueOf(((Number) obj).doubleValue());
+  }
+
+  public double formatDouble(final Double value) {
+    long _round = Math.round(((value).doubleValue() * 100));
+    return (_round / 100.0);
+  }
+
+  public void clearVariables() {
+    this.variables.clear();
   }
 }

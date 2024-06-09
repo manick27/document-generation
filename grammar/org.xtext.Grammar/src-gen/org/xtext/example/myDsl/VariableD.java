@@ -16,9 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.myDsl.VariableD#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.xtext.example.myDsl.VariableD#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.VariableD#getSuperVariable <em>Super Variable</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.VariableD#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.VariableD#getClassVariable <em>Class Variable</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.VariableD#getFunction <em>Function</em>}</li>
  * </ul>
  *
@@ -29,60 +29,70 @@ import org.eclipse.emf.ecore.EObject;
 public interface VariableD extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Variable</b></em>' containment reference.
+   * Returns the value of the '<em><b>Super Variable</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Variable</em>' containment reference.
-   * @see #setVariable(Variable)
-   * @see org.xtext.example.myDsl.MyDslPackage#getVariableD_Variable()
+   * @return the value of the '<em>Super Variable</em>' containment reference.
+   * @see #setSuperVariable(SuperVariable)
+   * @see org.xtext.example.myDsl.MyDslPackage#getVariableD_SuperVariable()
    * @model containment="true"
    * @generated
    */
-  Variable getVariable();
+  SuperVariable getSuperVariable();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.myDsl.VariableD#getVariable <em>Variable</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.myDsl.VariableD#getSuperVariable <em>Super Variable</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Variable</em>' containment reference.
-   * @see #getVariable()
+   * @param value the new value of the '<em>Super Variable</em>' containment reference.
+   * @see #getSuperVariable()
    * @generated
    */
-  void setVariable(Variable value);
+  void setSuperVariable(SuperVariable value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.example.myDsl.MyDslPackage#getVariableD_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.myDsl.VariableD#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Value</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.myDsl.Value}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' containment reference list.
+   * @return the value of the '<em>Value</em>' containment reference.
+   * @see #setValue(Value)
    * @see org.xtext.example.myDsl.MyDslPackage#getVariableD_Value()
    * @model containment="true"
    * @generated
    */
-  EList<Value> getValue();
+  Value getValue();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.myDsl.VariableD#getValue <em>Value</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Value</em>' containment reference.
+   * @see #getValue()
+   * @generated
+   */
+  void setValue(Value value);
+
+  /**
+   * Returns the value of the '<em><b>Class Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Class Variable</em>' containment reference.
+   * @see #setClassVariable(ClassVariable)
+   * @see org.xtext.example.myDsl.MyDslPackage#getVariableD_ClassVariable()
+   * @model containment="true"
+   * @generated
+   */
+  ClassVariable getClassVariable();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.myDsl.VariableD#getClassVariable <em>Class Variable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Class Variable</em>' containment reference.
+   * @see #getClassVariable()
+   * @generated
+   */
+  void setClassVariable(ClassVariable value);
 
   /**
    * Returns the value of the '<em><b>Function</b></em>' containment reference list.

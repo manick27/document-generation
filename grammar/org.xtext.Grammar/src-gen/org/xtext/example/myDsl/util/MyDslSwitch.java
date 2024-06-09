@@ -12,11 +12,14 @@ import org.xtext.example.myDsl.Argument1;
 import org.xtext.example.myDsl.Argument2;
 import org.xtext.example.myDsl.Array;
 import org.xtext.example.myDsl.ArrayC;
+import org.xtext.example.myDsl.BigTitle;
 import org.xtext.example.myDsl.Build;
 import org.xtext.example.myDsl.ClassD;
 import org.xtext.example.myDsl.ClassSelector;
+import org.xtext.example.myDsl.ClassVariable;
 import org.xtext.example.myDsl.Col;
 import org.xtext.example.myDsl.Colspan;
+import org.xtext.example.myDsl.Condition1;
 import org.xtext.example.myDsl.Conditional;
 import org.xtext.example.myDsl.Css;
 import org.xtext.example.myDsl.CssValue;
@@ -27,21 +30,22 @@ import org.xtext.example.myDsl.Document;
 import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
-import org.xtext.example.myDsl.EqualCondition;
+import org.xtext.example.myDsl.ElseCondition;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
 import org.xtext.example.myDsl.IDSelector;
+import org.xtext.example.myDsl.IfCondition;
 import org.xtext.example.myDsl.Img;
 import org.xtext.example.myDsl.KeyValue;
 import org.xtext.example.myDsl.Loop;
 import org.xtext.example.myDsl.Model;
 import org.xtext.example.myDsl.MyDslPackage;
 import org.xtext.example.myDsl.NestedObject;
-import org.xtext.example.myDsl.NoEqualCondition;
 import org.xtext.example.myDsl.ObjectC;
 import org.xtext.example.myDsl.OtherElement;
 import org.xtext.example.myDsl.Page;
+import org.xtext.example.myDsl.Part;
 import org.xtext.example.myDsl.Position;
 import org.xtext.example.myDsl.ProdFunction;
 import org.xtext.example.myDsl.Row;
@@ -49,7 +53,11 @@ import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
 import org.xtext.example.myDsl.Style;
+import org.xtext.example.myDsl.SubSubTitle;
+import org.xtext.example.myDsl.SubTitle;
 import org.xtext.example.myDsl.SumFunction;
+import org.xtext.example.myDsl.SuperVariable;
+import org.xtext.example.myDsl.Title;
 import org.xtext.example.myDsl.TypeSelector;
 import org.xtext.example.myDsl.Value;
 import org.xtext.example.myDsl.Variable;
@@ -189,6 +197,13 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.SUPER_VARIABLE:
+      {
+        SuperVariable superVariable = (SuperVariable)theEObject;
+        T result = caseSuperVariable(superVariable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.VARIABLE_D:
       {
         VariableD variableD = (VariableD)theEObject;
@@ -207,6 +222,34 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         ElementPage elementPage = (ElementPage)theEObject;
         T result = caseElementPage(elementPage);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.TITLE:
+      {
+        Title title = (Title)theEObject;
+        T result = caseTitle(title);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.BIG_TITLE:
+      {
+        BigTitle bigTitle = (BigTitle)theEObject;
+        T result = caseBigTitle(bigTitle);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.SUB_TITLE:
+      {
+        SubTitle subTitle = (SubTitle)theEObject;
+        T result = caseSubTitle(subTitle);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.SUB_SUB_TITLE:
+      {
+        SubSubTitle subSubTitle = (SubSubTitle)theEObject;
+        T result = caseSubSubTitle(subSubTitle);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -329,6 +372,13 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.CLASS_VARIABLE:
+      {
+        ClassVariable classVariable = (ClassVariable)theEObject;
+        T result = caseClassVariable(classVariable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.CONDITIONAL:
       {
         Conditional conditional = (Conditional)theEObject;
@@ -336,17 +386,31 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.EQUAL_CONDITION:
+      case MyDslPackage.IF_CONDITION:
       {
-        EqualCondition equalCondition = (EqualCondition)theEObject;
-        T result = caseEqualCondition(equalCondition);
+        IfCondition ifCondition = (IfCondition)theEObject;
+        T result = caseIfCondition(ifCondition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.NO_EQUAL_CONDITION:
+      case MyDslPackage.ELSE_CONDITION:
       {
-        NoEqualCondition noEqualCondition = (NoEqualCondition)theEObject;
-        T result = caseNoEqualCondition(noEqualCondition);
+        ElseCondition elseCondition = (ElseCondition)theEObject;
+        T result = caseElseCondition(elseCondition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.CONDITION1:
+      {
+        Condition1 condition1 = (Condition1)theEObject;
+        T result = caseCondition1(condition1);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.PART:
+      {
+        Part part = (Part)theEObject;
+        T result = casePart(part);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -613,6 +677,22 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Super Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Super Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSuperVariable(SuperVariable object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Variable D</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -656,6 +736,70 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseElementPage(ElementPage object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Title</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Title</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTitle(Title object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Big Title</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Big Title</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBigTitle(BigTitle object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sub Title</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sub Title</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubTitle(SubTitle object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sub Sub Title</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sub Sub Title</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubSubTitle(SubSubTitle object)
   {
     return null;
   }
@@ -933,6 +1077,22 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Class Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Class Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClassVariable(ClassVariable object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Conditional</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -949,33 +1109,65 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Equal Condition</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>If Condition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Equal Condition</em>'.
+   * @return the result of interpreting the object as an instance of '<em>If Condition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEqualCondition(EqualCondition object)
+  public T caseIfCondition(IfCondition object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>No Equal Condition</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Else Condition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>No Equal Condition</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Else Condition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNoEqualCondition(NoEqualCondition object)
+  public T caseElseCondition(ElseCondition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Condition1</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Condition1</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCondition1(Condition1 object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Part</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Part</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePart(Part object)
   {
     return null;
   }

@@ -18,11 +18,14 @@ import org.xtext.example.myDsl.Argument1;
 import org.xtext.example.myDsl.Argument2;
 import org.xtext.example.myDsl.Array;
 import org.xtext.example.myDsl.ArrayC;
+import org.xtext.example.myDsl.BigTitle;
 import org.xtext.example.myDsl.Build;
 import org.xtext.example.myDsl.ClassD;
 import org.xtext.example.myDsl.ClassSelector;
+import org.xtext.example.myDsl.ClassVariable;
 import org.xtext.example.myDsl.Col;
 import org.xtext.example.myDsl.Colspan;
+import org.xtext.example.myDsl.Condition1;
 import org.xtext.example.myDsl.Conditional;
 import org.xtext.example.myDsl.Css;
 import org.xtext.example.myDsl.CssValue;
@@ -33,21 +36,22 @@ import org.xtext.example.myDsl.Document;
 import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
-import org.xtext.example.myDsl.EqualCondition;
+import org.xtext.example.myDsl.ElseCondition;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
 import org.xtext.example.myDsl.IDSelector;
+import org.xtext.example.myDsl.IfCondition;
 import org.xtext.example.myDsl.Img;
 import org.xtext.example.myDsl.KeyValue;
 import org.xtext.example.myDsl.Loop;
 import org.xtext.example.myDsl.Model;
 import org.xtext.example.myDsl.MyDslPackage;
 import org.xtext.example.myDsl.NestedObject;
-import org.xtext.example.myDsl.NoEqualCondition;
 import org.xtext.example.myDsl.ObjectC;
 import org.xtext.example.myDsl.OtherElement;
 import org.xtext.example.myDsl.Page;
+import org.xtext.example.myDsl.Part;
 import org.xtext.example.myDsl.Position;
 import org.xtext.example.myDsl.ProdFunction;
 import org.xtext.example.myDsl.Row;
@@ -55,7 +59,11 @@ import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
 import org.xtext.example.myDsl.Style;
+import org.xtext.example.myDsl.SubSubTitle;
+import org.xtext.example.myDsl.SubTitle;
 import org.xtext.example.myDsl.SumFunction;
+import org.xtext.example.myDsl.SuperVariable;
+import org.xtext.example.myDsl.Title;
 import org.xtext.example.myDsl.TypeSelector;
 import org.xtext.example.myDsl.Value;
 import org.xtext.example.myDsl.Variable;
@@ -89,6 +97,9 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case MyDslPackage.ARRAY_C:
 				sequence_ArrayC(context, (ArrayC) semanticObject); 
 				return; 
+			case MyDslPackage.BIG_TITLE:
+				sequence_BigTitle(context, (BigTitle) semanticObject); 
+				return; 
 			case MyDslPackage.BUILD:
 				sequence_Build(context, (Build) semanticObject); 
 				return; 
@@ -98,11 +109,17 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case MyDslPackage.CLASS_SELECTOR:
 				sequence_ClassSelector(context, (ClassSelector) semanticObject); 
 				return; 
+			case MyDslPackage.CLASS_VARIABLE:
+				sequence_ClassVariable(context, (ClassVariable) semanticObject); 
+				return; 
 			case MyDslPackage.COL:
 				sequence_Col(context, (Col) semanticObject); 
 				return; 
 			case MyDslPackage.COLSPAN:
 				sequence_Colspan(context, (Colspan) semanticObject); 
+				return; 
+			case MyDslPackage.CONDITION1:
+				sequence_Condition1(context, (Condition1) semanticObject); 
 				return; 
 			case MyDslPackage.CONDITIONAL:
 				sequence_Conditional(context, (Conditional) semanticObject); 
@@ -134,8 +151,8 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case MyDslPackage.ELEMENT_ROW:
 				sequence_ElementRow(context, (ElementRow) semanticObject); 
 				return; 
-			case MyDslPackage.EQUAL_CONDITION:
-				sequence_EqualCondition(context, (EqualCondition) semanticObject); 
+			case MyDslPackage.ELSE_CONDITION:
+				sequence_ElseCondition(context, (ElseCondition) semanticObject); 
 				return; 
 			case MyDslPackage.FLOAT:
 				sequence_Float(context, (org.xtext.example.myDsl.Float) semanticObject); 
@@ -152,6 +169,9 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case MyDslPackage.ID_SELECTOR:
 				sequence_IDSelector(context, (IDSelector) semanticObject); 
 				return; 
+			case MyDslPackage.IF_CONDITION:
+				sequence_IfCondition(context, (IfCondition) semanticObject); 
+				return; 
 			case MyDslPackage.IMG:
 				sequence_Img(context, (Img) semanticObject); 
 				return; 
@@ -167,9 +187,6 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case MyDslPackage.NESTED_OBJECT:
 				sequence_NestedObject(context, (NestedObject) semanticObject); 
 				return; 
-			case MyDslPackage.NO_EQUAL_CONDITION:
-				sequence_NoEqualCondition(context, (NoEqualCondition) semanticObject); 
-				return; 
 			case MyDslPackage.OBJECT_C:
 				sequence_ObjectC(context, (ObjectC) semanticObject); 
 				return; 
@@ -178,6 +195,9 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case MyDslPackage.PAGE:
 				sequence_Page(context, (Page) semanticObject); 
+				return; 
+			case MyDslPackage.PART:
+				sequence_Part(context, (Part) semanticObject); 
 				return; 
 			case MyDslPackage.POSITION:
 				sequence_Position(context, (Position) semanticObject); 
@@ -200,8 +220,20 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case MyDslPackage.STYLE:
 				sequence_Style(context, (Style) semanticObject); 
 				return; 
+			case MyDslPackage.SUB_SUB_TITLE:
+				sequence_SubSubTitle(context, (SubSubTitle) semanticObject); 
+				return; 
+			case MyDslPackage.SUB_TITLE:
+				sequence_SubTitle(context, (SubTitle) semanticObject); 
+				return; 
 			case MyDslPackage.SUM_FUNCTION:
 				sequence_SumFunction(context, (SumFunction) semanticObject); 
+				return; 
+			case MyDslPackage.SUPER_VARIABLE:
+				sequence_SuperVariable(context, (SuperVariable) semanticObject); 
+				return; 
+			case MyDslPackage.TITLE:
+				sequence_Title(context, (Title) semanticObject); 
 				return; 
 			case MyDslPackage.TYPE_SELECTOR:
 				sequence_TypeSelector(context, (TypeSelector) semanticObject); 
@@ -229,7 +261,7 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Argument1 returns Argument1
 	 *
 	 * Constraint:
-	 *     (integer=INT | floatValue=Float | string=STRING | (variable=Variable objectC=ObjectC? arrayC=ArrayC?))
+	 *     (integer=INT | floatValue=Float | string=STRING | classVariable=ClassVariable | (variable=Variable objectC=ObjectC? arrayC=ArrayC?))
 	 * </pre>
 	 */
 	protected void sequence_Argument1(ISerializationContext context, Argument1 semanticObject) {
@@ -293,6 +325,20 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     BigTitle returns BigTitle
+	 *
+	 * Constraint:
+	 *     (((variable=Variable objectC=ObjectC? arrayC=ArrayC?) | string=STRING) classD=ClassD)
+	 * </pre>
+	 */
+	protected void sequence_BigTitle(ISerializationContext context, BigTitle semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Build returns Build
 	 *
 	 * Constraint:
@@ -347,6 +393,26 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     ClassVariable returns ClassVariable
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_ClassVariable(ISerializationContext context, ClassVariable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CLASS_VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CLASS_VARIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getClassVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Col returns Col
 	 *
 	 * Constraint:
@@ -387,10 +453,36 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Condition1 returns Condition1
+	 *
+	 * Constraint:
+	 *     (firstPart=Part compare=Compare secondPart=Part)
+	 * </pre>
+	 */
+	protected void sequence_Condition1(ISerializationContext context, Condition1 semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CONDITION1__FIRST_PART) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CONDITION1__FIRST_PART));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CONDITION1__COMPARE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CONDITION1__COMPARE));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CONDITION1__SECOND_PART) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CONDITION1__SECOND_PART));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCondition1Access().getFirstPartPartParserRuleCall_0_0(), semanticObject.getFirstPart());
+		feeder.accept(grammarAccess.getCondition1Access().getCompareCompareParserRuleCall_1_0(), semanticObject.getCompare());
+		feeder.accept(grammarAccess.getCondition1Access().getSecondPartPartParserRuleCall_2_0(), semanticObject.getSecondPart());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Conditional returns Conditional
 	 *
 	 * Constraint:
-	 *     ((equalCondition=EqualCondition | notEqualCondition=NoEqualCondition) otherElement+=OtherElement*)
+	 *     (ifCondition=IfCondition elseCondion+=ElseCondition*)
 	 * </pre>
 	 */
 	protected void sequence_Conditional(ISerializationContext context, Conditional semanticObject) {
@@ -535,23 +627,14 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     EqualCondition returns EqualCondition
+	 *     ElseCondition returns ElseCondition
 	 *
 	 * Constraint:
-	 *     (variable=Variable value=Value)
+	 *     (OtherElement+=OtherElement | ifCondition=IfCondition)
 	 * </pre>
 	 */
-	protected void sequence_EqualCondition(ISerializationContext context, EqualCondition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.EQUAL_CONDITION__VARIABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EQUAL_CONDITION__VARIABLE));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.EQUAL_CONDITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EQUAL_CONDITION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEqualConditionAccess().getVariableVariableParserRuleCall_0_0(), semanticObject.getVariable());
-		feeder.accept(grammarAccess.getEqualConditionAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_ElseCondition(ISerializationContext context, ElseCondition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -648,6 +731,20 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     IfCondition returns IfCondition
+	 *
+	 * Constraint:
+	 *     (condition=Condition1 otherElement+=OtherElement*)
+	 * </pre>
+	 */
+	protected void sequence_IfCondition(ISerializationContext context, IfCondition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Img returns Img
 	 *
 	 * Constraint:
@@ -727,29 +824,6 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     NoEqualCondition returns NoEqualCondition
-	 *
-	 * Constraint:
-	 *     (variable=Variable value=Value)
-	 * </pre>
-	 */
-	protected void sequence_NoEqualCondition(ISerializationContext context, NoEqualCondition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.NO_EQUAL_CONDITION__VARIABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.NO_EQUAL_CONDITION__VARIABLE));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.NO_EQUAL_CONDITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.NO_EQUAL_CONDITION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNoEqualConditionAccess().getVariableVariableParserRuleCall_0_0(), semanticObject.getVariable());
-		feeder.accept(grammarAccess.getNoEqualConditionAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     ObjectC returns ObjectC
 	 *
 	 * Constraint:
@@ -787,10 +861,24 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Page returns Page
 	 *
 	 * Constraint:
-	 *     (((variable=Variable objectC=ObjectC? arrayC=ArrayC?) | string=STRING) elementPage+=ElementPage*)
+	 *     (((variable=Variable objectC=ObjectC? arrayC=ArrayC?) | string=STRING) titles+=Title* elementPage+=ElementPage*)
 	 * </pre>
 	 */
 	protected void sequence_Page(ISerializationContext context, Page semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Part returns Part
+	 *
+	 * Constraint:
+	 *     ((variable=Variable objectC=ObjectC? arrayC=ArrayC?) | string=STRING | integer=INT | superVariable=SuperVariable | classVariable=ClassVariable)
+	 * </pre>
+	 */
+	protected void sequence_Part(ISerializationContext context, Part semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -902,6 +990,34 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     SubSubTitle returns SubSubTitle
+	 *
+	 * Constraint:
+	 *     (((variable=Variable objectC=ObjectC? arrayC=ArrayC?) | string=STRING) classD=ClassD)
+	 * </pre>
+	 */
+	protected void sequence_SubSubTitle(ISerializationContext context, SubSubTitle semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SubTitle returns SubTitle
+	 *
+	 * Constraint:
+	 *     (((variable=Variable objectC=ObjectC? arrayC=ArrayC?) | string=STRING) classD=ClassD)
+	 * </pre>
+	 */
+	protected void sequence_SubTitle(ISerializationContext context, SubTitle semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     SumFunction returns SumFunction
 	 *
 	 * Constraint:
@@ -909,6 +1025,40 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 * </pre>
 	 */
 	protected void sequence_SumFunction(ISerializationContext context, SumFunction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SuperVariable returns SuperVariable
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_SuperVariable(ISerializationContext context, SuperVariable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.SUPER_VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.SUPER_VARIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSuperVariableAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Title returns Title
+	 *
+	 * Constraint:
+	 *     (bigTitle=BigTitle | subTitle=SubTitle | subSubTitle=SubSubTitle)
+	 * </pre>
+	 */
+	protected void sequence_Title(ISerializationContext context, Title semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -962,7 +1112,7 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     VariableD returns VariableD
 	 *
 	 * Constraint:
-	 *     (variable=Variable name=ID? (value+=Value | function+=Function))
+	 *     (superVariable=SuperVariable (value=Value | classVariable=ClassVariable | function+=Function))
 	 * </pre>
 	 */
 	protected void sequence_VariableD(ISerializationContext context, VariableD semanticObject) {

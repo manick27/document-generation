@@ -24,6 +24,7 @@ import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.MyDslPackage;
 import org.xtext.example.myDsl.ObjectC;
 import org.xtext.example.myDsl.Page;
+import org.xtext.example.myDsl.Title;
 import org.xtext.example.myDsl.Variable;
 
 /**
@@ -38,6 +39,7 @@ import org.xtext.example.myDsl.Variable;
  *   <li>{@link org.xtext.example.myDsl.impl.PageImpl#getObjectC <em>Object C</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.PageImpl#getArrayC <em>Array C</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.PageImpl#getString <em>String</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.impl.PageImpl#getTitles <em>Titles</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.PageImpl#getElementPage <em>Element Page</em>}</li>
  * </ul>
  *
@@ -94,6 +96,16 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
    * @ordered
    */
   protected String string = STRING_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTitles() <em>Titles</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTitles()
+   * @generated
+   * @ordered
+   */
+  protected EList<Title> titles;
 
   /**
    * The cached value of the '{@link #getElementPage() <em>Element Page</em>}' containment reference list.
@@ -307,6 +319,21 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
    * @generated
    */
   @Override
+  public EList<Title> getTitles()
+  {
+    if (titles == null)
+    {
+      titles = new EObjectContainmentEList<Title>(Title.class, this, MyDslPackage.PAGE__TITLES);
+    }
+    return titles;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<ElementPage> getElementPage()
   {
     if (elementPage == null)
@@ -332,6 +359,8 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
         return basicSetObjectC(null, msgs);
       case MyDslPackage.PAGE__ARRAY_C:
         return basicSetArrayC(null, msgs);
+      case MyDslPackage.PAGE__TITLES:
+        return ((InternalEList<?>)getTitles()).basicRemove(otherEnd, msgs);
       case MyDslPackage.PAGE__ELEMENT_PAGE:
         return ((InternalEList<?>)getElementPage()).basicRemove(otherEnd, msgs);
     }
@@ -356,6 +385,8 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
         return getArrayC();
       case MyDslPackage.PAGE__STRING:
         return getString();
+      case MyDslPackage.PAGE__TITLES:
+        return getTitles();
       case MyDslPackage.PAGE__ELEMENT_PAGE:
         return getElementPage();
     }
@@ -384,6 +415,10 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
         return;
       case MyDslPackage.PAGE__STRING:
         setString((String)newValue);
+        return;
+      case MyDslPackage.PAGE__TITLES:
+        getTitles().clear();
+        getTitles().addAll((Collection<? extends Title>)newValue);
         return;
       case MyDslPackage.PAGE__ELEMENT_PAGE:
         getElementPage().clear();
@@ -415,6 +450,9 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
       case MyDslPackage.PAGE__STRING:
         setString(STRING_EDEFAULT);
         return;
+      case MyDslPackage.PAGE__TITLES:
+        getTitles().clear();
+        return;
       case MyDslPackage.PAGE__ELEMENT_PAGE:
         getElementPage().clear();
         return;
@@ -440,6 +478,8 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
         return arrayC != null;
       case MyDslPackage.PAGE__STRING:
         return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
+      case MyDslPackage.PAGE__TITLES:
+        return titles != null && !titles.isEmpty();
       case MyDslPackage.PAGE__ELEMENT_PAGE:
         return elementPage != null && !elementPage.isEmpty();
     }

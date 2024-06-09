@@ -3498,3 +3498,790 @@ org.eclipse.swt.SWTException: Device is disposed
 	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:920)
 	at org.eclipse.mylyn.internal.tasks.ui.TaskListNotificationManager$1.run(TaskListNotificationManager.java:66)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-05-23 09:58:03.589 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.core.resources 4 2 2024-05-23 09:58:30.007
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NoClassDefFoundError: com/itextpdf/html2pdf/HtmlConverter
+	at org.xtext.example.generator.GrammarGenerator.generatePdf(GrammarGenerator.java:162)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:145)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.ClassNotFoundException: com.itextpdf.html2pdf.HtmlConverter cannot be found by org.xtext.Grammar_1.0.0.qualifier
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:562)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:557)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:434)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:174)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 28 more
+
+!ENTRY org.eclipse.core.resources 4 75 2024-05-23 09:58:30.080
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.xtext.ui.shared 4 75 2024-05-23 09:58:30.080
+!MESSAGE Errors running builder 'Xtext Project Builder' on project 'Grammar'.
+!STACK 0
+java.lang.NoClassDefFoundError: com/itextpdf/html2pdf/HtmlConverter
+	at org.xtext.example.generator.GrammarGenerator.generatePdf(GrammarGenerator.java:162)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:145)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.ClassNotFoundException: com.itextpdf.html2pdf.HtmlConverter cannot be found by org.xtext.Grammar_1.0.0.qualifier
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:562)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:557)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:434)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:174)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 28 more
+
+!ENTRY org.eclipse.core.resources 4 2 2024-05-23 10:00:35.485
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NoClassDefFoundError: com/itextpdf/html2pdf/HtmlConverter
+	at org.xtext.example.generator.GrammarGenerator.generatePdf(GrammarGenerator.java:162)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:145)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.ClassNotFoundException: com.itextpdf.html2pdf.HtmlConverter cannot be found by org.xtext.Grammar_1.0.0.qualifier
+	... 28 more
+
+!ENTRY org.eclipse.core.resources 4 75 2024-05-23 10:00:35.490
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.xtext.ui.shared 4 75 2024-05-23 10:00:35.490
+!MESSAGE Errors running builder 'Xtext Project Builder' on project 'Grammar'.
+!STACK 0
+java.lang.NoClassDefFoundError: com/itextpdf/html2pdf/HtmlConverter
+	at org.xtext.example.generator.GrammarGenerator.generatePdf(GrammarGenerator.java:162)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:145)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.ClassNotFoundException: com.itextpdf.html2pdf.HtmlConverter cannot be found by org.xtext.Grammar_1.0.0.qualifier
+	... 28 more
+!SESSION 2024-05-23 10:07:16.139 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.core.resources 4 2 2024-05-23 10:07:36.000
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NoClassDefFoundError: com/itextpdf/html2pdf/HtmlConverter
+	at org.xtext.example.generator.GrammarGenerator.generatePdf(GrammarGenerator.java:162)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:145)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.ClassNotFoundException: com.itextpdf.html2pdf.HtmlConverter cannot be found by org.xtext.Grammar_1.0.0.qualifier
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:562)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:557)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:434)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:174)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 28 more
+
+!ENTRY org.eclipse.core.resources 4 75 2024-05-23 10:07:36.027
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.xtext.ui.shared 4 75 2024-05-23 10:07:36.029
+!MESSAGE Errors running builder 'Xtext Project Builder' on project 'Grammar'.
+!STACK 0
+java.lang.NoClassDefFoundError: com/itextpdf/html2pdf/HtmlConverter
+	at org.xtext.example.generator.GrammarGenerator.generatePdf(GrammarGenerator.java:162)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:145)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.ClassNotFoundException: com.itextpdf.html2pdf.HtmlConverter cannot be found by org.xtext.Grammar_1.0.0.qualifier
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:562)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:557)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:434)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:174)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 28 more
+!SESSION 2024-05-26 12:16:33.326 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.core.resources 4 2 2024-05-26 12:17:07.126
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NoClassDefFoundError: org/apache/poi/ss/usermodel/Workbook
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:140)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.ClassNotFoundException: org.apache.poi.ss.usermodel.Workbook cannot be found by org.xtext.Grammar_1.0.0.qualifier
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:562)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:557)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:434)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:174)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 27 more
+
+!ENTRY org.eclipse.core.resources 4 75 2024-05-26 12:17:07.182
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.xtext.ui.shared 4 75 2024-05-26 12:17:07.185
+!MESSAGE Errors running builder 'Xtext Project Builder' on project 'Grammar'.
+!STACK 0
+java.lang.NoClassDefFoundError: org/apache/poi/ss/usermodel/Workbook
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:140)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.ClassNotFoundException: org.apache.poi.ss.usermodel.Workbook cannot be found by org.xtext.Grammar_1.0.0.qualifier
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:562)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:557)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:434)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:174)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 27 more
+!SESSION 2024-05-27 02:04:04.910 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.apache.log4j 4 0 2024-05-27 02:04:23.304
+!MESSAGE org.eclipse.xtext.builder.BuilderParticipant  - Error during compilation of 'platform:/resource/Grammar/bulletin1.mydsl'.
+
+!STACK 0
+java.lang.ClassCastException: class java.lang.Double cannot be cast to class java.lang.Float (java.lang.Double and java.lang.Float are in module java.base of loader 'bootstrap')
+	at org.xtext.example.generator.Context.lambda$0(Context.java:98)
+	at org.eclipse.xtext.xbase.lib.internal.FunctionDelegate.apply(FunctionDelegate.java:43)
+	at com.google.common.collect.Lists$TransformingRandomAccessList.get(Lists.java:618)
+	at java.base/java.util.AbstractList$RandomAccessSpliterator.get(AbstractList.java:735)
+	at java.base/java.util.AbstractList$RandomAccessSpliterator.forEachRemaining(AbstractList.java:720)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.DoublePipeline.collect(DoublePipeline.java:541)
+	at java.base/java.util.stream.DoublePipeline.sum(DoublePipeline.java:450)
+	at org.xtext.example.generator.Context.sumArray(Context.java:104)
+	at org.xtext.example.generator.HtmlCodeGenerator.getValueForSimpleCol(HtmlCodeGenerator.java:1104)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildSimpleCol(HtmlCodeGenerator.java:1246)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildRow(HtmlCodeGenerator.java:1367)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildWithLoopPage(HtmlCodeGenerator.java:826)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildDocument(HtmlCodeGenerator.java:753)
+	at org.xtext.example.generator.HtmlCodeGenerator.generate(HtmlCodeGenerator.java:54)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:137)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-06-03 01:48:09.793 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.apache.log4j 4 0 2024-06-03 01:48:30.856
+!MESSAGE org.eclipse.xtext.builder.BuilderParticipant  - Error during compilation of 'platform:/resource/Grammar/bulletin1.mydsl'.
+
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.xtext.example.myDsl.Col.getClassD()" because "col" is null
+	at org.xtext.example.generator.HtmlCodeGenerator.buildSimpleCol(HtmlCodeGenerator.java:1240)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildRow(HtmlCodeGenerator.java:1421)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildWithLoopPage(HtmlCodeGenerator.java:830)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildDocument(HtmlCodeGenerator.java:757)
+	at org.xtext.example.generator.HtmlCodeGenerator.generate(HtmlCodeGenerator.java:58)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:137)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-06-03 02:12:38.654 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.apache.log4j 4 0 2024-06-03 02:12:56.907
+!MESSAGE org.eclipse.xtext.builder.BuilderParticipant  - Error during compilation of 'platform:/resource/Grammar/bulletin1.mydsl'.
+
+!STACK 0
+java.lang.ClassCastException: class java.lang.Double cannot be cast to class java.lang.Integer (java.lang.Double and java.lang.Integer are in module java.base of loader 'bootstrap')
+	at org.xtext.example.generator.HtmlCodeGenerator.evaluateCondition(HtmlCodeGenerator.java:1529)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildRow(HtmlCodeGenerator.java:1405)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildWithLoopPage(HtmlCodeGenerator.java:831)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildDocument(HtmlCodeGenerator.java:758)
+	at org.xtext.example.generator.HtmlCodeGenerator.generate(HtmlCodeGenerator.java:59)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:137)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-06-03 02:14:00.734 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.apache.log4j 4 0 2024-06-03 02:14:23.058
+!MESSAGE org.eclipse.xtext.builder.BuilderParticipant  - Error during compilation of 'platform:/resource/Grammar/bulletin1.mydsl'.
+
+!STACK 0
+java.lang.ClassCastException: class java.lang.Double cannot be cast to class java.lang.Integer (java.lang.Double and java.lang.Integer are in module java.base of loader 'bootstrap')
+	at org.xtext.example.generator.HtmlCodeGenerator.evaluateCondition(HtmlCodeGenerator.java:1529)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildRow(HtmlCodeGenerator.java:1405)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildWithLoopPage(HtmlCodeGenerator.java:831)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildDocument(HtmlCodeGenerator.java:758)
+	at org.xtext.example.generator.HtmlCodeGenerator.generate(HtmlCodeGenerator.java:59)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:137)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-06-03 02:15:32.303 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.apache.log4j 4 0 2024-06-03 02:15:51.530
+!MESSAGE org.eclipse.xtext.builder.BuilderParticipant  - Error during compilation of 'platform:/resource/Grammar/bulletin1.mydsl'.
+
+!STACK 0
+java.lang.NullPointerException: Cannot read field "value" because "anotherDouble" is null
+	at java.base/java.lang.Double.compareTo(Double.java:1097)
+	at org.xtext.example.generator.HtmlCodeGenerator.evaluateCondition(HtmlCodeGenerator.java:1530)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildRow(HtmlCodeGenerator.java:1405)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildWithLoopPage(HtmlCodeGenerator.java:831)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildDocument(HtmlCodeGenerator.java:758)
+	at org.xtext.example.generator.HtmlCodeGenerator.generate(HtmlCodeGenerator.java:59)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:137)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-06-03 02:18:09.019 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.apache.log4j 4 0 2024-06-03 02:18:30.133
+!MESSAGE org.eclipse.xtext.builder.BuilderParticipant  - Error during compilation of 'platform:/resource/Grammar/bulletin1.mydsl'.
+
+!STACK 0
+java.lang.NullPointerException: Cannot read field "value" because "anotherDouble" is null
+	at java.base/java.lang.Double.compareTo(Double.java:1097)
+	at org.xtext.example.generator.HtmlCodeGenerator.evaluateCondition(HtmlCodeGenerator.java:1532)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildRow(HtmlCodeGenerator.java:1405)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildWithLoopPage(HtmlCodeGenerator.java:831)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildDocument(HtmlCodeGenerator.java:758)
+	at org.xtext.example.generator.HtmlCodeGenerator.generate(HtmlCodeGenerator.java:59)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:137)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-06-03 02:20:17.406 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.apache.log4j 4 0 2024-06-03 02:20:38.507
+!MESSAGE org.eclipse.xtext.builder.BuilderParticipant  - Error during compilation of 'platform:/resource/Grammar/bulletin1.mydsl'.
+
+!STACK 0
+java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.Double (java.lang.Integer and java.lang.Double are in module java.base of loader 'bootstrap')
+	at org.xtext.example.generator.HtmlCodeGenerator.evaluateCondition(HtmlCodeGenerator.java:1532)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildRow(HtmlCodeGenerator.java:1405)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildWithLoopPage(HtmlCodeGenerator.java:831)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildDocument(HtmlCodeGenerator.java:758)
+	at org.xtext.example.generator.HtmlCodeGenerator.generate(HtmlCodeGenerator.java:59)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:137)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-06-03 02:48:33.899 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.apache.log4j 4 0 2024-06-03 02:48:56.822
+!MESSAGE org.eclipse.xtext.builder.BuilderParticipant  - Error during compilation of 'platform:/resource/Grammar/bulletin1.mydsl'.
+
+!STACK 0
+java.lang.ClassCastException: class java.lang.Double cannot be cast to class java.lang.Float (java.lang.Double and java.lang.Float are in module java.base of loader 'bootstrap')
+	at org.xtext.example.generator.HtmlCodeGenerator.evaluateCondition(HtmlCodeGenerator.java:1545)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildRow(HtmlCodeGenerator.java:1405)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildWithLoopPage(HtmlCodeGenerator.java:831)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildDocument(HtmlCodeGenerator.java:758)
+	at org.xtext.example.generator.HtmlCodeGenerator.generate(HtmlCodeGenerator.java:59)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:137)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-06-03 02:52:55.103 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.apache.log4j 4 0 2024-06-03 02:53:18.566
+!MESSAGE org.eclipse.xtext.builder.BuilderParticipant  - Error during compilation of 'platform:/resource/Grammar/bulletin1.mydsl'.
+
+!STACK 0
+java.lang.ClassCastException: class java.lang.Double cannot be cast to class java.lang.Integer (java.lang.Double and java.lang.Integer are in module java.base of loader 'bootstrap')
+	at org.xtext.example.generator.HtmlCodeGenerator.evaluateCondition(HtmlCodeGenerator.java:1545)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildRow(HtmlCodeGenerator.java:1405)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildWithLoopPage(HtmlCodeGenerator.java:831)
+	at org.xtext.example.generator.HtmlCodeGenerator.buildDocument(HtmlCodeGenerator.java:758)
+	at org.xtext.example.generator.HtmlCodeGenerator.generate(HtmlCodeGenerator.java:59)
+	at org.xtext.example.generator.GrammarGenerator.doGenerate(GrammarGenerator.java:137)
+	at org.eclipse.xtext.generator.GeneratorDelegate.doGenerate(GeneratorDelegate.java:44)
+	at org.eclipse.xtext.generator.GeneratorDelegate.generate(GeneratorDelegate.java:35)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:597)
+	at org.eclipse.xtext.builder.BuilderParticipant.handleChangedContents(BuilderParticipant.java:578)
+	at org.eclipse.xtext.builder.BuilderParticipant.doGenerate(BuilderParticipant.java:563)
+	at org.eclipse.xtext.builder.BuilderParticipant.doBuild(BuilderParticipant.java:303)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:265)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:526)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:456)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:437)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:340)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-06-03 21:32:33.663 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-06-03 21:32:38.484
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2024-06-03 21:33:32.687 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-06-03 21:33:37.267
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2024-06-03 21:34:33.376 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -product org.eclipse.epp.package.java.product -data /home/manick/Bureau/Recherche Master/grammar/../runtime-EclipseApplication -dev file:/home/manick/Bureau/Recherche Master/grammar/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-06-03 21:34:38.080
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

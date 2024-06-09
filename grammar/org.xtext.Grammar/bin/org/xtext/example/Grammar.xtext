@@ -40,18 +40,39 @@ ElementBuild:
 Variable:
     '$' name=ID;
 
+SuperVariable:
+	name=ID
+;
+
 VariableD:
-    (variable=Variable ('[' '$' name=ID ']')?) '=' (value+=Value | function+=Function)
+    superVariable=SuperVariable '=' (value=Value | classVariable=ClassVariable | function+=Function)
 ;
 
 Page:
     'page' '(' (variable=Variable (objectC=ObjectC)? (arrayC=ArrayC)? | string=STRING )')' '{'
+    	(titles+=Title)*
         (elementPage+=ElementPage)*
     '}'
 ;
 
 ElementPage:
 	row=Row | loop=Loop | conditional=Conditional | (variable=VariableD ';')
+;
+
+Title:
+	bigTitle=BigTitle | subTitle=SubTitle | subSubTitle=SubSubTitle
+;
+
+BigTitle:
+	'title' ':' (variable=Variable (objectC=ObjectC)? (arrayC=ArrayC)? | string=STRING ) classD=ClassD
+;
+
+SubTitle:
+	'subtitle' ':' (variable=Variable (objectC=ObjectC)? (arrayC=ArrayC)? | string=STRING ) classD=ClassD
+;
+
+SubSubTitle:
+	'subsubtitle' ':' (variable=Variable (objectC=ObjectC)? (arrayC=ArrayC)? | string=STRING ) classD=ClassD
 ;
 
 Row:
@@ -116,27 +137,47 @@ DivFunction:
 ;
 
 Argument1:
-	integer=INT | floatValue=Float | string=STRING | variable=Variable (objectC=ObjectC)? (arrayC=ArrayC)?
+	integer=INT | floatValue=Float | string=STRING | classVariable=ClassVariable | variable=Variable (objectC=ObjectC)? (arrayC=ArrayC)?
 ;
 
 Argument2:
 	(variable+=Variable | integer=INT) (('-' | '+') (variable+=Variable | integerEnd1=INT))? ',' (variable+=Variable | integerEnd2=INT) (('-' | '+') (variable+=Variable | integerEnd3=INT))?
 ;
 
+ClassVariable:
+	'.' name=ID
+;
+
 Conditional:
-    'if' (equalCondition=EqualCondition | notEqualCondition=NoEqualCondition) 'then' '{'
+	ifCondition=IfCondition (elseCondion+=ElseCondition)*
+;
+
+IfCondition:
+    'if' '(' condition=Condition1 ')' 'then' '{'
         (otherElement+=OtherElement)*
     '}'
 ;
 
-EqualCondition:
-    (variable=Variable 'is' value=Value 'then')
+ElseCondition:
+	'else' (('{'
+		(OtherElement+=OtherElement)
+		'}'
+	) |
+	ifCondition=IfCondition
+	)
 ;
 
-NoEqualCondition:
-    (variable=Variable 'isNot' value=Value 'then')
+Condition1:
+	firstPart=Part compare=Compare secondPart=Part
 ;
 
+Part:
+	variable=Variable (objectC=ObjectC)? (arrayC=ArrayC)? | string=STRING | integer=INT | superVariable=SuperVariable | classVariable=ClassVariable
+;
+
+Compare:
+	'==' | '!=' | '<' | '>'
+;
 Loop:
     withLoop=With | forLoop=For
 ;

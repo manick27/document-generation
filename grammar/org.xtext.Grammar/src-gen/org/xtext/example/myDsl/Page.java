@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.myDsl.Page#getObjectC <em>Object C</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Page#getArrayC <em>Array C</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Page#getString <em>String</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.Page#getTitles <em>Titles</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Page#getElementPage <em>Element Page</em>}</li>
  * </ul>
  *
@@ -116,6 +117,18 @@ public interface Page extends EObject
    * @generated
    */
   void setString(String value);
+
+  /**
+   * Returns the value of the '<em><b>Titles</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.myDsl.Title}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Titles</em>' containment reference list.
+   * @see org.xtext.example.myDsl.MyDslPackage#getPage_Titles()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Title> getTitles();
 
   /**
    * Returns the value of the '<em><b>Element Page</b></em>' containment reference list.

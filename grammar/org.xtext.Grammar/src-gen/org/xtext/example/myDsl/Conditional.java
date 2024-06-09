@@ -16,9 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.myDsl.Conditional#getEqualCondition <em>Equal Condition</em>}</li>
- *   <li>{@link org.xtext.example.myDsl.Conditional#getNotEqualCondition <em>Not Equal Condition</em>}</li>
- *   <li>{@link org.xtext.example.myDsl.Conditional#getOtherElement <em>Other Element</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.Conditional#getIfCondition <em>If Condition</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.Conditional#getElseCondion <em>Else Condion</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.myDsl.MyDslPackage#getConditional()
@@ -28,59 +27,37 @@ import org.eclipse.emf.ecore.EObject;
 public interface Conditional extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Equal Condition</b></em>' containment reference.
+   * Returns the value of the '<em><b>If Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Equal Condition</em>' containment reference.
-   * @see #setEqualCondition(EqualCondition)
-   * @see org.xtext.example.myDsl.MyDslPackage#getConditional_EqualCondition()
+   * @return the value of the '<em>If Condition</em>' containment reference.
+   * @see #setIfCondition(IfCondition)
+   * @see org.xtext.example.myDsl.MyDslPackage#getConditional_IfCondition()
    * @model containment="true"
    * @generated
    */
-  EqualCondition getEqualCondition();
+  IfCondition getIfCondition();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.myDsl.Conditional#getEqualCondition <em>Equal Condition</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.myDsl.Conditional#getIfCondition <em>If Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Equal Condition</em>' containment reference.
-   * @see #getEqualCondition()
+   * @param value the new value of the '<em>If Condition</em>' containment reference.
+   * @see #getIfCondition()
    * @generated
    */
-  void setEqualCondition(EqualCondition value);
+  void setIfCondition(IfCondition value);
 
   /**
-   * Returns the value of the '<em><b>Not Equal Condition</b></em>' containment reference.
+   * Returns the value of the '<em><b>Else Condion</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.myDsl.ElseCondition}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Not Equal Condition</em>' containment reference.
-   * @see #setNotEqualCondition(NoEqualCondition)
-   * @see org.xtext.example.myDsl.MyDslPackage#getConditional_NotEqualCondition()
+   * @return the value of the '<em>Else Condion</em>' containment reference list.
+   * @see org.xtext.example.myDsl.MyDslPackage#getConditional_ElseCondion()
    * @model containment="true"
    * @generated
    */
-  NoEqualCondition getNotEqualCondition();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.myDsl.Conditional#getNotEqualCondition <em>Not Equal Condition</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Not Equal Condition</em>' containment reference.
-   * @see #getNotEqualCondition()
-   * @generated
-   */
-  void setNotEqualCondition(NoEqualCondition value);
-
-  /**
-   * Returns the value of the '<em><b>Other Element</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.myDsl.OtherElement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Other Element</em>' containment reference list.
-   * @see org.xtext.example.myDsl.MyDslPackage#getConditional_OtherElement()
-   * @model containment="true"
-   * @generated
-   */
-  EList<OtherElement> getOtherElement();
+  EList<ElseCondition> getElseCondion();
 
 } // Conditional

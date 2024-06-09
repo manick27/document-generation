@@ -114,6 +114,15 @@ public interface MyDslFactory extends EFactory
   Variable createVariable();
 
   /**
+   * Returns a new object of class '<em>Super Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Super Variable</em>'.
+   * @generated
+   */
+  SuperVariable createSuperVariable();
+
+  /**
    * Returns a new object of class '<em>Variable D</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -139,6 +148,42 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   ElementPage createElementPage();
+
+  /**
+   * Returns a new object of class '<em>Title</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Title</em>'.
+   * @generated
+   */
+  Title createTitle();
+
+  /**
+   * Returns a new object of class '<em>Big Title</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Big Title</em>'.
+   * @generated
+   */
+  BigTitle createBigTitle();
+
+  /**
+   * Returns a new object of class '<em>Sub Title</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sub Title</em>'.
+   * @generated
+   */
+  SubTitle createSubTitle();
+
+  /**
+   * Returns a new object of class '<em>Sub Sub Title</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sub Sub Title</em>'.
+   * @generated
+   */
+  SubSubTitle createSubSubTitle();
 
   /**
    * Returns a new object of class '<em>Row</em>'.
@@ -294,6 +339,15 @@ public interface MyDslFactory extends EFactory
   Argument2 createArgument2();
 
   /**
+   * Returns a new object of class '<em>Class Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Class Variable</em>'.
+   * @generated
+   */
+  ClassVariable createClassVariable();
+
+  /**
    * Returns a new object of class '<em>Conditional</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -303,22 +357,40 @@ public interface MyDslFactory extends EFactory
   Conditional createConditional();
 
   /**
-   * Returns a new object of class '<em>Equal Condition</em>'.
+   * Returns a new object of class '<em>If Condition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Equal Condition</em>'.
+   * @return a new object of class '<em>If Condition</em>'.
    * @generated
    */
-  EqualCondition createEqualCondition();
+  IfCondition createIfCondition();
 
   /**
-   * Returns a new object of class '<em>No Equal Condition</em>'.
+   * Returns a new object of class '<em>Else Condition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>No Equal Condition</em>'.
+   * @return a new object of class '<em>Else Condition</em>'.
    * @generated
    */
-  NoEqualCondition createNoEqualCondition();
+  ElseCondition createElseCondition();
+
+  /**
+   * Returns a new object of class '<em>Condition1</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Condition1</em>'.
+   * @generated
+   */
+  Condition1 createCondition1();
+
+  /**
+   * Returns a new object of class '<em>Part</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Part</em>'.
+   * @generated
+   */
+  Part createPart();
 
   /**
    * Returns a new object of class '<em>Loop</em>'.

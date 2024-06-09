@@ -491,23 +491,14 @@ public interface MyDslPackage extends EPackage
   int VARIABLE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.myDsl.impl.VariableDImpl <em>Variable D</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.SuperVariableImpl <em>Super Variable</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.myDsl.impl.VariableDImpl
-   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getVariableD()
+   * @see org.xtext.example.myDsl.impl.SuperVariableImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSuperVariable()
    * @generated
    */
-  int VARIABLE_D = 10;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_D__VARIABLE = 0;
+  int SUPER_VARIABLE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -516,16 +507,53 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_D__NAME = 1;
+  int SUPER_VARIABLE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * The number of structural features of the '<em>Super Variable</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_D__VALUE = 2;
+  int SUPER_VARIABLE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.VariableDImpl <em>Variable D</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.VariableDImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getVariableD()
+   * @generated
+   */
+  int VARIABLE_D = 11;
+
+  /**
+   * The feature id for the '<em><b>Super Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_D__SUPER_VARIABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_D__VALUE = 1;
+
+  /**
+   * The feature id for the '<em><b>Class Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_D__CLASS_VARIABLE = 2;
 
   /**
    * The feature id for the '<em><b>Function</b></em>' containment reference list.
@@ -553,7 +581,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getPage()
    * @generated
    */
-  int PAGE = 11;
+  int PAGE = 12;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -592,13 +620,22 @@ public interface MyDslPackage extends EPackage
   int PAGE__STRING = 3;
 
   /**
+   * The feature id for the '<em><b>Titles</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAGE__TITLES = 4;
+
+  /**
    * The feature id for the '<em><b>Element Page</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PAGE__ELEMENT_PAGE = 4;
+  int PAGE__ELEMENT_PAGE = 5;
 
   /**
    * The number of structural features of the '<em>Page</em>' class.
@@ -607,7 +644,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAGE_FEATURE_COUNT = 5;
+  int PAGE_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link org.xtext.example.myDsl.impl.ElementPageImpl <em>Element Page</em>}' class.
@@ -617,7 +654,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getElementPage()
    * @generated
    */
-  int ELEMENT_PAGE = 12;
+  int ELEMENT_PAGE = 13;
 
   /**
    * The feature id for the '<em><b>Row</b></em>' containment reference.
@@ -665,6 +702,244 @@ public interface MyDslPackage extends EPackage
   int ELEMENT_PAGE_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.TitleImpl <em>Title</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.TitleImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getTitle()
+   * @generated
+   */
+  int TITLE = 14;
+
+  /**
+   * The feature id for the '<em><b>Big Title</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TITLE__BIG_TITLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Sub Title</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TITLE__SUB_TITLE = 1;
+
+  /**
+   * The feature id for the '<em><b>Sub Sub Title</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TITLE__SUB_SUB_TITLE = 2;
+
+  /**
+   * The number of structural features of the '<em>Title</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TITLE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.BigTitleImpl <em>Big Title</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.BigTitleImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getBigTitle()
+   * @generated
+   */
+  int BIG_TITLE = 15;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BIG_TITLE__VARIABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Object C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BIG_TITLE__OBJECT_C = 1;
+
+  /**
+   * The feature id for the '<em><b>Array C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BIG_TITLE__ARRAY_C = 2;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BIG_TITLE__STRING = 3;
+
+  /**
+   * The feature id for the '<em><b>Class D</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BIG_TITLE__CLASS_D = 4;
+
+  /**
+   * The number of structural features of the '<em>Big Title</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BIG_TITLE_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.SubTitleImpl <em>Sub Title</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.SubTitleImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSubTitle()
+   * @generated
+   */
+  int SUB_TITLE = 16;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_TITLE__VARIABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Object C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_TITLE__OBJECT_C = 1;
+
+  /**
+   * The feature id for the '<em><b>Array C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_TITLE__ARRAY_C = 2;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_TITLE__STRING = 3;
+
+  /**
+   * The feature id for the '<em><b>Class D</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_TITLE__CLASS_D = 4;
+
+  /**
+   * The number of structural features of the '<em>Sub Title</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_TITLE_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.SubSubTitleImpl <em>Sub Sub Title</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.SubSubTitleImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSubSubTitle()
+   * @generated
+   */
+  int SUB_SUB_TITLE = 17;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_SUB_TITLE__VARIABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Object C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_SUB_TITLE__OBJECT_C = 1;
+
+  /**
+   * The feature id for the '<em><b>Array C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_SUB_TITLE__ARRAY_C = 2;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_SUB_TITLE__STRING = 3;
+
+  /**
+   * The feature id for the '<em><b>Class D</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_SUB_TITLE__CLASS_D = 4;
+
+  /**
+   * The number of structural features of the '<em>Sub Sub Title</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_SUB_TITLE_FEATURE_COUNT = 5;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.myDsl.impl.RowImpl <em>Row</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -672,7 +947,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getRow()
    * @generated
    */
-  int ROW = 13;
+  int ROW = 18;
 
   /**
    * The feature id for the '<em><b>Element Row</b></em>' containment reference list.
@@ -700,7 +975,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getElementRow()
    * @generated
    */
-  int ELEMENT_ROW = 14;
+  int ELEMENT_ROW = 19;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -764,7 +1039,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getCol()
    * @generated
    */
-  int COL = 15;
+  int COL = 20;
 
   /**
    * The feature id for the '<em><b>Fusion</b></em>' containment reference.
@@ -882,7 +1157,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getArrayC()
    * @generated
    */
-  int ARRAY_C = 16;
+  int ARRAY_C = 21;
 
   /**
    * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -910,7 +1185,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getPosition()
    * @generated
    */
-  int POSITION = 17;
+  int POSITION = 22;
 
   /**
    * The feature id for the '<em><b>Integer</b></em>' attribute.
@@ -947,7 +1222,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getObjectC()
    * @generated
    */
-  int OBJECT_C = 18;
+  int OBJECT_C = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -975,7 +1250,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getImg()
    * @generated
    */
-  int IMG = 19;
+  int IMG = 24;
 
   /**
    * The feature id for the '<em><b>Class D</b></em>' containment reference.
@@ -1048,7 +1323,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getClassD()
    * @generated
    */
-  int CLASS_D = 20;
+  int CLASS_D = 25;
 
   /**
    * The feature id for the '<em><b>String</b></em>' attribute.
@@ -1076,7 +1351,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getFusion()
    * @generated
    */
-  int FUSION = 21;
+  int FUSION = 26;
 
   /**
    * The feature id for the '<em><b>Colspan</b></em>' containment reference.
@@ -1113,7 +1388,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getColspan()
    * @generated
    */
-  int COLSPAN = 22;
+  int COLSPAN = 27;
 
   /**
    * The feature id for the '<em><b>Integer</b></em>' attribute.
@@ -1150,7 +1425,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getRowspan()
    * @generated
    */
-  int ROWSPAN = 23;
+  int ROWSPAN = 28;
 
   /**
    * The feature id for the '<em><b>Integer</b></em>' attribute.
@@ -1187,7 +1462,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getFunction()
    * @generated
    */
-  int FUNCTION = 24;
+  int FUNCTION = 29;
 
   /**
    * The feature id for the '<em><b>Sum Function</b></em>' containment reference.
@@ -1233,7 +1508,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSumFunction()
    * @generated
    */
-  int SUM_FUNCTION = 25;
+  int SUM_FUNCTION = 30;
 
   /**
    * The feature id for the '<em><b>Argument1</b></em>' containment reference list.
@@ -1270,7 +1545,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getProdFunction()
    * @generated
    */
-  int PROD_FUNCTION = 26;
+  int PROD_FUNCTION = 31;
 
   /**
    * The feature id for the '<em><b>Argument1</b></em>' containment reference list.
@@ -1307,7 +1582,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getDivFunction()
    * @generated
    */
-  int DIV_FUNCTION = 27;
+  int DIV_FUNCTION = 32;
 
   /**
    * The feature id for the '<em><b>Argument1</b></em>' containment reference list.
@@ -1335,7 +1610,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getArgument1()
    * @generated
    */
-  int ARGUMENT1 = 28;
+  int ARGUMENT1 = 33;
 
   /**
    * The feature id for the '<em><b>Integer</b></em>' attribute.
@@ -1365,13 +1640,22 @@ public interface MyDslPackage extends EPackage
   int ARGUMENT1__STRING = 2;
 
   /**
+   * The feature id for the '<em><b>Class Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT1__CLASS_VARIABLE = 3;
+
+  /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENT1__VARIABLE = 3;
+  int ARGUMENT1__VARIABLE = 4;
 
   /**
    * The feature id for the '<em><b>Object C</b></em>' containment reference.
@@ -1380,7 +1664,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT1__OBJECT_C = 4;
+  int ARGUMENT1__OBJECT_C = 5;
 
   /**
    * The feature id for the '<em><b>Array C</b></em>' containment reference.
@@ -1389,7 +1673,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT1__ARRAY_C = 5;
+  int ARGUMENT1__ARRAY_C = 6;
 
   /**
    * The number of structural features of the '<em>Argument1</em>' class.
@@ -1398,7 +1682,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT1_FEATURE_COUNT = 6;
+  int ARGUMENT1_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link org.xtext.example.myDsl.impl.Argument2Impl <em>Argument2</em>}' class.
@@ -1408,7 +1692,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getArgument2()
    * @generated
    */
-  int ARGUMENT2 = 29;
+  int ARGUMENT2 = 34;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference list.
@@ -1465,6 +1749,34 @@ public interface MyDslPackage extends EPackage
   int ARGUMENT2_FEATURE_COUNT = 5;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.ClassVariableImpl <em>Class Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.ClassVariableImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getClassVariable()
+   * @generated
+   */
+  int CLASS_VARIABLE = 35;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_VARIABLE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Class Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_VARIABLE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.myDsl.impl.ConditionalImpl <em>Conditional</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1472,34 +1784,25 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getConditional()
    * @generated
    */
-  int CONDITIONAL = 30;
+  int CONDITIONAL = 36;
 
   /**
-   * The feature id for the '<em><b>Equal Condition</b></em>' containment reference.
+   * The feature id for the '<em><b>If Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL__EQUAL_CONDITION = 0;
+  int CONDITIONAL__IF_CONDITION = 0;
 
   /**
-   * The feature id for the '<em><b>Not Equal Condition</b></em>' containment reference.
+   * The feature id for the '<em><b>Else Condion</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL__NOT_EQUAL_CONDITION = 1;
-
-  /**
-   * The feature id for the '<em><b>Other Element</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITIONAL__OTHER_ELEMENT = 2;
+  int CONDITIONAL__ELSE_CONDION = 1;
 
   /**
    * The number of structural features of the '<em>Conditional</em>' class.
@@ -1508,17 +1811,137 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONDITIONAL_FEATURE_COUNT = 3;
+  int CONDITIONAL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.myDsl.impl.EqualConditionImpl <em>Equal Condition</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.IfConditionImpl <em>If Condition</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.myDsl.impl.EqualConditionImpl
-   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getEqualCondition()
+   * @see org.xtext.example.myDsl.impl.IfConditionImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getIfCondition()
    * @generated
    */
-  int EQUAL_CONDITION = 31;
+  int IF_CONDITION = 37;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_CONDITION__CONDITION = 0;
+
+  /**
+   * The feature id for the '<em><b>Other Element</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_CONDITION__OTHER_ELEMENT = 1;
+
+  /**
+   * The number of structural features of the '<em>If Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_CONDITION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.ElseConditionImpl <em>Else Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.ElseConditionImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getElseCondition()
+   * @generated
+   */
+  int ELSE_CONDITION = 38;
+
+  /**
+   * The feature id for the '<em><b>Other Element</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_CONDITION__OTHER_ELEMENT = 0;
+
+  /**
+   * The feature id for the '<em><b>If Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_CONDITION__IF_CONDITION = 1;
+
+  /**
+   * The number of structural features of the '<em>Else Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_CONDITION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.Condition1Impl <em>Condition1</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.Condition1Impl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getCondition1()
+   * @generated
+   */
+  int CONDITION1 = 39;
+
+  /**
+   * The feature id for the '<em><b>First Part</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION1__FIRST_PART = 0;
+
+  /**
+   * The feature id for the '<em><b>Compare</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION1__COMPARE = 1;
+
+  /**
+   * The feature id for the '<em><b>Second Part</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION1__SECOND_PART = 2;
+
+  /**
+   * The number of structural features of the '<em>Condition1</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION1_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.PartImpl <em>Part</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.PartImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getPart()
+   * @generated
+   */
+  int PART = 40;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -1527,62 +1950,70 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EQUAL_CONDITION__VARIABLE = 0;
+  int PART__VARIABLE = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * The feature id for the '<em><b>Object C</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUAL_CONDITION__VALUE = 1;
+  int PART__OBJECT_C = 1;
 
   /**
-   * The number of structural features of the '<em>Equal Condition</em>' class.
+   * The feature id for the '<em><b>Array C</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUAL_CONDITION_FEATURE_COUNT = 2;
+  int PART__ARRAY_C = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.myDsl.impl.NoEqualConditionImpl <em>No Equal Condition</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.myDsl.impl.NoEqualConditionImpl
-   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getNoEqualCondition()
-   * @generated
-   */
-  int NO_EQUAL_CONDITION = 32;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' containment reference.
+   * The feature id for the '<em><b>String</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NO_EQUAL_CONDITION__VARIABLE = 0;
+  int PART__STRING = 3;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * The feature id for the '<em><b>Integer</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NO_EQUAL_CONDITION__VALUE = 1;
+  int PART__INTEGER = 4;
 
   /**
-   * The number of structural features of the '<em>No Equal Condition</em>' class.
+   * The feature id for the '<em><b>Super Variable</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NO_EQUAL_CONDITION_FEATURE_COUNT = 2;
+  int PART__SUPER_VARIABLE = 5;
+
+  /**
+   * The feature id for the '<em><b>Class Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART__CLASS_VARIABLE = 6;
+
+  /**
+   * The number of structural features of the '<em>Part</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link org.xtext.example.myDsl.impl.LoopImpl <em>Loop</em>}' class.
@@ -1592,7 +2023,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getLoop()
    * @generated
    */
-  int LOOP = 33;
+  int LOOP = 41;
 
   /**
    * The feature id for the '<em><b>With Loop</b></em>' containment reference.
@@ -1629,7 +2060,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getWith()
    * @generated
    */
-  int WITH = 34;
+  int WITH = 42;
 
   /**
    * The feature id for the '<em><b>Init</b></em>' containment reference.
@@ -1693,7 +2124,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getFor()
    * @generated
    */
-  int FOR = 35;
+  int FOR = 43;
 
   /**
    * The feature id for the '<em><b>Increment</b></em>' containment reference.
@@ -1775,7 +2206,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getOtherElement()
    * @generated
    */
-  int OTHER_ELEMENT = 36;
+  int OTHER_ELEMENT = 44;
 
   /**
    * The feature id for the '<em><b>Page</b></em>' containment reference.
@@ -1839,7 +2270,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getStyle()
    * @generated
    */
-  int STYLE = 37;
+  int STYLE = 45;
 
   /**
    * The feature id for the '<em><b>Css</b></em>' containment reference.
@@ -1867,7 +2298,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getCss()
    * @generated
    */
-  int CSS = 38;
+  int CSS = 46;
 
   /**
    * The feature id for the '<em><b>Rules</b></em>' containment reference list.
@@ -1895,7 +2326,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getRule()
    * @generated
    */
-  int RULE = 39;
+  int RULE = 47;
 
   /**
    * The feature id for the '<em><b>Selector</b></em>' containment reference.
@@ -1932,7 +2363,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSelector()
    * @generated
    */
-  int SELECTOR = 40;
+  int SELECTOR = 48;
 
   /**
    * The feature id for the '<em><b>Id Selector</b></em>' containment reference.
@@ -1978,7 +2409,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getIDSelector()
    * @generated
    */
-  int ID_SELECTOR = 41;
+  int ID_SELECTOR = 49;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2006,7 +2437,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getClassSelector()
    * @generated
    */
-  int CLASS_SELECTOR = 42;
+  int CLASS_SELECTOR = 50;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2034,7 +2465,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getTypeSelector()
    * @generated
    */
-  int TYPE_SELECTOR = 43;
+  int TYPE_SELECTOR = 51;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2062,7 +2493,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getDeclaration()
    * @generated
    */
-  int DECLARATION = 44;
+  int DECLARATION = 52;
 
   /**
    * The feature id for the '<em><b>Property</b></em>' attribute.
@@ -2099,7 +2530,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getCssValue()
    * @generated
    */
-  int CSS_VALUE = 45;
+  int CSS_VALUE = 53;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2181,7 +2612,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getFloat()
    * @generated
    */
-  int FLOAT = 46;
+  int FLOAT = 54;
 
   /**
    * The feature id for the '<em><b>First Int</b></em>' attribute.
@@ -2609,6 +3040,27 @@ public interface MyDslPackage extends EPackage
   EAttribute getVariable_Name();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.SuperVariable <em>Super Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Super Variable</em>'.
+   * @see org.xtext.example.myDsl.SuperVariable
+   * @generated
+   */
+  EClass getSuperVariable();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.SuperVariable#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.myDsl.SuperVariable#getName()
+   * @see #getSuperVariable()
+   * @generated
+   */
+  EAttribute getSuperVariable_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.myDsl.VariableD <em>Variable D</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2619,37 +3071,37 @@ public interface MyDslPackage extends EPackage
   EClass getVariableD();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.VariableD#getVariable <em>Variable</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.VariableD#getSuperVariable <em>Super Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Variable</em>'.
-   * @see org.xtext.example.myDsl.VariableD#getVariable()
+   * @return the meta object for the containment reference '<em>Super Variable</em>'.
+   * @see org.xtext.example.myDsl.VariableD#getSuperVariable()
    * @see #getVariableD()
    * @generated
    */
-  EReference getVariableD_Variable();
+  EReference getVariableD_SuperVariable();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.VariableD#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.VariableD#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.myDsl.VariableD#getName()
-   * @see #getVariableD()
-   * @generated
-   */
-  EAttribute getVariableD_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.myDsl.VariableD#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Value</em>'.
+   * @return the meta object for the containment reference '<em>Value</em>'.
    * @see org.xtext.example.myDsl.VariableD#getValue()
    * @see #getVariableD()
    * @generated
    */
   EReference getVariableD_Value();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.VariableD#getClassVariable <em>Class Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Class Variable</em>'.
+   * @see org.xtext.example.myDsl.VariableD#getClassVariable()
+   * @see #getVariableD()
+   * @generated
+   */
+  EReference getVariableD_ClassVariable();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.myDsl.VariableD#getFunction <em>Function</em>}'.
@@ -2717,6 +3169,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getPage_String();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.myDsl.Page#getTitles <em>Titles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Titles</em>'.
+   * @see org.xtext.example.myDsl.Page#getTitles()
+   * @see #getPage()
+   * @generated
+   */
+  EReference getPage_Titles();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.myDsl.Page#getElementPage <em>Element Page</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2780,6 +3243,244 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getElementPage_Variable();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.Title <em>Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Title</em>'.
+   * @see org.xtext.example.myDsl.Title
+   * @generated
+   */
+  EClass getTitle();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Title#getBigTitle <em>Big Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Big Title</em>'.
+   * @see org.xtext.example.myDsl.Title#getBigTitle()
+   * @see #getTitle()
+   * @generated
+   */
+  EReference getTitle_BigTitle();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Title#getSubTitle <em>Sub Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sub Title</em>'.
+   * @see org.xtext.example.myDsl.Title#getSubTitle()
+   * @see #getTitle()
+   * @generated
+   */
+  EReference getTitle_SubTitle();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Title#getSubSubTitle <em>Sub Sub Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sub Sub Title</em>'.
+   * @see org.xtext.example.myDsl.Title#getSubSubTitle()
+   * @see #getTitle()
+   * @generated
+   */
+  EReference getTitle_SubSubTitle();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.BigTitle <em>Big Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Big Title</em>'.
+   * @see org.xtext.example.myDsl.BigTitle
+   * @generated
+   */
+  EClass getBigTitle();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.BigTitle#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Variable</em>'.
+   * @see org.xtext.example.myDsl.BigTitle#getVariable()
+   * @see #getBigTitle()
+   * @generated
+   */
+  EReference getBigTitle_Variable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.BigTitle#getObjectC <em>Object C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Object C</em>'.
+   * @see org.xtext.example.myDsl.BigTitle#getObjectC()
+   * @see #getBigTitle()
+   * @generated
+   */
+  EReference getBigTitle_ObjectC();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.BigTitle#getArrayC <em>Array C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Array C</em>'.
+   * @see org.xtext.example.myDsl.BigTitle#getArrayC()
+   * @see #getBigTitle()
+   * @generated
+   */
+  EReference getBigTitle_ArrayC();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.BigTitle#getString <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see org.xtext.example.myDsl.BigTitle#getString()
+   * @see #getBigTitle()
+   * @generated
+   */
+  EAttribute getBigTitle_String();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.BigTitle#getClassD <em>Class D</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Class D</em>'.
+   * @see org.xtext.example.myDsl.BigTitle#getClassD()
+   * @see #getBigTitle()
+   * @generated
+   */
+  EReference getBigTitle_ClassD();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.SubTitle <em>Sub Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sub Title</em>'.
+   * @see org.xtext.example.myDsl.SubTitle
+   * @generated
+   */
+  EClass getSubTitle();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.SubTitle#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Variable</em>'.
+   * @see org.xtext.example.myDsl.SubTitle#getVariable()
+   * @see #getSubTitle()
+   * @generated
+   */
+  EReference getSubTitle_Variable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.SubTitle#getObjectC <em>Object C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Object C</em>'.
+   * @see org.xtext.example.myDsl.SubTitle#getObjectC()
+   * @see #getSubTitle()
+   * @generated
+   */
+  EReference getSubTitle_ObjectC();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.SubTitle#getArrayC <em>Array C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Array C</em>'.
+   * @see org.xtext.example.myDsl.SubTitle#getArrayC()
+   * @see #getSubTitle()
+   * @generated
+   */
+  EReference getSubTitle_ArrayC();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.SubTitle#getString <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see org.xtext.example.myDsl.SubTitle#getString()
+   * @see #getSubTitle()
+   * @generated
+   */
+  EAttribute getSubTitle_String();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.SubTitle#getClassD <em>Class D</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Class D</em>'.
+   * @see org.xtext.example.myDsl.SubTitle#getClassD()
+   * @see #getSubTitle()
+   * @generated
+   */
+  EReference getSubTitle_ClassD();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.SubSubTitle <em>Sub Sub Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sub Sub Title</em>'.
+   * @see org.xtext.example.myDsl.SubSubTitle
+   * @generated
+   */
+  EClass getSubSubTitle();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.SubSubTitle#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Variable</em>'.
+   * @see org.xtext.example.myDsl.SubSubTitle#getVariable()
+   * @see #getSubSubTitle()
+   * @generated
+   */
+  EReference getSubSubTitle_Variable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.SubSubTitle#getObjectC <em>Object C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Object C</em>'.
+   * @see org.xtext.example.myDsl.SubSubTitle#getObjectC()
+   * @see #getSubSubTitle()
+   * @generated
+   */
+  EReference getSubSubTitle_ObjectC();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.SubSubTitle#getArrayC <em>Array C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Array C</em>'.
+   * @see org.xtext.example.myDsl.SubSubTitle#getArrayC()
+   * @see #getSubSubTitle()
+   * @generated
+   */
+  EReference getSubSubTitle_ArrayC();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.SubSubTitle#getString <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see org.xtext.example.myDsl.SubSubTitle#getString()
+   * @see #getSubSubTitle()
+   * @generated
+   */
+  EAttribute getSubSubTitle_String();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.SubSubTitle#getClassD <em>Class D</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Class D</em>'.
+   * @see org.xtext.example.myDsl.SubSubTitle#getClassD()
+   * @see #getSubSubTitle()
+   * @generated
+   */
+  EReference getSubSubTitle_ClassD();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.myDsl.Row <em>Row</em>}'.
@@ -3437,6 +4138,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getArgument1_String();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Argument1#getClassVariable <em>Class Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Class Variable</em>'.
+   * @see org.xtext.example.myDsl.Argument1#getClassVariable()
+   * @see #getArgument1()
+   * @generated
+   */
+  EReference getArgument1_ClassVariable();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Argument1#getVariable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3535,6 +4247,27 @@ public interface MyDslPackage extends EPackage
   EAttribute getArgument2_IntegerEnd3();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.ClassVariable <em>Class Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Class Variable</em>'.
+   * @see org.xtext.example.myDsl.ClassVariable
+   * @generated
+   */
+  EClass getClassVariable();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.ClassVariable#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.myDsl.ClassVariable#getName()
+   * @see #getClassVariable()
+   * @generated
+   */
+  EAttribute getClassVariable_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.myDsl.Conditional <em>Conditional</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3545,101 +4278,220 @@ public interface MyDslPackage extends EPackage
   EClass getConditional();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Conditional#getEqualCondition <em>Equal Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Conditional#getIfCondition <em>If Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Equal Condition</em>'.
-   * @see org.xtext.example.myDsl.Conditional#getEqualCondition()
+   * @return the meta object for the containment reference '<em>If Condition</em>'.
+   * @see org.xtext.example.myDsl.Conditional#getIfCondition()
    * @see #getConditional()
    * @generated
    */
-  EReference getConditional_EqualCondition();
+  EReference getConditional_IfCondition();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Conditional#getNotEqualCondition <em>Not Equal Condition</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.myDsl.Conditional#getElseCondion <em>Else Condion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Not Equal Condition</em>'.
-   * @see org.xtext.example.myDsl.Conditional#getNotEqualCondition()
+   * @return the meta object for the containment reference list '<em>Else Condion</em>'.
+   * @see org.xtext.example.myDsl.Conditional#getElseCondion()
    * @see #getConditional()
    * @generated
    */
-  EReference getConditional_NotEqualCondition();
+  EReference getConditional_ElseCondion();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.myDsl.Conditional#getOtherElement <em>Other Element</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.IfCondition <em>If Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Condition</em>'.
+   * @see org.xtext.example.myDsl.IfCondition
+   * @generated
+   */
+  EClass getIfCondition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.IfCondition#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see org.xtext.example.myDsl.IfCondition#getCondition()
+   * @see #getIfCondition()
+   * @generated
+   */
+  EReference getIfCondition_Condition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.myDsl.IfCondition#getOtherElement <em>Other Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Other Element</em>'.
-   * @see org.xtext.example.myDsl.Conditional#getOtherElement()
-   * @see #getConditional()
+   * @see org.xtext.example.myDsl.IfCondition#getOtherElement()
+   * @see #getIfCondition()
    * @generated
    */
-  EReference getConditional_OtherElement();
+  EReference getIfCondition_OtherElement();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.myDsl.EqualCondition <em>Equal Condition</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.ElseCondition <em>Else Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Equal Condition</em>'.
-   * @see org.xtext.example.myDsl.EqualCondition
+   * @return the meta object for class '<em>Else Condition</em>'.
+   * @see org.xtext.example.myDsl.ElseCondition
    * @generated
    */
-  EClass getEqualCondition();
+  EClass getElseCondition();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.EqualCondition#getVariable <em>Variable</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.myDsl.ElseCondition#getOtherElement <em>Other Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Other Element</em>'.
+   * @see org.xtext.example.myDsl.ElseCondition#getOtherElement()
+   * @see #getElseCondition()
+   * @generated
+   */
+  EReference getElseCondition_OtherElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.ElseCondition#getIfCondition <em>If Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>If Condition</em>'.
+   * @see org.xtext.example.myDsl.ElseCondition#getIfCondition()
+   * @see #getElseCondition()
+   * @generated
+   */
+  EReference getElseCondition_IfCondition();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.Condition1 <em>Condition1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition1</em>'.
+   * @see org.xtext.example.myDsl.Condition1
+   * @generated
+   */
+  EClass getCondition1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Condition1#getFirstPart <em>First Part</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>First Part</em>'.
+   * @see org.xtext.example.myDsl.Condition1#getFirstPart()
+   * @see #getCondition1()
+   * @generated
+   */
+  EReference getCondition1_FirstPart();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.Condition1#getCompare <em>Compare</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Compare</em>'.
+   * @see org.xtext.example.myDsl.Condition1#getCompare()
+   * @see #getCondition1()
+   * @generated
+   */
+  EAttribute getCondition1_Compare();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Condition1#getSecondPart <em>Second Part</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Second Part</em>'.
+   * @see org.xtext.example.myDsl.Condition1#getSecondPart()
+   * @see #getCondition1()
+   * @generated
+   */
+  EReference getCondition1_SecondPart();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.Part <em>Part</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Part</em>'.
+   * @see org.xtext.example.myDsl.Part
+   * @generated
+   */
+  EClass getPart();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Part#getVariable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Variable</em>'.
-   * @see org.xtext.example.myDsl.EqualCondition#getVariable()
-   * @see #getEqualCondition()
+   * @see org.xtext.example.myDsl.Part#getVariable()
+   * @see #getPart()
    * @generated
    */
-  EReference getEqualCondition_Variable();
+  EReference getPart_Variable();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.EqualCondition#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Part#getObjectC <em>Object C</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see org.xtext.example.myDsl.EqualCondition#getValue()
-   * @see #getEqualCondition()
+   * @return the meta object for the containment reference '<em>Object C</em>'.
+   * @see org.xtext.example.myDsl.Part#getObjectC()
+   * @see #getPart()
    * @generated
    */
-  EReference getEqualCondition_Value();
+  EReference getPart_ObjectC();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.myDsl.NoEqualCondition <em>No Equal Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Part#getArrayC <em>Array C</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>No Equal Condition</em>'.
-   * @see org.xtext.example.myDsl.NoEqualCondition
+   * @return the meta object for the containment reference '<em>Array C</em>'.
+   * @see org.xtext.example.myDsl.Part#getArrayC()
+   * @see #getPart()
    * @generated
    */
-  EClass getNoEqualCondition();
+  EReference getPart_ArrayC();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.NoEqualCondition#getVariable <em>Variable</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.Part#getString <em>String</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Variable</em>'.
-   * @see org.xtext.example.myDsl.NoEqualCondition#getVariable()
-   * @see #getNoEqualCondition()
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see org.xtext.example.myDsl.Part#getString()
+   * @see #getPart()
    * @generated
    */
-  EReference getNoEqualCondition_Variable();
+  EAttribute getPart_String();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.NoEqualCondition#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.Part#getInteger <em>Integer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see org.xtext.example.myDsl.NoEqualCondition#getValue()
-   * @see #getNoEqualCondition()
+   * @return the meta object for the attribute '<em>Integer</em>'.
+   * @see org.xtext.example.myDsl.Part#getInteger()
+   * @see #getPart()
    * @generated
    */
-  EReference getNoEqualCondition_Value();
+  EAttribute getPart_Integer();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Part#getSuperVariable <em>Super Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Super Variable</em>'.
+   * @see org.xtext.example.myDsl.Part#getSuperVariable()
+   * @see #getPart()
+   * @generated
+   */
+  EReference getPart_SuperVariable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Part#getClassVariable <em>Class Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Class Variable</em>'.
+   * @see org.xtext.example.myDsl.Part#getClassVariable()
+   * @see #getPart()
+   * @generated
+   */
+  EReference getPart_ClassVariable();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.myDsl.Loop <em>Loop</em>}'.
@@ -4561,6 +5413,24 @@ public interface MyDslPackage extends EPackage
     EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.SuperVariableImpl <em>Super Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.SuperVariableImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSuperVariable()
+     * @generated
+     */
+    EClass SUPER_VARIABLE = eINSTANCE.getSuperVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUPER_VARIABLE__NAME = eINSTANCE.getSuperVariable_Name();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.myDsl.impl.VariableDImpl <em>Variable D</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4571,28 +5441,28 @@ public interface MyDslPackage extends EPackage
     EClass VARIABLE_D = eINSTANCE.getVariableD();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Super Variable</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VARIABLE_D__VARIABLE = eINSTANCE.getVariableD_Variable();
+    EReference VARIABLE_D__SUPER_VARIABLE = eINSTANCE.getVariableD_SuperVariable();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE_D__NAME = eINSTANCE.getVariableD_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference VARIABLE_D__VALUE = eINSTANCE.getVariableD_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Class Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VARIABLE_D__CLASS_VARIABLE = eINSTANCE.getVariableD_ClassVariable();
 
     /**
      * The meta object literal for the '<em><b>Function</b></em>' containment reference list feature.
@@ -4645,6 +5515,14 @@ public interface MyDslPackage extends EPackage
     EAttribute PAGE__STRING = eINSTANCE.getPage_String();
 
     /**
+     * The meta object literal for the '<em><b>Titles</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PAGE__TITLES = eINSTANCE.getPage_Titles();
+
+    /**
      * The meta object literal for the '<em><b>Element Page</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4693,6 +5571,190 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference ELEMENT_PAGE__VARIABLE = eINSTANCE.getElementPage_Variable();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.TitleImpl <em>Title</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.TitleImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getTitle()
+     * @generated
+     */
+    EClass TITLE = eINSTANCE.getTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Big Title</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TITLE__BIG_TITLE = eINSTANCE.getTitle_BigTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Sub Title</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TITLE__SUB_TITLE = eINSTANCE.getTitle_SubTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Sub Sub Title</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TITLE__SUB_SUB_TITLE = eINSTANCE.getTitle_SubSubTitle();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.BigTitleImpl <em>Big Title</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.BigTitleImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getBigTitle()
+     * @generated
+     */
+    EClass BIG_TITLE = eINSTANCE.getBigTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BIG_TITLE__VARIABLE = eINSTANCE.getBigTitle_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Object C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BIG_TITLE__OBJECT_C = eINSTANCE.getBigTitle_ObjectC();
+
+    /**
+     * The meta object literal for the '<em><b>Array C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BIG_TITLE__ARRAY_C = eINSTANCE.getBigTitle_ArrayC();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BIG_TITLE__STRING = eINSTANCE.getBigTitle_String();
+
+    /**
+     * The meta object literal for the '<em><b>Class D</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BIG_TITLE__CLASS_D = eINSTANCE.getBigTitle_ClassD();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.SubTitleImpl <em>Sub Title</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.SubTitleImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSubTitle()
+     * @generated
+     */
+    EClass SUB_TITLE = eINSTANCE.getSubTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB_TITLE__VARIABLE = eINSTANCE.getSubTitle_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Object C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB_TITLE__OBJECT_C = eINSTANCE.getSubTitle_ObjectC();
+
+    /**
+     * The meta object literal for the '<em><b>Array C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB_TITLE__ARRAY_C = eINSTANCE.getSubTitle_ArrayC();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUB_TITLE__STRING = eINSTANCE.getSubTitle_String();
+
+    /**
+     * The meta object literal for the '<em><b>Class D</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB_TITLE__CLASS_D = eINSTANCE.getSubTitle_ClassD();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.SubSubTitleImpl <em>Sub Sub Title</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.SubSubTitleImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSubSubTitle()
+     * @generated
+     */
+    EClass SUB_SUB_TITLE = eINSTANCE.getSubSubTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB_SUB_TITLE__VARIABLE = eINSTANCE.getSubSubTitle_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Object C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB_SUB_TITLE__OBJECT_C = eINSTANCE.getSubSubTitle_ObjectC();
+
+    /**
+     * The meta object literal for the '<em><b>Array C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB_SUB_TITLE__ARRAY_C = eINSTANCE.getSubSubTitle_ArrayC();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUB_SUB_TITLE__STRING = eINSTANCE.getSubSubTitle_String();
+
+    /**
+     * The meta object literal for the '<em><b>Class D</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB_SUB_TITLE__CLASS_D = eINSTANCE.getSubSubTitle_ClassD();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.myDsl.impl.RowImpl <em>Row</em>}' class.
@@ -5215,6 +6277,14 @@ public interface MyDslPackage extends EPackage
     EAttribute ARGUMENT1__STRING = eINSTANCE.getArgument1_String();
 
     /**
+     * The meta object literal for the '<em><b>Class Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENT1__CLASS_VARIABLE = eINSTANCE.getArgument1_ClassVariable();
+
+    /**
      * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5289,6 +6359,24 @@ public interface MyDslPackage extends EPackage
     EAttribute ARGUMENT2__INTEGER_END3 = eINSTANCE.getArgument2_IntegerEnd3();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.ClassVariableImpl <em>Class Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.ClassVariableImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getClassVariable()
+     * @generated
+     */
+    EClass CLASS_VARIABLE = eINSTANCE.getClassVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLASS_VARIABLE__NAME = eINSTANCE.getClassVariable_Name();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.myDsl.impl.ConditionalImpl <em>Conditional</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5299,20 +6387,38 @@ public interface MyDslPackage extends EPackage
     EClass CONDITIONAL = eINSTANCE.getConditional();
 
     /**
-     * The meta object literal for the '<em><b>Equal Condition</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>If Condition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONDITIONAL__EQUAL_CONDITION = eINSTANCE.getConditional_EqualCondition();
+    EReference CONDITIONAL__IF_CONDITION = eINSTANCE.getConditional_IfCondition();
 
     /**
-     * The meta object literal for the '<em><b>Not Equal Condition</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Else Condion</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONDITIONAL__NOT_EQUAL_CONDITION = eINSTANCE.getConditional_NotEqualCondition();
+    EReference CONDITIONAL__ELSE_CONDION = eINSTANCE.getConditional_ElseCondion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.IfConditionImpl <em>If Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.IfConditionImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getIfCondition()
+     * @generated
+     */
+    EClass IF_CONDITION = eINSTANCE.getIfCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_CONDITION__CONDITION = eINSTANCE.getIfCondition_Condition();
 
     /**
      * The meta object literal for the '<em><b>Other Element</b></em>' containment reference list feature.
@@ -5320,17 +6426,77 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONDITIONAL__OTHER_ELEMENT = eINSTANCE.getConditional_OtherElement();
+    EReference IF_CONDITION__OTHER_ELEMENT = eINSTANCE.getIfCondition_OtherElement();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.EqualConditionImpl <em>Equal Condition</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.ElseConditionImpl <em>Else Condition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.myDsl.impl.EqualConditionImpl
-     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getEqualCondition()
+     * @see org.xtext.example.myDsl.impl.ElseConditionImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getElseCondition()
      * @generated
      */
-    EClass EQUAL_CONDITION = eINSTANCE.getEqualCondition();
+    EClass ELSE_CONDITION = eINSTANCE.getElseCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Other Element</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELSE_CONDITION__OTHER_ELEMENT = eINSTANCE.getElseCondition_OtherElement();
+
+    /**
+     * The meta object literal for the '<em><b>If Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELSE_CONDITION__IF_CONDITION = eINSTANCE.getElseCondition_IfCondition();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.Condition1Impl <em>Condition1</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.Condition1Impl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getCondition1()
+     * @generated
+     */
+    EClass CONDITION1 = eINSTANCE.getCondition1();
+
+    /**
+     * The meta object literal for the '<em><b>First Part</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION1__FIRST_PART = eINSTANCE.getCondition1_FirstPart();
+
+    /**
+     * The meta object literal for the '<em><b>Compare</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITION1__COMPARE = eINSTANCE.getCondition1_Compare();
+
+    /**
+     * The meta object literal for the '<em><b>Second Part</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION1__SECOND_PART = eINSTANCE.getCondition1_SecondPart();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.PartImpl <em>Part</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.PartImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getPart()
+     * @generated
+     */
+    EClass PART = eINSTANCE.getPart();
 
     /**
      * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
@@ -5338,41 +6504,55 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EQUAL_CONDITION__VARIABLE = eINSTANCE.getEqualCondition_Variable();
+    EReference PART__VARIABLE = eINSTANCE.getPart_Variable();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Object C</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EQUAL_CONDITION__VALUE = eINSTANCE.getEqualCondition_Value();
+    EReference PART__OBJECT_C = eINSTANCE.getPart_ObjectC();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.NoEqualConditionImpl <em>No Equal Condition</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.myDsl.impl.NoEqualConditionImpl
-     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getNoEqualCondition()
-     * @generated
-     */
-    EClass NO_EQUAL_CONDITION = eINSTANCE.getNoEqualCondition();
-
-    /**
-     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Array C</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NO_EQUAL_CONDITION__VARIABLE = eINSTANCE.getNoEqualCondition_Variable();
+    EReference PART__ARRAY_C = eINSTANCE.getPart_ArrayC();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NO_EQUAL_CONDITION__VALUE = eINSTANCE.getNoEqualCondition_Value();
+    EAttribute PART__STRING = eINSTANCE.getPart_String();
+
+    /**
+     * The meta object literal for the '<em><b>Integer</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PART__INTEGER = eINSTANCE.getPart_Integer();
+
+    /**
+     * The meta object literal for the '<em><b>Super Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PART__SUPER_VARIABLE = eINSTANCE.getPart_SuperVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Class Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PART__CLASS_VARIABLE = eINSTANCE.getPart_ClassVariable();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.myDsl.impl.LoopImpl <em>Loop</em>}' class.

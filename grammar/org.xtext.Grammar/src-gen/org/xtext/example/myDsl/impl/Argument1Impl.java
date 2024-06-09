@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.myDsl.Argument1;
 import org.xtext.example.myDsl.ArrayC;
+import org.xtext.example.myDsl.ClassVariable;
 import org.xtext.example.myDsl.MyDslPackage;
 import org.xtext.example.myDsl.ObjectC;
 import org.xtext.example.myDsl.Variable;
@@ -29,6 +30,7 @@ import org.xtext.example.myDsl.Variable;
  *   <li>{@link org.xtext.example.myDsl.impl.Argument1Impl#getInteger <em>Integer</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.Argument1Impl#getFloatValue <em>Float Value</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.Argument1Impl#getString <em>String</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.impl.Argument1Impl#getClassVariable <em>Class Variable</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.Argument1Impl#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.Argument1Impl#getObjectC <em>Object C</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.Argument1Impl#getArrayC <em>Array C</em>}</li>
@@ -87,6 +89,16 @@ public class Argument1Impl extends MinimalEObjectImpl.Container implements Argum
    * @ordered
    */
   protected String string = STRING_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getClassVariable() <em>Class Variable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClassVariable()
+   * @generated
+   * @ordered
+   */
+  protected ClassVariable classVariable;
 
   /**
    * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
@@ -237,6 +249,56 @@ public class Argument1Impl extends MinimalEObjectImpl.Container implements Argum
     string = newString;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.ARGUMENT1__STRING, oldString, string));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ClassVariable getClassVariable()
+  {
+    return classVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetClassVariable(ClassVariable newClassVariable, NotificationChain msgs)
+  {
+    ClassVariable oldClassVariable = classVariable;
+    classVariable = newClassVariable;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.ARGUMENT1__CLASS_VARIABLE, oldClassVariable, newClassVariable);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setClassVariable(ClassVariable newClassVariable)
+  {
+    if (newClassVariable != classVariable)
+    {
+      NotificationChain msgs = null;
+      if (classVariable != null)
+        msgs = ((InternalEObject)classVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.ARGUMENT1__CLASS_VARIABLE, null, msgs);
+      if (newClassVariable != null)
+        msgs = ((InternalEObject)newClassVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.ARGUMENT1__CLASS_VARIABLE, null, msgs);
+      msgs = basicSetClassVariable(newClassVariable, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.ARGUMENT1__CLASS_VARIABLE, newClassVariable, newClassVariable));
   }
 
   /**
@@ -401,6 +463,8 @@ public class Argument1Impl extends MinimalEObjectImpl.Container implements Argum
     {
       case MyDslPackage.ARGUMENT1__FLOAT_VALUE:
         return basicSetFloatValue(null, msgs);
+      case MyDslPackage.ARGUMENT1__CLASS_VARIABLE:
+        return basicSetClassVariable(null, msgs);
       case MyDslPackage.ARGUMENT1__VARIABLE:
         return basicSetVariable(null, msgs);
       case MyDslPackage.ARGUMENT1__OBJECT_C:
@@ -427,6 +491,8 @@ public class Argument1Impl extends MinimalEObjectImpl.Container implements Argum
         return getFloatValue();
       case MyDslPackage.ARGUMENT1__STRING:
         return getString();
+      case MyDslPackage.ARGUMENT1__CLASS_VARIABLE:
+        return getClassVariable();
       case MyDslPackage.ARGUMENT1__VARIABLE:
         return getVariable();
       case MyDslPackage.ARGUMENT1__OBJECT_C:
@@ -455,6 +521,9 @@ public class Argument1Impl extends MinimalEObjectImpl.Container implements Argum
         return;
       case MyDslPackage.ARGUMENT1__STRING:
         setString((String)newValue);
+        return;
+      case MyDslPackage.ARGUMENT1__CLASS_VARIABLE:
+        setClassVariable((ClassVariable)newValue);
         return;
       case MyDslPackage.ARGUMENT1__VARIABLE:
         setVariable((Variable)newValue);
@@ -488,6 +557,9 @@ public class Argument1Impl extends MinimalEObjectImpl.Container implements Argum
       case MyDslPackage.ARGUMENT1__STRING:
         setString(STRING_EDEFAULT);
         return;
+      case MyDslPackage.ARGUMENT1__CLASS_VARIABLE:
+        setClassVariable((ClassVariable)null);
+        return;
       case MyDslPackage.ARGUMENT1__VARIABLE:
         setVariable((Variable)null);
         return;
@@ -517,6 +589,8 @@ public class Argument1Impl extends MinimalEObjectImpl.Container implements Argum
         return floatValue != null;
       case MyDslPackage.ARGUMENT1__STRING:
         return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
+      case MyDslPackage.ARGUMENT1__CLASS_VARIABLE:
+        return classVariable != null;
       case MyDslPackage.ARGUMENT1__VARIABLE:
         return variable != null;
       case MyDslPackage.ARGUMENT1__OBJECT_C:

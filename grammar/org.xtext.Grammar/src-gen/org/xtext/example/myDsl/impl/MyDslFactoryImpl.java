@@ -15,11 +15,14 @@ import org.xtext.example.myDsl.Argument1;
 import org.xtext.example.myDsl.Argument2;
 import org.xtext.example.myDsl.Array;
 import org.xtext.example.myDsl.ArrayC;
+import org.xtext.example.myDsl.BigTitle;
 import org.xtext.example.myDsl.Build;
 import org.xtext.example.myDsl.ClassD;
 import org.xtext.example.myDsl.ClassSelector;
+import org.xtext.example.myDsl.ClassVariable;
 import org.xtext.example.myDsl.Col;
 import org.xtext.example.myDsl.Colspan;
+import org.xtext.example.myDsl.Condition1;
 import org.xtext.example.myDsl.Conditional;
 import org.xtext.example.myDsl.Css;
 import org.xtext.example.myDsl.CssValue;
@@ -30,11 +33,12 @@ import org.xtext.example.myDsl.Document;
 import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
-import org.xtext.example.myDsl.EqualCondition;
+import org.xtext.example.myDsl.ElseCondition;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
 import org.xtext.example.myDsl.IDSelector;
+import org.xtext.example.myDsl.IfCondition;
 import org.xtext.example.myDsl.Img;
 import org.xtext.example.myDsl.KeyValue;
 import org.xtext.example.myDsl.Loop;
@@ -42,10 +46,10 @@ import org.xtext.example.myDsl.Model;
 import org.xtext.example.myDsl.MyDslFactory;
 import org.xtext.example.myDsl.MyDslPackage;
 import org.xtext.example.myDsl.NestedObject;
-import org.xtext.example.myDsl.NoEqualCondition;
 import org.xtext.example.myDsl.ObjectC;
 import org.xtext.example.myDsl.OtherElement;
 import org.xtext.example.myDsl.Page;
+import org.xtext.example.myDsl.Part;
 import org.xtext.example.myDsl.Position;
 import org.xtext.example.myDsl.ProdFunction;
 import org.xtext.example.myDsl.Row;
@@ -53,7 +57,11 @@ import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
 import org.xtext.example.myDsl.Style;
+import org.xtext.example.myDsl.SubSubTitle;
+import org.xtext.example.myDsl.SubTitle;
 import org.xtext.example.myDsl.SumFunction;
+import org.xtext.example.myDsl.SuperVariable;
+import org.xtext.example.myDsl.Title;
 import org.xtext.example.myDsl.TypeSelector;
 import org.xtext.example.myDsl.Value;
 import org.xtext.example.myDsl.Variable;
@@ -122,9 +130,14 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.BUILD: return createBuild();
       case MyDslPackage.ELEMENT_BUILD: return createElementBuild();
       case MyDslPackage.VARIABLE: return createVariable();
+      case MyDslPackage.SUPER_VARIABLE: return createSuperVariable();
       case MyDslPackage.VARIABLE_D: return createVariableD();
       case MyDslPackage.PAGE: return createPage();
       case MyDslPackage.ELEMENT_PAGE: return createElementPage();
+      case MyDslPackage.TITLE: return createTitle();
+      case MyDslPackage.BIG_TITLE: return createBigTitle();
+      case MyDslPackage.SUB_TITLE: return createSubTitle();
+      case MyDslPackage.SUB_SUB_TITLE: return createSubSubTitle();
       case MyDslPackage.ROW: return createRow();
       case MyDslPackage.ELEMENT_ROW: return createElementRow();
       case MyDslPackage.COL: return createCol();
@@ -142,9 +155,12 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.DIV_FUNCTION: return createDivFunction();
       case MyDslPackage.ARGUMENT1: return createArgument1();
       case MyDslPackage.ARGUMENT2: return createArgument2();
+      case MyDslPackage.CLASS_VARIABLE: return createClassVariable();
       case MyDslPackage.CONDITIONAL: return createConditional();
-      case MyDslPackage.EQUAL_CONDITION: return createEqualCondition();
-      case MyDslPackage.NO_EQUAL_CONDITION: return createNoEqualCondition();
+      case MyDslPackage.IF_CONDITION: return createIfCondition();
+      case MyDslPackage.ELSE_CONDITION: return createElseCondition();
+      case MyDslPackage.CONDITION1: return createCondition1();
+      case MyDslPackage.PART: return createPart();
       case MyDslPackage.LOOP: return createLoop();
       case MyDslPackage.WITH: return createWith();
       case MyDslPackage.FOR: return createFor();
@@ -290,6 +306,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public SuperVariable createSuperVariable()
+  {
+    SuperVariableImpl superVariable = new SuperVariableImpl();
+    return superVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public VariableD createVariableD()
   {
     VariableDImpl variableD = new VariableDImpl();
@@ -318,6 +346,54 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ElementPageImpl elementPage = new ElementPageImpl();
     return elementPage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Title createTitle()
+  {
+    TitleImpl title = new TitleImpl();
+    return title;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BigTitle createBigTitle()
+  {
+    BigTitleImpl bigTitle = new BigTitleImpl();
+    return bigTitle;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SubTitle createSubTitle()
+  {
+    SubTitleImpl subTitle = new SubTitleImpl();
+    return subTitle;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SubSubTitle createSubSubTitle()
+  {
+    SubSubTitleImpl subSubTitle = new SubSubTitleImpl();
+    return subSubTitle;
   }
 
   /**
@@ -530,6 +606,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public ClassVariable createClassVariable()
+  {
+    ClassVariableImpl classVariable = new ClassVariableImpl();
+    return classVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Conditional createConditional()
   {
     ConditionalImpl conditional = new ConditionalImpl();
@@ -542,10 +630,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public EqualCondition createEqualCondition()
+  public IfCondition createIfCondition()
   {
-    EqualConditionImpl equalCondition = new EqualConditionImpl();
-    return equalCondition;
+    IfConditionImpl ifCondition = new IfConditionImpl();
+    return ifCondition;
   }
 
   /**
@@ -554,10 +642,34 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public NoEqualCondition createNoEqualCondition()
+  public ElseCondition createElseCondition()
   {
-    NoEqualConditionImpl noEqualCondition = new NoEqualConditionImpl();
-    return noEqualCondition;
+    ElseConditionImpl elseCondition = new ElseConditionImpl();
+    return elseCondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Condition1 createCondition1()
+  {
+    Condition1Impl condition1 = new Condition1Impl();
+    return condition1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Part createPart()
+  {
+    PartImpl part = new PartImpl();
+    return part;
   }
 
   /**

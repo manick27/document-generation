@@ -36,8 +36,8 @@ public class GrammarGenerator extends AbstractGenerator {
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(resource.getAllContents());
     for (final EObject element : _iterable) {
       if ((element instanceof Document)) {
-        final HtmlCodeGenerator seqgeneratorHtml = new HtmlCodeGenerator();
-        Object _valueOfVariableInData = seqgeneratorHtml.getValueOfVariableInData(((Document)element).getBuild().getVariable().getName(), ((Document)element).getData(), this.context1);
+        final HtmlCodeGenerator seqgeneratorHtml = new HtmlCodeGenerator(this.context1);
+        Object _valueOfVariableInData = seqgeneratorHtml.getValueOfVariableInData(((Document)element).getBuild().getVariable().getName(), ((Document)element).getData());
         String fileName = ((String) _valueOfVariableInData);
         fileName = fileName.replace(" ", "_");
         Build _build = ((Document)element).getBuild();
@@ -51,8 +51,8 @@ public class GrammarGenerator extends AbstractGenerator {
               if (_tripleNotEquals_1) {
                 final StringBuilder seqgeneratedCode = new StringBuilder();
                 final StringBuilder nameOfPage = new StringBuilder();
-                seqgeneratedCode.append(this.buildHtmlCodeForPage(elementBuild.getPage(), ((Document)element), null, seqgeneratorHtml, this.context1));
-                nameOfPage.append(seqgeneratorHtml.getNameOfPage(elementBuild.getPage(), ((Document)element).getData(), null, this.context1));
+                seqgeneratedCode.append(this.buildHtmlCodeForPage(elementBuild.getPage(), ((Document)element), null, seqgeneratorHtml));
+                nameOfPage.append(seqgeneratorHtml.getNameOfPage(elementBuild.getPage(), ((Document)element).getData(), null));
                 fsa.generateFile((((fileName + "/html/") + nameOfPage) + ".html"), seqgeneratedCode);
                 fsa.generateFile((((fileName + "/txt/") + nameOfPage) + ".txt"), seqgeneratedCode);
               } else {
@@ -75,12 +75,12 @@ public class GrammarGenerator extends AbstractGenerator {
                           Variable _endWithVariable = elementBuild.getLoop().getForLoop().getEndWithVariable();
                           boolean _tripleNotEquals_5 = (_endWithVariable != null);
                           if (_tripleNotEquals_5) {
-                            for (int i = p; (i < seqgeneratorHtml.getLengthForArray(elementBuild.getLoop().getForLoop().getEndWithVariable().getName(), ((Document)element).getData(), this.context1)); i++) {
+                            for (int i = p; (i < seqgeneratorHtml.getLengthForArray(elementBuild.getLoop().getForLoop().getEndWithVariable().getName(), ((Document)element).getData())); i++) {
                               {
                                 final StringBuilder seqgeneratedCode_1 = new StringBuilder();
                                 final StringBuilder nameOfPage_1 = new StringBuilder();
-                                seqgeneratedCode_1.append(this.buildHtmlCodeForPage(otherElement.getPage(), ((Document)element), null, seqgeneratorHtml, this.context1));
-                                nameOfPage_1.append(seqgeneratorHtml.getNameOfPage(otherElement.getPage(), ((Document)element).getData(), null, this.context1));
+                                seqgeneratedCode_1.append(this.buildHtmlCodeForPage(otherElement.getPage(), ((Document)element), null, seqgeneratorHtml));
+                                nameOfPage_1.append(seqgeneratorHtml.getNameOfPage(otherElement.getPage(), ((Document)element).getData(), null));
                                 fsa.generateFile((((fileName + "/html/") + nameOfPage_1) + ".html"), seqgeneratedCode_1);
                                 this.context1.incrementVariable(elementBuild.getLoop().getForLoop().getIncrement().getName(), 1);
                               }
@@ -93,8 +93,8 @@ public class GrammarGenerator extends AbstractGenerator {
                                 {
                                   final StringBuilder seqgeneratedCode_1 = new StringBuilder();
                                   final StringBuilder nameOfPage_1 = new StringBuilder();
-                                  seqgeneratedCode_1.append(this.buildHtmlCodeForPage(otherElement.getPage(), ((Document)element), null, seqgeneratorHtml, this.context1));
-                                  nameOfPage_1.append(seqgeneratorHtml.getNameOfPage(otherElement.getPage(), ((Document)element).getData(), null, this.context1));
+                                  seqgeneratedCode_1.append(this.buildHtmlCodeForPage(otherElement.getPage(), ((Document)element), null, seqgeneratorHtml));
+                                  nameOfPage_1.append(seqgeneratorHtml.getNameOfPage(otherElement.getPage(), ((Document)element).getData(), null));
                                   fsa.generateFile((((fileName + "/html/") + nameOfPage_1) + ".html"), seqgeneratedCode_1);
                                   this.context1.incrementVariable(elementBuild.getLoop().getForLoop().getIncrement().getName(), 1);
                                 }
@@ -114,14 +114,14 @@ public class GrammarGenerator extends AbstractGenerator {
                           Page _page_2 = otherElement_1.getPage();
                           boolean _tripleNotEquals_7 = (_page_2 != null);
                           if (_tripleNotEquals_7) {
-                            for (int i = 0; (i < seqgeneratorHtml.getLengthForArray(elementBuild.getLoop().getWithLoop().getVariable().getName(), ((Document)element).getData(), this.context1)); i++) {
+                            for (int i = 0; (i < seqgeneratorHtml.getLengthForArray(elementBuild.getLoop().getWithLoop().getVariable().getName(), ((Document)element).getData())); i++) {
                               {
                                 final StringBuilder seqgeneratedCode_1 = new StringBuilder();
                                 final StringBuilder nameOfPage_1 = new StringBuilder();
-                                Value object = seqgeneratorHtml.getObjetInArray(elementBuild.getLoop().getWithLoop().getVariable().getName(), ((Document)element).getData(), i, this.context1);
+                                Value object = seqgeneratorHtml.getObjetInArray(elementBuild.getLoop().getWithLoop().getVariable().getName(), ((Document)element).getData(), i);
                                 this.context1.setVariable(elementBuild.getLoop().getWithLoop().getInit().getName(), object);
-                                seqgeneratedCode_1.append(this.buildHtmlCodeForPage(otherElement_1.getPage(), ((Document)element), elementBuild.getLoop().getWithLoop().getInit().getName(), seqgeneratorHtml, this.context1));
-                                nameOfPage_1.append(seqgeneratorHtml.getNameOfPage(otherElement_1.getPage(), ((Document)element).getData(), object, this.context1));
+                                seqgeneratedCode_1.append(this.buildHtmlCodeForPage(otherElement_1.getPage(), ((Document)element), elementBuild.getLoop().getWithLoop().getInit().getName(), seqgeneratorHtml));
+                                nameOfPage_1.append(seqgeneratorHtml.getNameOfPage(otherElement_1.getPage(), ((Document)element).getData(), object));
                                 fsa.generateFile((((fileName + "/html/") + nameOfPage_1) + ".html"), seqgeneratedCode_1);
                               }
                             }
@@ -134,7 +134,7 @@ public class GrammarGenerator extends AbstractGenerator {
               }
             }
           } else {
-            final String seqgeneratedCode_1 = seqgeneratorHtml.generate(((Document)element), fileName.toString(), this.context1);
+            final String seqgeneratedCode_1 = seqgeneratorHtml.generate(((Document)element), fileName.toString());
             final String htmlFilePath = (((fileName + "/html/") + fileName) + ".html");
             fsa.generateFile(htmlFilePath, seqgeneratedCode_1);
           }
@@ -143,17 +143,17 @@ public class GrammarGenerator extends AbstractGenerator {
     }
   }
 
-  public StringBuilder buildHtmlCodeForPage(final Page page, final Document document, final String withLoopInitName, final HtmlCodeGenerator seqgeneratorHtml, final Context context1) {
+  public StringBuilder buildHtmlCodeForPage(final Page page, final Document document, final String withLoopInitName, final HtmlCodeGenerator seqgeneratorHtml) {
     final CssCodeGenerator seqgeneratorCss = new CssCodeGenerator();
     final StringBuilder cssCode = seqgeneratorCss.generate(document.getStyle());
     final StringBuilder buildCode = new StringBuilder();
     Value object = ((Value) null);
     if ((withLoopInitName != null)) {
-      Object _variable = context1.getVariable(withLoopInitName);
+      Object _variable = this.context1.getVariable(withLoopInitName);
       object = ((Value) _variable);
-      seqgeneratorHtml.buildWithLoopPage(buildCode, page, document, withLoopInitName, context1);
+      seqgeneratorHtml.buildWithLoopPage(buildCode, page, document, withLoopInitName);
     } else {
-      seqgeneratorHtml.buildPage(buildCode, page, document, context1);
+      seqgeneratorHtml.buildPage(buildCode, page, document);
     }
     final StringBuilder code = new StringBuilder();
     StringConcatenation _builder = new StringConcatenation();
@@ -172,7 +172,7 @@ public class GrammarGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t    ");
     _builder.append("<title>");
-    Object _nameOfPage = seqgeneratorHtml.getNameOfPage(page, document.getData(), object, context1);
+    Object _nameOfPage = seqgeneratorHtml.getNameOfPage(page, document.getData(), object);
     String _plus = (_builder.toString() + _nameOfPage);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("</title>");

@@ -14,11 +14,14 @@ import org.xtext.example.myDsl.Argument1;
 import org.xtext.example.myDsl.Argument2;
 import org.xtext.example.myDsl.Array;
 import org.xtext.example.myDsl.ArrayC;
+import org.xtext.example.myDsl.BigTitle;
 import org.xtext.example.myDsl.Build;
 import org.xtext.example.myDsl.ClassD;
 import org.xtext.example.myDsl.ClassSelector;
+import org.xtext.example.myDsl.ClassVariable;
 import org.xtext.example.myDsl.Col;
 import org.xtext.example.myDsl.Colspan;
+import org.xtext.example.myDsl.Condition1;
 import org.xtext.example.myDsl.Conditional;
 import org.xtext.example.myDsl.Css;
 import org.xtext.example.myDsl.CssValue;
@@ -29,21 +32,22 @@ import org.xtext.example.myDsl.Document;
 import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
-import org.xtext.example.myDsl.EqualCondition;
+import org.xtext.example.myDsl.ElseCondition;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
 import org.xtext.example.myDsl.IDSelector;
+import org.xtext.example.myDsl.IfCondition;
 import org.xtext.example.myDsl.Img;
 import org.xtext.example.myDsl.KeyValue;
 import org.xtext.example.myDsl.Loop;
 import org.xtext.example.myDsl.Model;
 import org.xtext.example.myDsl.MyDslPackage;
 import org.xtext.example.myDsl.NestedObject;
-import org.xtext.example.myDsl.NoEqualCondition;
 import org.xtext.example.myDsl.ObjectC;
 import org.xtext.example.myDsl.OtherElement;
 import org.xtext.example.myDsl.Page;
+import org.xtext.example.myDsl.Part;
 import org.xtext.example.myDsl.Position;
 import org.xtext.example.myDsl.ProdFunction;
 import org.xtext.example.myDsl.Row;
@@ -51,7 +55,11 @@ import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
 import org.xtext.example.myDsl.Style;
+import org.xtext.example.myDsl.SubSubTitle;
+import org.xtext.example.myDsl.SubTitle;
 import org.xtext.example.myDsl.SumFunction;
+import org.xtext.example.myDsl.SuperVariable;
+import org.xtext.example.myDsl.Title;
 import org.xtext.example.myDsl.TypeSelector;
 import org.xtext.example.myDsl.Value;
 import org.xtext.example.myDsl.Variable;
@@ -172,6 +180,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createVariableAdapter();
       }
       @Override
+      public Adapter caseSuperVariable(SuperVariable object)
+      {
+        return createSuperVariableAdapter();
+      }
+      @Override
       public Adapter caseVariableD(VariableD object)
       {
         return createVariableDAdapter();
@@ -185,6 +198,26 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseElementPage(ElementPage object)
       {
         return createElementPageAdapter();
+      }
+      @Override
+      public Adapter caseTitle(Title object)
+      {
+        return createTitleAdapter();
+      }
+      @Override
+      public Adapter caseBigTitle(BigTitle object)
+      {
+        return createBigTitleAdapter();
+      }
+      @Override
+      public Adapter caseSubTitle(SubTitle object)
+      {
+        return createSubTitleAdapter();
+      }
+      @Override
+      public Adapter caseSubSubTitle(SubSubTitle object)
+      {
+        return createSubSubTitleAdapter();
       }
       @Override
       public Adapter caseRow(Row object)
@@ -272,19 +305,34 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createArgument2Adapter();
       }
       @Override
+      public Adapter caseClassVariable(ClassVariable object)
+      {
+        return createClassVariableAdapter();
+      }
+      @Override
       public Adapter caseConditional(Conditional object)
       {
         return createConditionalAdapter();
       }
       @Override
-      public Adapter caseEqualCondition(EqualCondition object)
+      public Adapter caseIfCondition(IfCondition object)
       {
-        return createEqualConditionAdapter();
+        return createIfConditionAdapter();
       }
       @Override
-      public Adapter caseNoEqualCondition(NoEqualCondition object)
+      public Adapter caseElseCondition(ElseCondition object)
       {
-        return createNoEqualConditionAdapter();
+        return createElseConditionAdapter();
+      }
+      @Override
+      public Adapter caseCondition1(Condition1 object)
+      {
+        return createCondition1Adapter();
+      }
+      @Override
+      public Adapter casePart(Part object)
+      {
+        return createPartAdapter();
       }
       @Override
       public Adapter caseLoop(Loop object)
@@ -529,6 +577,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.SuperVariable <em>Super Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.SuperVariable
+   * @generated
+   */
+  public Adapter createSuperVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.VariableD <em>Variable D</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -569,6 +632,66 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementPageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.Title <em>Title</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.Title
+   * @generated
+   */
+  public Adapter createTitleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.BigTitle <em>Big Title</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.BigTitle
+   * @generated
+   */
+  public Adapter createBigTitleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.SubTitle <em>Sub Title</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.SubTitle
+   * @generated
+   */
+  public Adapter createSubTitleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.SubSubTitle <em>Sub Sub Title</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.SubSubTitle
+   * @generated
+   */
+  public Adapter createSubSubTitleAdapter()
   {
     return null;
   }
@@ -829,6 +952,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.ClassVariable <em>Class Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.ClassVariable
+   * @generated
+   */
+  public Adapter createClassVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.Conditional <em>Conditional</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -844,31 +982,61 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.EqualCondition <em>Equal Condition</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.IfCondition <em>If Condition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.myDsl.EqualCondition
+   * @see org.xtext.example.myDsl.IfCondition
    * @generated
    */
-  public Adapter createEqualConditionAdapter()
+  public Adapter createIfConditionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.NoEqualCondition <em>No Equal Condition</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.ElseCondition <em>Else Condition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.myDsl.NoEqualCondition
+   * @see org.xtext.example.myDsl.ElseCondition
    * @generated
    */
-  public Adapter createNoEqualConditionAdapter()
+  public Adapter createElseConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.Condition1 <em>Condition1</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.Condition1
+   * @generated
+   */
+  public Adapter createCondition1Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.Part <em>Part</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.Part
+   * @generated
+   */
+  public Adapter createPartAdapter()
   {
     return null;
   }

@@ -1,0 +1,83 @@
+data {
+     "name": "Factures",
+    "global":{
+        "nberOfSpreadpages": 3,
+        "header": ["Produits", "Prix", "Quantité", "Total"],
+        "footer": "Total"
+    },
+    "page1":{
+        "produits": ["Cahier", "Stylos"],
+        "prix": [400, 150],
+        "quantite": [9, 16],
+        "name": "Facture 1"
+    },
+    "page2":{
+        "produits": ["Chaussures", "T-shirt", "Chaussette"],
+        "prix": [15000, 2000, 500],
+        "quantite": [1, 6, 3],
+        "name": "Facture 2"
+    },
+    "page3":{
+        "name": "Dépenses journalière",
+        "header": ["N°", "Librairie", "Shopping", "Total"]
+    }
+}
+document $global.name allInOne=false {
+    $totaux = []
+    $pages = [$page1, $page2]
+    $j from 1 to $pages.length{
+        page($p[$j].name){
+            row{
+                col $p[$j].name
+            }
+            row{
+                with $h in $global.header{
+                    col $h
+                }
+            }
+            $i from 1 to $p[$j].length{
+                row{
+                    col $p[$j].produits[$i]
+                    col $p[$j].prix[$i] class = "prix{$i}"
+                    col $p[$j].quantite[$i] class = "quantite{$i}"
+
+                    col PROD(prix{$i}, quantite{$i}) class = "total{$j}"
+
+                    //Ou encore 
+
+                    col PROD([$i+2, 2-3]) class = "total{$j}"
+                }
+            }
+            row{
+                col $global.footer
+                col ""
+                col ""
+                $totaux[$j] = SUM(total{$j})
+                col SUM(total{$j}) class = "totaux1"
+            }
+        }
+        page($page3.name){
+            row{
+                col $page3.name
+            }
+            row{
+                with $h in $page3.header{
+                    col $h
+                }                
+            }
+            row{
+                col 1
+                
+                with $t in $totaux{
+                    col $t
+                }
+
+                col SUM([3,2-3])
+
+                //Ou encore
+
+                col SUM(totaux1)
+            }
+        }
+    }
+}

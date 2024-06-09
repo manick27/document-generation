@@ -1,0 +1,87 @@
+data {
+	"students": ["Manick Di laPanick", "Nguewouo Manick"],
+	"header": ["Matières", "Notes", "Coefficients", "NotesXCoefs"],
+	"footer": ["Total", "Moyenne", "Tableau d'honneur"],
+	"studentsC": [{
+		"name": "Manick Di laPanick",
+		"courses": ["Anglais", "Chimie", "Mathématiques", "Physiques"],
+		"tableau": "Oui",
+		"profile": "https://lh3.googleusercontent.com/fife/AGXqzDmRoz_cdTcAGb1ea4nxdfnmEve44ATg_dxAFkVwsYY4wcxIUcr-niy5iHrIDnc6yzSteojfHpEtIq6sbZu-cbZAf6oayz8QqZo5X-eHnREyHHkrBY1UB5RwYkSpQoFAPGzPYtxipELCxGzuaSdUfhC1UXPV9F4O22Zj-s9RDtTH786smu7Q51x_8IL9_PzCopQAK_YRb-Nd33NfwtIzK1cw6HjDqazzykYTpuvVP1dRNtDEVEWC9C739KDjKvezDm4dGoTr21aVjyfUsJVVClpgrCrYpLNHhMy4_-aBATz8xAZU5Xr11ArHnhe4BZ_UEXIUjS6Pkv90SCo0wj98ip9flgJg65TQLccTj-NKUDk9Tj-tLPJrbtfPg7TRHr2R9RqH-6K62rNJfqGZOEfe0qyingQl4gHrnpmEujQO-cfmdR83lxpvJ7S2CKp7VDKzhLYjOPKS2bwcu9UClFHNo-BTHnPeMehMr3Kl4gX5BfV9dmugainmfAjMhEkZJCUYh9TrBBMEmYCfOAcwVKzt3EOtxMtxOvVYIraVlbV8Pk1YdVwjsKDEoYjHQawCZrXDnpaz-aCpw-Dn71_6bO-lA1KvvfHsB6VDSmJh0EQ0zTkCTICvNR5BQouOojtSQpdoKMOxJ5s69Cg9-E9rEcU0C0_fT7aa7FqcPUEASOQC5wvnYbA93Zv-aWq61WOROS_e8b4kaAw7xyAMSwZlEQ6xJawxzYTVvTiakDOi37WiXZZS3dkdI3jZuOCB01nXDdXjSMHkqqfDfVBfbjgweH0P5897azKFi-SiOCldzlGryuURBnAkcrz-tSV__Rt-ErlBKrTrSTnsi-HYitk7RaAWu2NVBvN4IzXSisA50DSCcKLOMGtXK_GVj2SuBr9dvtg3pw_3jM4z_9xVPw1xHB1koPK4YQIWeWKrjnZsEhONuMcJDXrFbeNnTojU4KHt31-FS8XOFKUGlvxi2KP3iGqkIZYm1Ql3uRhjLaL5cXFr_e4LRHwadnRzIh3eAKuUo_jz1z0jA1rlYznGygTpS4QoflEHZzcFrM-wKHXSCmGYBA-bQRWe2arqE7W8-zqubwMqgTzwrIBWZGx4yIUrO739DYzRI7TpwQr_IMLk86RFvXJuAf8E05Pyzar1gnC6J0RZ9hBVVnY5xltrdgFRDQiCgqneXMYps-wr-Zmm9Oo_kWjbHA6bOJssEG9HCr70mho4tW5nG7MS6sc54bSQKxz3GUhFapeSIRzUvWb7ZrO4scgtXH_2OmdLHs1wePC0_cr44KP7Imubr7kumxdnYL8pz73YO5PCQXfxuWOp7Ldn5BNcFNkPq9x7pjjeCQgxYBS7Zdr-vbaHTzjpMlO4_7q-V3dzBphMvazYbFqj3Q9QywsPlWo3pNRNRefvFlNRwyoxPGBU1nfWCHtUEk9icoFb3TRV2524mOX0LOQQh5dQuZiVOzK9bWnguGerxKbUBwS8ARVsVwUUIZideDCyZWjVa31dps0Ap4HXrPdN8zfvtyzEFuCKzzLEq3eSKZlOJxcAx5v7D-RV70IRbNDoa_1dpCHUMbHsAFk_LKmzC8z9B06TDuFKIMcUWsZaFWQo76TyrsivFmbBZvRITUM0rhs",
+		"marks": [6, 19, 14, 15],
+		"coefs": [1, 2, 5, 3]
+	}, {
+		"name": "Nguewouo Manick",
+		"courses": ["Anglais", "Chimie", "Mathématiques", "Physiques", "SVT"],
+		"tableau": "Non",
+		"profile": "https://lh3.googleusercontent.com/fife/AGXqzDmRoz_cdTcAGb1ea4nxdfnmEve44ATg_dxAFkVwsYY4wcxIUcr-niy5iHrIDnc6yzSteojfHpEtIq6sbZu-cbZAf6oayz8QqZo5X-eHnREyHHkrBY1UB5RwYkSpQoFAPGzPYtxipELCxGzuaSdUfhC1UXPV9F4O22Zj-s9RDtTH786smu7Q51x_8IL9_PzCopQAK_YRb-Nd33NfwtIzK1cw6HjDqazzykYTpuvVP1dRNtDEVEWC9C739KDjKvezDm4dGoTr21aVjyfUsJVVClpgrCrYpLNHhMy4_-aBATz8xAZU5Xr11ArHnhe4BZ_UEXIUjS6Pkv90SCo0wj98ip9flgJg65TQLccTj-NKUDk9Tj-tLPJrbtfPg7TRHr2R9RqH-6K62rNJfqGZOEfe0qyingQl4gHrnpmEujQO-cfmdR83lxpvJ7S2CKp7VDKzhLYjOPKS2bwcu9UClFHNo-BTHnPeMehMr3Kl4gX5BfV9dmugainmfAjMhEkZJCUYh9TrBBMEmYCfOAcwVKzt3EOtxMtxOvVYIraVlbV8Pk1YdVwjsKDEoYjHQawCZrXDnpaz-aCpw-Dn71_6bO-lA1KvvfHsB6VDSmJh0EQ0zTkCTICvNR5BQouOojtSQpdoKMOxJ5s69Cg9-E9rEcU0C0_fT7aa7FqcPUEASOQC5wvnYbA93Zv-aWq61WOROS_e8b4kaAw7xyAMSwZlEQ6xJawxzYTVvTiakDOi37WiXZZS3dkdI3jZuOCB01nXDdXjSMHkqqfDfVBfbjgweH0P5897azKFi-SiOCldzlGryuURBnAkcrz-tSV__Rt-ErlBKrTrSTnsi-HYitk7RaAWu2NVBvN4IzXSisA50DSCcKLOMGtXK_GVj2SuBr9dvtg3pw_3jM4z_9xVPw1xHB1koPK4YQIWeWKrjnZsEhONuMcJDXrFbeNnTojU4KHt31-FS8XOFKUGlvxi2KP3iGqkIZYm1Ql3uRhjLaL5cXFr_e4LRHwadnRzIh3eAKuUo_jz1z0jA1rlYznGygTpS4QoflEHZzcFrM-wKHXSCmGYBA-bQRWe2arqE7W8-zqubwMqgTzwrIBWZGx4yIUrO739DYzRI7TpwQr_IMLk86RFvXJuAf8E05Pyzar1gnC6J0RZ9hBVVnY5xltrdgFRDQiCgqneXMYps-wr-Zmm9Oo_kWjbHA6bOJssEG9HCr70mho4tW5nG7MS6sc54bSQKxz3GUhFapeSIRzUvWb7ZrO4scgtXH_2OmdLHs1wePC0_cr44KP7Imubr7kumxdnYL8pz73YO5PCQXfxuWOp7Ldn5BNcFNkPq9x7pjjeCQgxYBS7Zdr-vbaHTzjpMlO4_7q-V3dzBphMvazYbFqj3Q9QywsPlWo3pNRNRefvFlNRwyoxPGBU1nfWCHtUEk9icoFb3TRV2524mOX0LOQQh5dQuZiVOzK9bWnguGerxKbUBwS8ARVsVwUUIZideDCyZWjVa31dps0Ap4HXrPdN8zfvtyzEFuCKzzLEq3eSKZlOJxcAx5v7D-RV70IRbNDoa_1dpCHUMbHsAFk_LKmzC8z9B06TDuFKIMcUWsZaFWQo76TyrsivFmbBZvRITUM0rhs",
+		"marks": [7, 20, 15, 16, 9],
+		"coefs": [2, 1, 5, 4, 2]
+	}],
+	"name": "Report Card 1"
+}  
+
+document $name allInOne=true { 
+	with $s in $studentsC { 
+		page ($s.name) { 
+			row {
+				col img class="image" src:$s.profile alt:"photo" class="logo"
+				col colspan: 3 $s.name
+			}
+			
+			row {
+				with $h in $header {  
+					col $h class="bold italic center"				
+				}
+			}
+			
+			$i from 0 to $s.courses { 
+				row {
+					col $s.courses[$i] class="italic"
+					col $s.marks[$i] class="center"
+					col SUM($s.coefs[$i]) class="center"
+					col PROD($s.marks[$i], $s.coefs[$i]) class="center pointxcoef"
+				}
+			}
+			
+			row { 
+				col $footer[0] class="italic bold center"
+				col SUM($s.marks) class="center"
+				col SUM($s.coefs) class="center"
+				col SUM(.pointxcoef) class="center bold"
+			}
+			
+			row {
+				col SUM($footer[1]) class="italic bold center"
+				col DIV(160, 12) class="center"
+				col $footer[2] class="center"
+				col $s.tableau class="center bold"
+			}
+		}
+	}
+}
+style { 
+  .red {
+  	color: red;
+  }
+  .blue {
+  	color: blue;
+  }
+  .bold {
+  	font-weight: bold;
+  }
+  .center{
+  	text-align: center;
+  }
+  .italic{
+    font-style: italic;
+  }
+  .image {
+  	width: 50px;
+  }
+  .logo {
+  	display: flex;
+	justify-content: center; /* Centre horizontalement */
+	align-items: center;     /* Centre verticalement */
+	height: 100%;            /* Assurez-vous que le parent a une hauteur spécifiée */
+	}
+}

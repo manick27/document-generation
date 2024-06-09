@@ -10,11 +10,12 @@ document $name allInOne=true{
 		row {
 			col "Bonjour"
 			col "Bonsoir" class="bold"
+			col $nber class="bold"
 		}
 	}
 }
-style {
+style { 
   .bold {
-  	font-weight: bold;
+  	font-weight: bold; 
   }
 }

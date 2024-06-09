@@ -14,11 +14,14 @@ import org.xtext.example.myDsl.Argument1;
 import org.xtext.example.myDsl.Argument2;
 import org.xtext.example.myDsl.Array;
 import org.xtext.example.myDsl.ArrayC;
+import org.xtext.example.myDsl.BigTitle;
 import org.xtext.example.myDsl.Build;
 import org.xtext.example.myDsl.ClassD;
 import org.xtext.example.myDsl.ClassSelector;
+import org.xtext.example.myDsl.ClassVariable;
 import org.xtext.example.myDsl.Col;
 import org.xtext.example.myDsl.Colspan;
+import org.xtext.example.myDsl.Condition1;
 import org.xtext.example.myDsl.Conditional;
 import org.xtext.example.myDsl.Css;
 import org.xtext.example.myDsl.CssValue;
@@ -29,11 +32,12 @@ import org.xtext.example.myDsl.Document;
 import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
-import org.xtext.example.myDsl.EqualCondition;
+import org.xtext.example.myDsl.ElseCondition;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
 import org.xtext.example.myDsl.IDSelector;
+import org.xtext.example.myDsl.IfCondition;
 import org.xtext.example.myDsl.Img;
 import org.xtext.example.myDsl.KeyValue;
 import org.xtext.example.myDsl.Loop;
@@ -41,10 +45,10 @@ import org.xtext.example.myDsl.Model;
 import org.xtext.example.myDsl.MyDslFactory;
 import org.xtext.example.myDsl.MyDslPackage;
 import org.xtext.example.myDsl.NestedObject;
-import org.xtext.example.myDsl.NoEqualCondition;
 import org.xtext.example.myDsl.ObjectC;
 import org.xtext.example.myDsl.OtherElement;
 import org.xtext.example.myDsl.Page;
+import org.xtext.example.myDsl.Part;
 import org.xtext.example.myDsl.Position;
 import org.xtext.example.myDsl.ProdFunction;
 import org.xtext.example.myDsl.Row;
@@ -52,7 +56,11 @@ import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
 import org.xtext.example.myDsl.Style;
+import org.xtext.example.myDsl.SubSubTitle;
+import org.xtext.example.myDsl.SubTitle;
 import org.xtext.example.myDsl.SumFunction;
+import org.xtext.example.myDsl.SuperVariable;
+import org.xtext.example.myDsl.Title;
 import org.xtext.example.myDsl.TypeSelector;
 import org.xtext.example.myDsl.Value;
 import org.xtext.example.myDsl.Variable;
@@ -142,6 +150,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass superVariableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass variableDEClass = null;
 
   /**
@@ -157,6 +172,34 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass elementPageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass titleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass bigTitleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass subTitleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass subSubTitleEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -282,6 +325,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass classVariableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass conditionalEClass = null;
 
   /**
@@ -289,14 +339,28 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass equalConditionEClass = null;
+  private EClass ifConditionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass noEqualConditionEClass = null;
+  private EClass elseConditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass condition1EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass partEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -871,6 +935,28 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EClass getSuperVariable()
+  {
+    return superVariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSuperVariable_Name()
+  {
+    return (EAttribute)superVariableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getVariableD()
   {
     return variableDEClass;
@@ -882,7 +968,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getVariableD_Variable()
+  public EReference getVariableD_SuperVariable()
   {
     return (EReference)variableDEClass.getEStructuralFeatures().get(0);
   }
@@ -893,9 +979,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getVariableD_Name()
+  public EReference getVariableD_Value()
   {
-    return (EAttribute)variableDEClass.getEStructuralFeatures().get(1);
+    return (EReference)variableDEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -904,7 +990,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getVariableD_Value()
+  public EReference getVariableD_ClassVariable()
   {
     return (EReference)variableDEClass.getEStructuralFeatures().get(2);
   }
@@ -981,9 +1067,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getPage_ElementPage()
+  public EReference getPage_Titles()
   {
     return (EReference)pageEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPage_ElementPage()
+  {
+    return (EReference)pageEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1039,6 +1136,248 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   public EReference getElementPage_Variable()
   {
     return (EReference)elementPageEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTitle()
+  {
+    return titleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTitle_BigTitle()
+  {
+    return (EReference)titleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTitle_SubTitle()
+  {
+    return (EReference)titleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTitle_SubSubTitle()
+  {
+    return (EReference)titleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBigTitle()
+  {
+    return bigTitleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBigTitle_Variable()
+  {
+    return (EReference)bigTitleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBigTitle_ObjectC()
+  {
+    return (EReference)bigTitleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBigTitle_ArrayC()
+  {
+    return (EReference)bigTitleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBigTitle_String()
+  {
+    return (EAttribute)bigTitleEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBigTitle_ClassD()
+  {
+    return (EReference)bigTitleEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSubTitle()
+  {
+    return subTitleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubTitle_Variable()
+  {
+    return (EReference)subTitleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubTitle_ObjectC()
+  {
+    return (EReference)subTitleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubTitle_ArrayC()
+  {
+    return (EReference)subTitleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSubTitle_String()
+  {
+    return (EAttribute)subTitleEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubTitle_ClassD()
+  {
+    return (EReference)subTitleEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSubSubTitle()
+  {
+    return subSubTitleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubSubTitle_Variable()
+  {
+    return (EReference)subSubTitleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubSubTitle_ObjectC()
+  {
+    return (EReference)subSubTitleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubSubTitle_ArrayC()
+  {
+    return (EReference)subSubTitleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSubSubTitle_String()
+  {
+    return (EAttribute)subSubTitleEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubSubTitle_ClassD()
+  {
+    return (EReference)subSubTitleEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1718,7 +2057,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getArgument1_Variable()
+  public EReference getArgument1_ClassVariable()
   {
     return (EReference)argument1EClass.getEStructuralFeatures().get(3);
   }
@@ -1729,7 +2068,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getArgument1_ObjectC()
+  public EReference getArgument1_Variable()
   {
     return (EReference)argument1EClass.getEStructuralFeatures().get(4);
   }
@@ -1740,9 +2079,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getArgument1_ArrayC()
+  public EReference getArgument1_ObjectC()
   {
     return (EReference)argument1EClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArgument1_ArrayC()
+  {
+    return (EReference)argument1EClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1817,6 +2167,28 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EClass getClassVariable()
+  {
+    return classVariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getClassVariable_Name()
+  {
+    return (EAttribute)classVariableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getConditional()
   {
     return conditionalEClass;
@@ -1828,7 +2200,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getConditional_EqualCondition()
+  public EReference getConditional_IfCondition()
   {
     return (EReference)conditionalEClass.getEStructuralFeatures().get(0);
   }
@@ -1839,7 +2211,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getConditional_NotEqualCondition()
+  public EReference getConditional_ElseCondion()
   {
     return (EReference)conditionalEClass.getEStructuralFeatures().get(1);
   }
@@ -1850,9 +2222,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getConditional_OtherElement()
+  public EClass getIfCondition()
   {
-    return (EReference)conditionalEClass.getEStructuralFeatures().get(2);
+    return ifConditionEClass;
   }
 
   /**
@@ -1861,9 +2233,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EClass getEqualCondition()
+  public EReference getIfCondition_Condition()
   {
-    return equalConditionEClass;
+    return (EReference)ifConditionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1872,9 +2244,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getEqualCondition_Variable()
+  public EReference getIfCondition_OtherElement()
   {
-    return (EReference)equalConditionEClass.getEStructuralFeatures().get(0);
+    return (EReference)ifConditionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1883,9 +2255,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getEqualCondition_Value()
+  public EClass getElseCondition()
   {
-    return (EReference)equalConditionEClass.getEStructuralFeatures().get(1);
+    return elseConditionEClass;
   }
 
   /**
@@ -1894,9 +2266,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EClass getNoEqualCondition()
+  public EReference getElseCondition_OtherElement()
   {
-    return noEqualConditionEClass;
+    return (EReference)elseConditionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1905,9 +2277,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getNoEqualCondition_Variable()
+  public EReference getElseCondition_IfCondition()
   {
-    return (EReference)noEqualConditionEClass.getEStructuralFeatures().get(0);
+    return (EReference)elseConditionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1916,9 +2288,130 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getNoEqualCondition_Value()
+  public EClass getCondition1()
   {
-    return (EReference)noEqualConditionEClass.getEStructuralFeatures().get(1);
+    return condition1EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCondition1_FirstPart()
+  {
+    return (EReference)condition1EClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCondition1_Compare()
+  {
+    return (EAttribute)condition1EClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCondition1_SecondPart()
+  {
+    return (EReference)condition1EClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPart()
+  {
+    return partEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPart_Variable()
+  {
+    return (EReference)partEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPart_ObjectC()
+  {
+    return (EReference)partEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPart_ArrayC()
+  {
+    return (EReference)partEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPart_String()
+  {
+    return (EAttribute)partEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPart_Integer()
+  {
+    return (EAttribute)partEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPart_SuperVariable()
+  {
+    return (EReference)partEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPart_ClassVariable()
+  {
+    return (EReference)partEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -2593,10 +3086,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     variableEClass = createEClass(VARIABLE);
     createEAttribute(variableEClass, VARIABLE__NAME);
 
+    superVariableEClass = createEClass(SUPER_VARIABLE);
+    createEAttribute(superVariableEClass, SUPER_VARIABLE__NAME);
+
     variableDEClass = createEClass(VARIABLE_D);
-    createEReference(variableDEClass, VARIABLE_D__VARIABLE);
-    createEAttribute(variableDEClass, VARIABLE_D__NAME);
+    createEReference(variableDEClass, VARIABLE_D__SUPER_VARIABLE);
     createEReference(variableDEClass, VARIABLE_D__VALUE);
+    createEReference(variableDEClass, VARIABLE_D__CLASS_VARIABLE);
     createEReference(variableDEClass, VARIABLE_D__FUNCTION);
 
     pageEClass = createEClass(PAGE);
@@ -2604,6 +3100,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(pageEClass, PAGE__OBJECT_C);
     createEReference(pageEClass, PAGE__ARRAY_C);
     createEAttribute(pageEClass, PAGE__STRING);
+    createEReference(pageEClass, PAGE__TITLES);
     createEReference(pageEClass, PAGE__ELEMENT_PAGE);
 
     elementPageEClass = createEClass(ELEMENT_PAGE);
@@ -2611,6 +3108,32 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(elementPageEClass, ELEMENT_PAGE__LOOP);
     createEReference(elementPageEClass, ELEMENT_PAGE__CONDITIONAL);
     createEReference(elementPageEClass, ELEMENT_PAGE__VARIABLE);
+
+    titleEClass = createEClass(TITLE);
+    createEReference(titleEClass, TITLE__BIG_TITLE);
+    createEReference(titleEClass, TITLE__SUB_TITLE);
+    createEReference(titleEClass, TITLE__SUB_SUB_TITLE);
+
+    bigTitleEClass = createEClass(BIG_TITLE);
+    createEReference(bigTitleEClass, BIG_TITLE__VARIABLE);
+    createEReference(bigTitleEClass, BIG_TITLE__OBJECT_C);
+    createEReference(bigTitleEClass, BIG_TITLE__ARRAY_C);
+    createEAttribute(bigTitleEClass, BIG_TITLE__STRING);
+    createEReference(bigTitleEClass, BIG_TITLE__CLASS_D);
+
+    subTitleEClass = createEClass(SUB_TITLE);
+    createEReference(subTitleEClass, SUB_TITLE__VARIABLE);
+    createEReference(subTitleEClass, SUB_TITLE__OBJECT_C);
+    createEReference(subTitleEClass, SUB_TITLE__ARRAY_C);
+    createEAttribute(subTitleEClass, SUB_TITLE__STRING);
+    createEReference(subTitleEClass, SUB_TITLE__CLASS_D);
+
+    subSubTitleEClass = createEClass(SUB_SUB_TITLE);
+    createEReference(subSubTitleEClass, SUB_SUB_TITLE__VARIABLE);
+    createEReference(subSubTitleEClass, SUB_SUB_TITLE__OBJECT_C);
+    createEReference(subSubTitleEClass, SUB_SUB_TITLE__ARRAY_C);
+    createEAttribute(subSubTitleEClass, SUB_SUB_TITLE__STRING);
+    createEReference(subSubTitleEClass, SUB_SUB_TITLE__CLASS_D);
 
     rowEClass = createEClass(ROW);
     createEReference(rowEClass, ROW__ELEMENT_ROW);
@@ -2688,6 +3211,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(argument1EClass, ARGUMENT1__INTEGER);
     createEReference(argument1EClass, ARGUMENT1__FLOAT_VALUE);
     createEAttribute(argument1EClass, ARGUMENT1__STRING);
+    createEReference(argument1EClass, ARGUMENT1__CLASS_VARIABLE);
     createEReference(argument1EClass, ARGUMENT1__VARIABLE);
     createEReference(argument1EClass, ARGUMENT1__OBJECT_C);
     createEReference(argument1EClass, ARGUMENT1__ARRAY_C);
@@ -2699,18 +3223,34 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(argument2EClass, ARGUMENT2__INTEGER_END2);
     createEAttribute(argument2EClass, ARGUMENT2__INTEGER_END3);
 
+    classVariableEClass = createEClass(CLASS_VARIABLE);
+    createEAttribute(classVariableEClass, CLASS_VARIABLE__NAME);
+
     conditionalEClass = createEClass(CONDITIONAL);
-    createEReference(conditionalEClass, CONDITIONAL__EQUAL_CONDITION);
-    createEReference(conditionalEClass, CONDITIONAL__NOT_EQUAL_CONDITION);
-    createEReference(conditionalEClass, CONDITIONAL__OTHER_ELEMENT);
+    createEReference(conditionalEClass, CONDITIONAL__IF_CONDITION);
+    createEReference(conditionalEClass, CONDITIONAL__ELSE_CONDION);
 
-    equalConditionEClass = createEClass(EQUAL_CONDITION);
-    createEReference(equalConditionEClass, EQUAL_CONDITION__VARIABLE);
-    createEReference(equalConditionEClass, EQUAL_CONDITION__VALUE);
+    ifConditionEClass = createEClass(IF_CONDITION);
+    createEReference(ifConditionEClass, IF_CONDITION__CONDITION);
+    createEReference(ifConditionEClass, IF_CONDITION__OTHER_ELEMENT);
 
-    noEqualConditionEClass = createEClass(NO_EQUAL_CONDITION);
-    createEReference(noEqualConditionEClass, NO_EQUAL_CONDITION__VARIABLE);
-    createEReference(noEqualConditionEClass, NO_EQUAL_CONDITION__VALUE);
+    elseConditionEClass = createEClass(ELSE_CONDITION);
+    createEReference(elseConditionEClass, ELSE_CONDITION__OTHER_ELEMENT);
+    createEReference(elseConditionEClass, ELSE_CONDITION__IF_CONDITION);
+
+    condition1EClass = createEClass(CONDITION1);
+    createEReference(condition1EClass, CONDITION1__FIRST_PART);
+    createEAttribute(condition1EClass, CONDITION1__COMPARE);
+    createEReference(condition1EClass, CONDITION1__SECOND_PART);
+
+    partEClass = createEClass(PART);
+    createEReference(partEClass, PART__VARIABLE);
+    createEReference(partEClass, PART__OBJECT_C);
+    createEReference(partEClass, PART__ARRAY_C);
+    createEAttribute(partEClass, PART__STRING);
+    createEAttribute(partEClass, PART__INTEGER);
+    createEReference(partEClass, PART__SUPER_VARIABLE);
+    createEReference(partEClass, PART__CLASS_VARIABLE);
 
     loopEClass = createEClass(LOOP);
     createEReference(loopEClass, LOOP__WITH_LOOP);
@@ -2859,10 +3399,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(superVariableEClass, SuperVariable.class, "SuperVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSuperVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, SuperVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(variableDEClass, VariableD.class, "VariableD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVariableD_Variable(), this.getVariable(), null, "variable", null, 0, 1, VariableD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariableD_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariableD_Value(), this.getValue(), null, "value", null, 0, -1, VariableD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariableD_SuperVariable(), this.getSuperVariable(), null, "superVariable", null, 0, 1, VariableD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariableD_Value(), this.getValue(), null, "value", null, 0, 1, VariableD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariableD_ClassVariable(), this.getClassVariable(), null, "classVariable", null, 0, 1, VariableD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVariableD_Function(), this.getFunction(), null, "function", null, 0, -1, VariableD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2870,6 +3413,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getPage_ObjectC(), this.getObjectC(), null, "objectC", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPage_ArrayC(), this.getArrayC(), null, "arrayC", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPage_String(), ecorePackage.getEString(), "string", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPage_Titles(), this.getTitle(), null, "titles", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPage_ElementPage(), this.getElementPage(), null, "elementPage", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementPageEClass, ElementPage.class, "ElementPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2877,6 +3421,32 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getElementPage_Loop(), this.getLoop(), null, "loop", null, 0, 1, ElementPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElementPage_Conditional(), this.getConditional(), null, "conditional", null, 0, 1, ElementPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElementPage_Variable(), this.getVariableD(), null, "variable", null, 0, 1, ElementPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(titleEClass, Title.class, "Title", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTitle_BigTitle(), this.getBigTitle(), null, "bigTitle", null, 0, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTitle_SubTitle(), this.getSubTitle(), null, "subTitle", null, 0, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTitle_SubSubTitle(), this.getSubSubTitle(), null, "subSubTitle", null, 0, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bigTitleEClass, BigTitle.class, "BigTitle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBigTitle_Variable(), this.getVariable(), null, "variable", null, 0, 1, BigTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBigTitle_ObjectC(), this.getObjectC(), null, "objectC", null, 0, 1, BigTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBigTitle_ArrayC(), this.getArrayC(), null, "arrayC", null, 0, 1, BigTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBigTitle_String(), ecorePackage.getEString(), "string", null, 0, 1, BigTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBigTitle_ClassD(), this.getClassD(), null, "classD", null, 0, 1, BigTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(subTitleEClass, SubTitle.class, "SubTitle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSubTitle_Variable(), this.getVariable(), null, "variable", null, 0, 1, SubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubTitle_ObjectC(), this.getObjectC(), null, "objectC", null, 0, 1, SubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubTitle_ArrayC(), this.getArrayC(), null, "arrayC", null, 0, 1, SubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSubTitle_String(), ecorePackage.getEString(), "string", null, 0, 1, SubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubTitle_ClassD(), this.getClassD(), null, "classD", null, 0, 1, SubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(subSubTitleEClass, SubSubTitle.class, "SubSubTitle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSubSubTitle_Variable(), this.getVariable(), null, "variable", null, 0, 1, SubSubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubSubTitle_ObjectC(), this.getObjectC(), null, "objectC", null, 0, 1, SubSubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubSubTitle_ArrayC(), this.getArrayC(), null, "arrayC", null, 0, 1, SubSubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSubSubTitle_String(), ecorePackage.getEString(), "string", null, 0, 1, SubSubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubSubTitle_ClassD(), this.getClassD(), null, "classD", null, 0, 1, SubSubTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRow_ElementRow(), this.getElementRow(), null, "elementRow", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2954,6 +3524,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getArgument1_Integer(), ecorePackage.getEInt(), "integer", null, 0, 1, Argument1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArgument1_FloatValue(), this.getFloat(), null, "floatValue", null, 0, 1, Argument1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgument1_String(), ecorePackage.getEString(), "string", null, 0, 1, Argument1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArgument1_ClassVariable(), this.getClassVariable(), null, "classVariable", null, 0, 1, Argument1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArgument1_Variable(), this.getVariable(), null, "variable", null, 0, 1, Argument1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArgument1_ObjectC(), this.getObjectC(), null, "objectC", null, 0, 1, Argument1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArgument1_ArrayC(), this.getArrayC(), null, "arrayC", null, 0, 1, Argument1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2965,18 +3536,34 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getArgument2_IntegerEnd2(), ecorePackage.getEInt(), "integerEnd2", null, 0, 1, Argument2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgument2_IntegerEnd3(), ecorePackage.getEInt(), "integerEnd3", null, 0, 1, Argument2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(classVariableEClass, ClassVariable.class, "ClassVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getClassVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, ClassVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(conditionalEClass, Conditional.class, "Conditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConditional_EqualCondition(), this.getEqualCondition(), null, "equalCondition", null, 0, 1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConditional_NotEqualCondition(), this.getNoEqualCondition(), null, "notEqualCondition", null, 0, 1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConditional_OtherElement(), this.getOtherElement(), null, "otherElement", null, 0, -1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConditional_IfCondition(), this.getIfCondition(), null, "ifCondition", null, 0, 1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConditional_ElseCondion(), this.getElseCondition(), null, "elseCondion", null, 0, -1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(equalConditionEClass, EqualCondition.class, "EqualCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEqualCondition_Variable(), this.getVariable(), null, "variable", null, 0, 1, EqualCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEqualCondition_Value(), this.getValue(), null, "value", null, 0, 1, EqualCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(ifConditionEClass, IfCondition.class, "IfCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIfCondition_Condition(), this.getCondition1(), null, "condition", null, 0, 1, IfCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfCondition_OtherElement(), this.getOtherElement(), null, "otherElement", null, 0, -1, IfCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(noEqualConditionEClass, NoEqualCondition.class, "NoEqualCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNoEqualCondition_Variable(), this.getVariable(), null, "variable", null, 0, 1, NoEqualCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getNoEqualCondition_Value(), this.getValue(), null, "value", null, 0, 1, NoEqualCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(elseConditionEClass, ElseCondition.class, "ElseCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElseCondition_OtherElement(), this.getOtherElement(), null, "OtherElement", null, 0, -1, ElseCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElseCondition_IfCondition(), this.getIfCondition(), null, "ifCondition", null, 0, 1, ElseCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(condition1EClass, Condition1.class, "Condition1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition1_FirstPart(), this.getPart(), null, "firstPart", null, 0, 1, Condition1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCondition1_Compare(), ecorePackage.getEString(), "compare", null, 0, 1, Condition1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCondition1_SecondPart(), this.getPart(), null, "secondPart", null, 0, 1, Condition1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(partEClass, Part.class, "Part", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPart_Variable(), this.getVariable(), null, "variable", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPart_ObjectC(), this.getObjectC(), null, "objectC", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPart_ArrayC(), this.getArrayC(), null, "arrayC", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPart_String(), ecorePackage.getEString(), "string", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPart_Integer(), ecorePackage.getEInt(), "integer", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPart_SuperVariable(), this.getSuperVariable(), null, "superVariable", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPart_ClassVariable(), this.getClassVariable(), null, "classVariable", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(loopEClass, Loop.class, "Loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLoop_WithLoop(), this.getWith(), null, "withLoop", null, 0, 1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
