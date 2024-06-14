@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.myDsl.Build;
 import org.xtext.example.myDsl.ElementBuild;
+import org.xtext.example.myDsl.ExtensionList;
 import org.xtext.example.myDsl.MyDslPackage;
 import org.xtext.example.myDsl.Variable;
 
@@ -33,6 +34,7 @@ import org.xtext.example.myDsl.Variable;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.myDsl.impl.BuildImpl#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.impl.BuildImpl#getExtensions <em>Extensions</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.BuildImpl#getAllInOne <em>All In One</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.BuildImpl#getTrueV <em>True V</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.impl.BuildImpl#getFalseF <em>False F</em>}</li>
@@ -52,6 +54,16 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
    * @ordered
    */
   protected Variable variable;
+
+  /**
+   * The cached value of the '{@link #getExtensions() <em>Extensions</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtensions()
+   * @generated
+   * @ordered
+   */
+  protected ExtensionList extensions;
 
   /**
    * The default value of the '{@link #getAllInOne() <em>All In One</em>}' attribute.
@@ -200,6 +212,56 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
    * @generated
    */
   @Override
+  public ExtensionList getExtensions()
+  {
+    return extensions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExtensions(ExtensionList newExtensions, NotificationChain msgs)
+  {
+    ExtensionList oldExtensions = extensions;
+    extensions = newExtensions;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.BUILD__EXTENSIONS, oldExtensions, newExtensions);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExtensions(ExtensionList newExtensions)
+  {
+    if (newExtensions != extensions)
+    {
+      NotificationChain msgs = null;
+      if (extensions != null)
+        msgs = ((InternalEObject)extensions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.BUILD__EXTENSIONS, null, msgs);
+      if (newExtensions != null)
+        msgs = ((InternalEObject)newExtensions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.BUILD__EXTENSIONS, null, msgs);
+      msgs = basicSetExtensions(newExtensions, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.BUILD__EXTENSIONS, newExtensions, newExtensions));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String getAllInOne()
   {
     return allInOne;
@@ -296,6 +358,8 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
     {
       case MyDslPackage.BUILD__VARIABLE:
         return basicSetVariable(null, msgs);
+      case MyDslPackage.BUILD__EXTENSIONS:
+        return basicSetExtensions(null, msgs);
       case MyDslPackage.BUILD__ELEMENT_BUILD:
         return ((InternalEList<?>)getElementBuild()).basicRemove(otherEnd, msgs);
     }
@@ -314,6 +378,8 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
     {
       case MyDslPackage.BUILD__VARIABLE:
         return getVariable();
+      case MyDslPackage.BUILD__EXTENSIONS:
+        return getExtensions();
       case MyDslPackage.BUILD__ALL_IN_ONE:
         return getAllInOne();
       case MyDslPackage.BUILD__TRUE_V:
@@ -339,6 +405,9 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
     {
       case MyDslPackage.BUILD__VARIABLE:
         setVariable((Variable)newValue);
+        return;
+      case MyDslPackage.BUILD__EXTENSIONS:
+        setExtensions((ExtensionList)newValue);
         return;
       case MyDslPackage.BUILD__ALL_IN_ONE:
         setAllInOne((String)newValue);
@@ -370,6 +439,9 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
       case MyDslPackage.BUILD__VARIABLE:
         setVariable((Variable)null);
         return;
+      case MyDslPackage.BUILD__EXTENSIONS:
+        setExtensions((ExtensionList)null);
+        return;
       case MyDslPackage.BUILD__ALL_IN_ONE:
         setAllInOne(ALL_IN_ONE_EDEFAULT);
         return;
@@ -398,6 +470,8 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
     {
       case MyDslPackage.BUILD__VARIABLE:
         return variable != null;
+      case MyDslPackage.BUILD__EXTENSIONS:
+        return extensions != null;
       case MyDslPackage.BUILD__ALL_IN_ONE:
         return ALL_IN_ONE_EDEFAULT == null ? allInOne != null : !ALL_IN_ONE_EDEFAULT.equals(allInOne);
       case MyDslPackage.BUILD__TRUE_V:

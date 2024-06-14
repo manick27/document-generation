@@ -33,6 +33,7 @@ import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
 import org.xtext.example.myDsl.ElseCondition;
+import org.xtext.example.myDsl.ExtensionList;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
@@ -54,6 +55,7 @@ import org.xtext.example.myDsl.Row;
 import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
+import org.xtext.example.myDsl.SingleExtension;
 import org.xtext.example.myDsl.Style;
 import org.xtext.example.myDsl.SubSubTitle;
 import org.xtext.example.myDsl.SubTitle;
@@ -168,6 +170,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBuild(Build object)
       {
         return createBuildAdapter();
+      }
+      @Override
+      public Adapter caseExtensionList(ExtensionList object)
+      {
+        return createExtensionListAdapter();
+      }
+      @Override
+      public Adapter caseSingleExtension(SingleExtension object)
+      {
+        return createSingleExtensionAdapter();
       }
       @Override
       public Adapter caseElementBuild(ElementBuild object)
@@ -542,6 +554,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBuildAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.ExtensionList <em>Extension List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.ExtensionList
+   * @generated
+   */
+  public Adapter createExtensionListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.myDsl.SingleExtension <em>Single Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.myDsl.SingleExtension
+   * @generated
+   */
+  public Adapter createSingleExtensionAdapter()
   {
     return null;
   }

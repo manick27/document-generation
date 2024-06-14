@@ -39,10 +39,20 @@
     </genClasses>
     <genClasses ecoreClass="Grammar.ecore#//Build">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Build/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Build/extensions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Build/allInOne"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Build/trueV"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//Build/falseF"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//Build/elementBuild"/>
+    </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//ExtensionList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//ExtensionList/extensions"/>
+    </genClasses>
+    <genClasses ecoreClass="Grammar.ecore#//SingleExtension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//SingleExtension/xlsx"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//SingleExtension/html"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//SingleExtension/pdf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Grammar.ecore#//SingleExtension/doc"/>
     </genClasses>
     <genClasses ecoreClass="Grammar.ecore#//ElementBuild">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Grammar.ecore#//ElementBuild/variableD"/>

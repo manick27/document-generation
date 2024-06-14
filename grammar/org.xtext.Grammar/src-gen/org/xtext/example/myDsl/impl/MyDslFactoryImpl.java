@@ -34,6 +34,7 @@ import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
 import org.xtext.example.myDsl.ElseCondition;
+import org.xtext.example.myDsl.ExtensionList;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
@@ -56,6 +57,7 @@ import org.xtext.example.myDsl.Row;
 import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
+import org.xtext.example.myDsl.SingleExtension;
 import org.xtext.example.myDsl.Style;
 import org.xtext.example.myDsl.SubSubTitle;
 import org.xtext.example.myDsl.SubTitle;
@@ -128,6 +130,8 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.ARRAY: return createArray();
       case MyDslPackage.NESTED_OBJECT: return createNestedObject();
       case MyDslPackage.BUILD: return createBuild();
+      case MyDslPackage.EXTENSION_LIST: return createExtensionList();
+      case MyDslPackage.SINGLE_EXTENSION: return createSingleExtension();
       case MyDslPackage.ELEMENT_BUILD: return createElementBuild();
       case MyDslPackage.VARIABLE: return createVariable();
       case MyDslPackage.SUPER_VARIABLE: return createSuperVariable();
@@ -274,6 +278,30 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     BuildImpl build = new BuildImpl();
     return build;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExtensionList createExtensionList()
+  {
+    ExtensionListImpl extensionList = new ExtensionListImpl();
+    return extensionList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SingleExtension createSingleExtension()
+  {
+    SingleExtensionImpl singleExtension = new SingleExtensionImpl();
+    return singleExtension;
   }
 
   /**

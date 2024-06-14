@@ -32,7 +32,8 @@ public class GrammarParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, GrammarGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
-			builder.put(grammarAccess.getBuildAccess().getAlternatives_2_2(), "rule__Build__Alternatives_2_2");
+			builder.put(grammarAccess.getBuildAccess().getAlternatives_3_2(), "rule__Build__Alternatives_3_2");
+			builder.put(grammarAccess.getSingleExtensionAccess().getAlternatives(), "rule__SingleExtension__Alternatives");
 			builder.put(grammarAccess.getElementBuildAccess().getAlternatives(), "rule__ElementBuild__Alternatives");
 			builder.put(grammarAccess.getVariableDAccess().getAlternatives_2(), "rule__VariableD__Alternatives_2");
 			builder.put(grammarAccess.getPageAccess().getAlternatives_2(), "rule__Page__Alternatives_2");
@@ -79,7 +80,10 @@ public class GrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNestedObjectAccess().getGroup_1(), "rule__NestedObject__Group_1__0");
 			builder.put(grammarAccess.getNestedObjectAccess().getGroup_1_1(), "rule__NestedObject__Group_1_1__0");
 			builder.put(grammarAccess.getBuildAccess().getGroup(), "rule__Build__Group__0");
-			builder.put(grammarAccess.getBuildAccess().getGroup_2(), "rule__Build__Group_2__0");
+			builder.put(grammarAccess.getBuildAccess().getGroup_3(), "rule__Build__Group_3__0");
+			builder.put(grammarAccess.getExtensionListAccess().getGroup(), "rule__ExtensionList__Group__0");
+			builder.put(grammarAccess.getExtensionListAccess().getGroup_3(), "rule__ExtensionList__Group_3__0");
+			builder.put(grammarAccess.getExtensionListAccess().getGroup_3_1(), "rule__ExtensionList__Group_3_1__0");
 			builder.put(grammarAccess.getVariableAccess().getGroup(), "rule__Variable__Group__0");
 			builder.put(grammarAccess.getVariableDAccess().getGroup(), "rule__VariableD__Group__0");
 			builder.put(grammarAccess.getPageAccess().getGroup(), "rule__Page__Group__0");
@@ -152,10 +156,17 @@ public class GrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNestedObjectAccess().getKeyValueAssignment_1_0(), "rule__NestedObject__KeyValueAssignment_1_0");
 			builder.put(grammarAccess.getNestedObjectAccess().getKeyValueAssignment_1_1_1(), "rule__NestedObject__KeyValueAssignment_1_1_1");
 			builder.put(grammarAccess.getBuildAccess().getVariableAssignment_1(), "rule__Build__VariableAssignment_1");
-			builder.put(grammarAccess.getBuildAccess().getAllInOneAssignment_2_0(), "rule__Build__AllInOneAssignment_2_0");
-			builder.put(grammarAccess.getBuildAccess().getTrueVAssignment_2_2_0(), "rule__Build__TrueVAssignment_2_2_0");
-			builder.put(grammarAccess.getBuildAccess().getFalseFAssignment_2_2_1(), "rule__Build__FalseFAssignment_2_2_1");
-			builder.put(grammarAccess.getBuildAccess().getElementBuildAssignment_4(), "rule__Build__ElementBuildAssignment_4");
+			builder.put(grammarAccess.getBuildAccess().getExtensionsAssignment_2(), "rule__Build__ExtensionsAssignment_2");
+			builder.put(grammarAccess.getBuildAccess().getAllInOneAssignment_3_0(), "rule__Build__AllInOneAssignment_3_0");
+			builder.put(grammarAccess.getBuildAccess().getTrueVAssignment_3_2_0(), "rule__Build__TrueVAssignment_3_2_0");
+			builder.put(grammarAccess.getBuildAccess().getFalseFAssignment_3_2_1(), "rule__Build__FalseFAssignment_3_2_1");
+			builder.put(grammarAccess.getBuildAccess().getElementBuildAssignment_5(), "rule__Build__ElementBuildAssignment_5");
+			builder.put(grammarAccess.getExtensionListAccess().getExtensionsAssignment_3_0(), "rule__ExtensionList__ExtensionsAssignment_3_0");
+			builder.put(grammarAccess.getExtensionListAccess().getExtensionsAssignment_3_1_1(), "rule__ExtensionList__ExtensionsAssignment_3_1_1");
+			builder.put(grammarAccess.getSingleExtensionAccess().getXlsxAssignment_0(), "rule__SingleExtension__XlsxAssignment_0");
+			builder.put(grammarAccess.getSingleExtensionAccess().getHtmlAssignment_1(), "rule__SingleExtension__HtmlAssignment_1");
+			builder.put(grammarAccess.getSingleExtensionAccess().getPdfAssignment_2(), "rule__SingleExtension__PdfAssignment_2");
+			builder.put(grammarAccess.getSingleExtensionAccess().getDocAssignment_3(), "rule__SingleExtension__DocAssignment_3");
 			builder.put(grammarAccess.getElementBuildAccess().getVariableDAssignment_0(), "rule__ElementBuild__VariableDAssignment_0");
 			builder.put(grammarAccess.getElementBuildAccess().getPageAssignment_1(), "rule__ElementBuild__PageAssignment_1");
 			builder.put(grammarAccess.getElementBuildAccess().getLoopAssignment_2(), "rule__ElementBuild__LoopAssignment_2");

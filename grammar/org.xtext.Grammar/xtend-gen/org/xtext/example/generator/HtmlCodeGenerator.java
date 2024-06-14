@@ -1116,7 +1116,7 @@ public class HtmlCodeGenerator {
                     }
                   }
                 }
-                return (((((("<img src=\'" + url) + "\' alt=\'") + a) + "\' class=\'") + c) + "\'>");
+                return (((((("<img src=\'" + url) + "\' alt=\'") + a) + "\' class=\'") + c) + "\'/>");
               } else {
                 Function _function = col.getFunction();
                 boolean _tripleNotEquals_11 = (_function != null);

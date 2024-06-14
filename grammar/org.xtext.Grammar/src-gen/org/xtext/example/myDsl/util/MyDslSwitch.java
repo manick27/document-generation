@@ -31,6 +31,7 @@ import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
 import org.xtext.example.myDsl.ElseCondition;
+import org.xtext.example.myDsl.ExtensionList;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
@@ -52,6 +53,7 @@ import org.xtext.example.myDsl.Row;
 import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
+import org.xtext.example.myDsl.SingleExtension;
 import org.xtext.example.myDsl.Style;
 import org.xtext.example.myDsl.SubSubTitle;
 import org.xtext.example.myDsl.SubTitle;
@@ -180,6 +182,20 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Build build = (Build)theEObject;
         T result = caseBuild(build);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.EXTENSION_LIST:
+      {
+        ExtensionList extensionList = (ExtensionList)theEObject;
+        T result = caseExtensionList(extensionList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.SINGLE_EXTENSION:
+      {
+        SingleExtension singleExtension = (SingleExtension)theEObject;
+        T result = caseSingleExtension(singleExtension);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -640,6 +656,38 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBuild(Build object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Extension List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Extension List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExtensionList(ExtensionList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Single Extension</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Single Extension</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSingleExtension(SingleExtension object)
   {
     return null;
   }

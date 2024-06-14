@@ -14,10 +14,12 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.myDsl.Build;
 import org.xtext.example.myDsl.Document;
 import org.xtext.example.myDsl.ElementBuild;
+import org.xtext.example.myDsl.ExtensionList;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Loop;
 import org.xtext.example.myDsl.OtherElement;
 import org.xtext.example.myDsl.Page;
+import org.xtext.example.myDsl.SingleExtension;
 import org.xtext.example.myDsl.Value;
 import org.xtext.example.myDsl.Variable;
 import org.xtext.example.myDsl.With;
@@ -37,6 +39,9 @@ public class GrammarGenerator extends AbstractGenerator {
     for (final EObject element : _iterable) {
       if ((element instanceof Document)) {
         final HtmlCodeGenerator seqgeneratorHtml = new HtmlCodeGenerator(this.context1);
+        final ExcelFileGenerator seqgeneratorXlsx = new ExcelFileGenerator(this.context1);
+        final PdfFileGenerator seqgeneratorPdf = new PdfFileGenerator(this.context1);
+        final DocxFileGenerator seqgeneratorDocx = new DocxFileGenerator(this.context1);
         Object _valueOfVariableInData = seqgeneratorHtml.getValueOfVariableInData(((Document)element).getBuild().getVariable().getName(), ((Document)element).getData());
         String fileName = ((String) _valueOfVariableInData);
         fileName = fileName.replace(" ", "_");
@@ -81,7 +86,7 @@ public class GrammarGenerator extends AbstractGenerator {
                                 final StringBuilder nameOfPage_1 = new StringBuilder();
                                 seqgeneratedCode_1.append(this.buildHtmlCodeForPage(otherElement.getPage(), ((Document)element), null, seqgeneratorHtml));
                                 nameOfPage_1.append(seqgeneratorHtml.getNameOfPage(otherElement.getPage(), ((Document)element).getData(), null));
-                                fsa.generateFile((((fileName + "/html/") + nameOfPage_1) + ".html"), seqgeneratedCode_1);
+                                this.generateDocument(((Document)element), seqgeneratedCode_1.toString(), fileName, nameOfPage_1.toString(), seqgeneratorPdf, seqgeneratorDocx, seqgeneratorXlsx, fsa);
                                 this.context1.incrementVariable(elementBuild.getLoop().getForLoop().getIncrement().getName(), 1);
                               }
                             }
@@ -95,7 +100,7 @@ public class GrammarGenerator extends AbstractGenerator {
                                   final StringBuilder nameOfPage_1 = new StringBuilder();
                                   seqgeneratedCode_1.append(this.buildHtmlCodeForPage(otherElement.getPage(), ((Document)element), null, seqgeneratorHtml));
                                   nameOfPage_1.append(seqgeneratorHtml.getNameOfPage(otherElement.getPage(), ((Document)element).getData(), null));
-                                  fsa.generateFile((((fileName + "/html/") + nameOfPage_1) + ".html"), seqgeneratedCode_1);
+                                  this.generateDocument(((Document)element), seqgeneratedCode_1.toString(), fileName, nameOfPage_1.toString(), seqgeneratorPdf, seqgeneratorDocx, seqgeneratorXlsx, fsa);
                                   this.context1.incrementVariable(elementBuild.getLoop().getForLoop().getIncrement().getName(), 1);
                                 }
                               }
@@ -122,7 +127,7 @@ public class GrammarGenerator extends AbstractGenerator {
                                 this.context1.setVariable(elementBuild.getLoop().getWithLoop().getInit().getName(), object);
                                 seqgeneratedCode_1.append(this.buildHtmlCodeForPage(otherElement_1.getPage(), ((Document)element), elementBuild.getLoop().getWithLoop().getInit().getName(), seqgeneratorHtml));
                                 nameOfPage_1.append(seqgeneratorHtml.getNameOfPage(otherElement_1.getPage(), ((Document)element).getData(), object));
-                                fsa.generateFile((((fileName + "/html/") + nameOfPage_1) + ".html"), seqgeneratedCode_1);
+                                this.generateDocument(((Document)element), seqgeneratedCode_1.toString(), fileName, nameOfPage_1.toString(), seqgeneratorPdf, seqgeneratorDocx, seqgeneratorXlsx, fsa);
                               }
                             }
                           }
@@ -135,11 +140,47 @@ public class GrammarGenerator extends AbstractGenerator {
             }
           } else {
             final String seqgeneratedCode_1 = seqgeneratorHtml.generate(((Document)element), fileName.toString());
-            final String htmlFilePath = (((fileName + "/html/") + fileName) + ".html");
-            fsa.generateFile(htmlFilePath, seqgeneratedCode_1);
+            this.generateDocument(((Document)element), seqgeneratedCode_1, fileName, fileName, seqgeneratorPdf, seqgeneratorDocx, seqgeneratorXlsx, fsa);
           }
         }
       }
+    }
+  }
+
+  public void generateDocument(final Document document, final String seqgeneratedCode, final String directoryName, final String fileName, final PdfFileGenerator seqgeneratorPdf, final DocxFileGenerator seqgeneratorDocx, final ExcelFileGenerator seqgeneratorXlsx, final IFileSystemAccess2 fsa) {
+    ExtensionList _extensions = document.getBuild().getExtensions();
+    boolean _tripleNotEquals = (_extensions != null);
+    if (_tripleNotEquals) {
+      EList<SingleExtension> _extensions_1 = document.getBuild().getExtensions().getExtensions();
+      for (final SingleExtension ex : _extensions_1) {
+        {
+          String _pdf = ex.getPdf();
+          boolean _tripleNotEquals_1 = (_pdf != null);
+          if (_tripleNotEquals_1) {
+            seqgeneratorPdf.generate(seqgeneratedCode.toString(), (((directoryName + "/pdf/") + fileName) + ".pdf"));
+          }
+          String _doc = ex.getDoc();
+          boolean _tripleNotEquals_2 = (_doc != null);
+          if (_tripleNotEquals_2) {
+            seqgeneratorDocx.generate(seqgeneratedCode.toString(), (((directoryName + "/word/") + fileName) + ".docx"));
+          }
+          String _xlsx = ex.getXlsx();
+          boolean _tripleNotEquals_3 = (_xlsx != null);
+          if (_tripleNotEquals_3) {
+            seqgeneratorXlsx.generate(seqgeneratedCode.toString(), (((directoryName + "/excel/") + fileName) + ".xlsx"));
+          }
+          String _html = ex.getHtml();
+          boolean _tripleNotEquals_4 = (_html != null);
+          if (_tripleNotEquals_4) {
+            fsa.generateFile((((fileName + "/html/") + fileName) + ".html"), seqgeneratedCode.toString());
+          }
+        }
+      }
+    } else {
+      fsa.generateFile((((fileName + "/html/") + fileName) + ".html"), seqgeneratedCode.toString());
+      seqgeneratorXlsx.generate(seqgeneratedCode.toString(), (((directoryName + "/excel/") + fileName) + ".xlsx"));
+      seqgeneratorPdf.generate(seqgeneratedCode.toString(), (((directoryName + "/pdf/") + fileName) + ".pdf"));
+      seqgeneratorDocx.generate(seqgeneratedCode.toString(), (((directoryName + "/word/") + fileName) + ".docx"));
     }
   }
 

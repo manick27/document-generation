@@ -363,13 +363,22 @@ public interface MyDslPackage extends EPackage
   int BUILD__VARIABLE = 0;
 
   /**
+   * The feature id for the '<em><b>Extensions</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILD__EXTENSIONS = 1;
+
+  /**
    * The feature id for the '<em><b>All In One</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUILD__ALL_IN_ONE = 1;
+  int BUILD__ALL_IN_ONE = 2;
 
   /**
    * The feature id for the '<em><b>True V</b></em>' attribute.
@@ -378,7 +387,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUILD__TRUE_V = 2;
+  int BUILD__TRUE_V = 3;
 
   /**
    * The feature id for the '<em><b>False F</b></em>' attribute.
@@ -387,7 +396,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUILD__FALSE_F = 3;
+  int BUILD__FALSE_F = 4;
 
   /**
    * The feature id for the '<em><b>Element Build</b></em>' containment reference list.
@@ -396,7 +405,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUILD__ELEMENT_BUILD = 4;
+  int BUILD__ELEMENT_BUILD = 5;
 
   /**
    * The number of structural features of the '<em>Build</em>' class.
@@ -405,7 +414,90 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUILD_FEATURE_COUNT = 5;
+  int BUILD_FEATURE_COUNT = 6;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.ExtensionListImpl <em>Extension List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.ExtensionListImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getExtensionList()
+   * @generated
+   */
+  int EXTENSION_LIST = 8;
+
+  /**
+   * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION_LIST__EXTENSIONS = 0;
+
+  /**
+   * The number of structural features of the '<em>Extension List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION_LIST_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.myDsl.impl.SingleExtensionImpl <em>Single Extension</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.myDsl.impl.SingleExtensionImpl
+   * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSingleExtension()
+   * @generated
+   */
+  int SINGLE_EXTENSION = 9;
+
+  /**
+   * The feature id for the '<em><b>Xlsx</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLE_EXTENSION__XLSX = 0;
+
+  /**
+   * The feature id for the '<em><b>Html</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLE_EXTENSION__HTML = 1;
+
+  /**
+   * The feature id for the '<em><b>Pdf</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLE_EXTENSION__PDF = 2;
+
+  /**
+   * The feature id for the '<em><b>Doc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLE_EXTENSION__DOC = 3;
+
+  /**
+   * The number of structural features of the '<em>Single Extension</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLE_EXTENSION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.myDsl.impl.ElementBuildImpl <em>Element Build</em>}' class.
@@ -415,7 +507,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getElementBuild()
    * @generated
    */
-  int ELEMENT_BUILD = 8;
+  int ELEMENT_BUILD = 10;
 
   /**
    * The feature id for the '<em><b>Variable D</b></em>' containment reference.
@@ -470,7 +562,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 9;
+  int VARIABLE = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -498,7 +590,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSuperVariable()
    * @generated
    */
-  int SUPER_VARIABLE = 10;
+  int SUPER_VARIABLE = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -526,7 +618,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getVariableD()
    * @generated
    */
-  int VARIABLE_D = 11;
+  int VARIABLE_D = 13;
 
   /**
    * The feature id for the '<em><b>Super Variable</b></em>' containment reference.
@@ -581,7 +673,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getPage()
    * @generated
    */
-  int PAGE = 12;
+  int PAGE = 14;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -654,7 +746,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getElementPage()
    * @generated
    */
-  int ELEMENT_PAGE = 13;
+  int ELEMENT_PAGE = 15;
 
   /**
    * The feature id for the '<em><b>Row</b></em>' containment reference.
@@ -709,7 +801,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getTitle()
    * @generated
    */
-  int TITLE = 14;
+  int TITLE = 16;
 
   /**
    * The feature id for the '<em><b>Big Title</b></em>' containment reference.
@@ -755,7 +847,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getBigTitle()
    * @generated
    */
-  int BIG_TITLE = 15;
+  int BIG_TITLE = 17;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -819,7 +911,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSubTitle()
    * @generated
    */
-  int SUB_TITLE = 16;
+  int SUB_TITLE = 18;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -883,7 +975,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSubSubTitle()
    * @generated
    */
-  int SUB_SUB_TITLE = 17;
+  int SUB_SUB_TITLE = 19;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -947,7 +1039,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getRow()
    * @generated
    */
-  int ROW = 18;
+  int ROW = 20;
 
   /**
    * The feature id for the '<em><b>Element Row</b></em>' containment reference list.
@@ -975,7 +1067,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getElementRow()
    * @generated
    */
-  int ELEMENT_ROW = 19;
+  int ELEMENT_ROW = 21;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -1039,7 +1131,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getCol()
    * @generated
    */
-  int COL = 20;
+  int COL = 22;
 
   /**
    * The feature id for the '<em><b>Fusion</b></em>' containment reference.
@@ -1157,7 +1249,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getArrayC()
    * @generated
    */
-  int ARRAY_C = 21;
+  int ARRAY_C = 23;
 
   /**
    * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -1185,7 +1277,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getPosition()
    * @generated
    */
-  int POSITION = 22;
+  int POSITION = 24;
 
   /**
    * The feature id for the '<em><b>Integer</b></em>' attribute.
@@ -1222,7 +1314,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getObjectC()
    * @generated
    */
-  int OBJECT_C = 23;
+  int OBJECT_C = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1250,7 +1342,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getImg()
    * @generated
    */
-  int IMG = 24;
+  int IMG = 26;
 
   /**
    * The feature id for the '<em><b>Class D</b></em>' containment reference.
@@ -1323,7 +1415,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getClassD()
    * @generated
    */
-  int CLASS_D = 25;
+  int CLASS_D = 27;
 
   /**
    * The feature id for the '<em><b>String</b></em>' attribute.
@@ -1351,7 +1443,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getFusion()
    * @generated
    */
-  int FUSION = 26;
+  int FUSION = 28;
 
   /**
    * The feature id for the '<em><b>Colspan</b></em>' containment reference.
@@ -1388,7 +1480,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getColspan()
    * @generated
    */
-  int COLSPAN = 27;
+  int COLSPAN = 29;
 
   /**
    * The feature id for the '<em><b>Integer</b></em>' attribute.
@@ -1425,7 +1517,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getRowspan()
    * @generated
    */
-  int ROWSPAN = 28;
+  int ROWSPAN = 30;
 
   /**
    * The feature id for the '<em><b>Integer</b></em>' attribute.
@@ -1462,7 +1554,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getFunction()
    * @generated
    */
-  int FUNCTION = 29;
+  int FUNCTION = 31;
 
   /**
    * The feature id for the '<em><b>Sum Function</b></em>' containment reference.
@@ -1508,7 +1600,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSumFunction()
    * @generated
    */
-  int SUM_FUNCTION = 30;
+  int SUM_FUNCTION = 32;
 
   /**
    * The feature id for the '<em><b>Argument1</b></em>' containment reference list.
@@ -1545,7 +1637,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getProdFunction()
    * @generated
    */
-  int PROD_FUNCTION = 31;
+  int PROD_FUNCTION = 33;
 
   /**
    * The feature id for the '<em><b>Argument1</b></em>' containment reference list.
@@ -1582,7 +1674,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getDivFunction()
    * @generated
    */
-  int DIV_FUNCTION = 32;
+  int DIV_FUNCTION = 34;
 
   /**
    * The feature id for the '<em><b>Argument1</b></em>' containment reference list.
@@ -1610,7 +1702,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getArgument1()
    * @generated
    */
-  int ARGUMENT1 = 33;
+  int ARGUMENT1 = 35;
 
   /**
    * The feature id for the '<em><b>Integer</b></em>' attribute.
@@ -1692,7 +1784,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getArgument2()
    * @generated
    */
-  int ARGUMENT2 = 34;
+  int ARGUMENT2 = 36;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference list.
@@ -1756,7 +1848,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getClassVariable()
    * @generated
    */
-  int CLASS_VARIABLE = 35;
+  int CLASS_VARIABLE = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1784,7 +1876,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getConditional()
    * @generated
    */
-  int CONDITIONAL = 36;
+  int CONDITIONAL = 38;
 
   /**
    * The feature id for the '<em><b>If Condition</b></em>' containment reference.
@@ -1821,7 +1913,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getIfCondition()
    * @generated
    */
-  int IF_CONDITION = 37;
+  int IF_CONDITION = 39;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -1858,7 +1950,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getElseCondition()
    * @generated
    */
-  int ELSE_CONDITION = 38;
+  int ELSE_CONDITION = 40;
 
   /**
    * The feature id for the '<em><b>Other Element</b></em>' containment reference list.
@@ -1895,7 +1987,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getCondition1()
    * @generated
    */
-  int CONDITION1 = 39;
+  int CONDITION1 = 41;
 
   /**
    * The feature id for the '<em><b>First Part</b></em>' containment reference.
@@ -1941,7 +2033,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getPart()
    * @generated
    */
-  int PART = 40;
+  int PART = 42;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -2023,7 +2115,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getLoop()
    * @generated
    */
-  int LOOP = 41;
+  int LOOP = 43;
 
   /**
    * The feature id for the '<em><b>With Loop</b></em>' containment reference.
@@ -2060,7 +2152,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getWith()
    * @generated
    */
-  int WITH = 42;
+  int WITH = 44;
 
   /**
    * The feature id for the '<em><b>Init</b></em>' containment reference.
@@ -2124,7 +2216,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getFor()
    * @generated
    */
-  int FOR = 43;
+  int FOR = 45;
 
   /**
    * The feature id for the '<em><b>Increment</b></em>' containment reference.
@@ -2206,7 +2298,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getOtherElement()
    * @generated
    */
-  int OTHER_ELEMENT = 44;
+  int OTHER_ELEMENT = 46;
 
   /**
    * The feature id for the '<em><b>Page</b></em>' containment reference.
@@ -2270,7 +2362,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getStyle()
    * @generated
    */
-  int STYLE = 45;
+  int STYLE = 47;
 
   /**
    * The feature id for the '<em><b>Css</b></em>' containment reference.
@@ -2298,7 +2390,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getCss()
    * @generated
    */
-  int CSS = 46;
+  int CSS = 48;
 
   /**
    * The feature id for the '<em><b>Rules</b></em>' containment reference list.
@@ -2326,7 +2418,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getRule()
    * @generated
    */
-  int RULE = 47;
+  int RULE = 49;
 
   /**
    * The feature id for the '<em><b>Selector</b></em>' containment reference.
@@ -2363,7 +2455,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSelector()
    * @generated
    */
-  int SELECTOR = 48;
+  int SELECTOR = 50;
 
   /**
    * The feature id for the '<em><b>Id Selector</b></em>' containment reference.
@@ -2409,7 +2501,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getIDSelector()
    * @generated
    */
-  int ID_SELECTOR = 49;
+  int ID_SELECTOR = 51;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2437,7 +2529,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getClassSelector()
    * @generated
    */
-  int CLASS_SELECTOR = 50;
+  int CLASS_SELECTOR = 52;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2465,7 +2557,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getTypeSelector()
    * @generated
    */
-  int TYPE_SELECTOR = 51;
+  int TYPE_SELECTOR = 53;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2493,7 +2585,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getDeclaration()
    * @generated
    */
-  int DECLARATION = 52;
+  int DECLARATION = 54;
 
   /**
    * The feature id for the '<em><b>Property</b></em>' attribute.
@@ -2530,7 +2622,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getCssValue()
    * @generated
    */
-  int CSS_VALUE = 53;
+  int CSS_VALUE = 55;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2612,7 +2704,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getFloat()
    * @generated
    */
-  int FLOAT = 54;
+  int FLOAT = 56;
 
   /**
    * The feature id for the '<em><b>First Int</b></em>' attribute.
@@ -2921,6 +3013,17 @@ public interface MyDslPackage extends EPackage
   EReference getBuild_Variable();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.myDsl.Build#getExtensions <em>Extensions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Extensions</em>'.
+   * @see org.xtext.example.myDsl.Build#getExtensions()
+   * @see #getBuild()
+   * @generated
+   */
+  EReference getBuild_Extensions();
+
+  /**
    * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.Build#getAllInOne <em>All In One</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2963,6 +3066,81 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getBuild_ElementBuild();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.ExtensionList <em>Extension List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Extension List</em>'.
+   * @see org.xtext.example.myDsl.ExtensionList
+   * @generated
+   */
+  EClass getExtensionList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.myDsl.ExtensionList#getExtensions <em>Extensions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Extensions</em>'.
+   * @see org.xtext.example.myDsl.ExtensionList#getExtensions()
+   * @see #getExtensionList()
+   * @generated
+   */
+  EReference getExtensionList_Extensions();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.myDsl.SingleExtension <em>Single Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Single Extension</em>'.
+   * @see org.xtext.example.myDsl.SingleExtension
+   * @generated
+   */
+  EClass getSingleExtension();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.SingleExtension#getXlsx <em>Xlsx</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Xlsx</em>'.
+   * @see org.xtext.example.myDsl.SingleExtension#getXlsx()
+   * @see #getSingleExtension()
+   * @generated
+   */
+  EAttribute getSingleExtension_Xlsx();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.SingleExtension#getHtml <em>Html</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Html</em>'.
+   * @see org.xtext.example.myDsl.SingleExtension#getHtml()
+   * @see #getSingleExtension()
+   * @generated
+   */
+  EAttribute getSingleExtension_Html();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.SingleExtension#getPdf <em>Pdf</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pdf</em>'.
+   * @see org.xtext.example.myDsl.SingleExtension#getPdf()
+   * @see #getSingleExtension()
+   * @generated
+   */
+  EAttribute getSingleExtension_Pdf();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.myDsl.SingleExtension#getDoc <em>Doc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Doc</em>'.
+   * @see org.xtext.example.myDsl.SingleExtension#getDoc()
+   * @see #getSingleExtension()
+   * @generated
+   */
+  EAttribute getSingleExtension_Doc();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.myDsl.ElementBuild <em>Element Build</em>}'.
@@ -5321,6 +5499,14 @@ public interface MyDslPackage extends EPackage
     EReference BUILD__VARIABLE = eINSTANCE.getBuild_Variable();
 
     /**
+     * The meta object literal for the '<em><b>Extensions</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUILD__EXTENSIONS = eINSTANCE.getBuild_Extensions();
+
+    /**
      * The meta object literal for the '<em><b>All In One</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5351,6 +5537,66 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference BUILD__ELEMENT_BUILD = eINSTANCE.getBuild_ElementBuild();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.ExtensionListImpl <em>Extension List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.ExtensionListImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getExtensionList()
+     * @generated
+     */
+    EClass EXTENSION_LIST = eINSTANCE.getExtensionList();
+
+    /**
+     * The meta object literal for the '<em><b>Extensions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTENSION_LIST__EXTENSIONS = eINSTANCE.getExtensionList_Extensions();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.myDsl.impl.SingleExtensionImpl <em>Single Extension</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.myDsl.impl.SingleExtensionImpl
+     * @see org.xtext.example.myDsl.impl.MyDslPackageImpl#getSingleExtension()
+     * @generated
+     */
+    EClass SINGLE_EXTENSION = eINSTANCE.getSingleExtension();
+
+    /**
+     * The meta object literal for the '<em><b>Xlsx</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SINGLE_EXTENSION__XLSX = eINSTANCE.getSingleExtension_Xlsx();
+
+    /**
+     * The meta object literal for the '<em><b>Html</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SINGLE_EXTENSION__HTML = eINSTANCE.getSingleExtension_Html();
+
+    /**
+     * The meta object literal for the '<em><b>Pdf</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SINGLE_EXTENSION__PDF = eINSTANCE.getSingleExtension_Pdf();
+
+    /**
+     * The meta object literal for the '<em><b>Doc</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SINGLE_EXTENSION__DOC = eINSTANCE.getSingleExtension_Doc();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.myDsl.impl.ElementBuildImpl <em>Element Build</em>}' class.

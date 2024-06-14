@@ -330,28 +330,30 @@ public class GrammarGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cDocumentKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cVariableAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cVariableVariableParserRuleCall_1_0 = (RuleCall)cVariableAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cAllInOneAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final Keyword cAllInOneAllInOneKeyword_2_0_0 = (Keyword)cAllInOneAssignment_2_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Alternatives cAlternatives_2_2 = (Alternatives)cGroup_2.eContents().get(2);
-		private final Assignment cTrueVAssignment_2_2_0 = (Assignment)cAlternatives_2_2.eContents().get(0);
-		private final RuleCall cTrueVTRUEParserRuleCall_2_2_0_0 = (RuleCall)cTrueVAssignment_2_2_0.eContents().get(0);
-		private final Assignment cFalseFAssignment_2_2_1 = (Assignment)cAlternatives_2_2.eContents().get(1);
-		private final RuleCall cFalseFFALSEParserRuleCall_2_2_1_0 = (RuleCall)cFalseFAssignment_2_2_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cElementBuildAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cElementBuildElementBuildParserRuleCall_4_0 = (RuleCall)cElementBuildAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cExtensionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExtensionsExtensionListParserRuleCall_2_0 = (RuleCall)cExtensionsAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cAllInOneAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cAllInOneAllInOneKeyword_3_0_0 = (Keyword)cAllInOneAssignment_3_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Alternatives cAlternatives_3_2 = (Alternatives)cGroup_3.eContents().get(2);
+		private final Assignment cTrueVAssignment_3_2_0 = (Assignment)cAlternatives_3_2.eContents().get(0);
+		private final RuleCall cTrueVTRUEParserRuleCall_3_2_0_0 = (RuleCall)cTrueVAssignment_3_2_0.eContents().get(0);
+		private final Assignment cFalseFAssignment_3_2_1 = (Assignment)cAlternatives_3_2.eContents().get(1);
+		private final RuleCall cFalseFFALSEParserRuleCall_3_2_1_0 = (RuleCall)cFalseFAssignment_3_2_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cElementBuildAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cElementBuildElementBuildParserRuleCall_5_0 = (RuleCall)cElementBuildAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//// Section de construction du document
 		//Build:
-		//    'document' variable=Variable (allInOne = 'allInOne' '=' (trueV=TRUE | falseF=FALSE)) '{'
+		//    'document' variable=Variable (extensions=ExtensionList)? (allInOne = 'allInOne' '=' (trueV=TRUE | falseF=FALSE)) '{'
 		//        (elementBuild+=ElementBuild)*
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'document' variable=Variable (allInOne = 'allInOne' '=' (trueV=TRUE | falseF=FALSE)) '{'
+		//'document' variable=Variable (extensions=ExtensionList)? (allInOne = 'allInOne' '=' (trueV=TRUE | falseF=FALSE)) '{'
 		//    (elementBuild+=ElementBuild)*
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -365,44 +367,148 @@ public class GrammarGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//Variable
 		public RuleCall getVariableVariableParserRuleCall_1_0() { return cVariableVariableParserRuleCall_1_0; }
 		
+		//(extensions=ExtensionList)?
+		public Assignment getExtensionsAssignment_2() { return cExtensionsAssignment_2; }
+		
+		//ExtensionList
+		public RuleCall getExtensionsExtensionListParserRuleCall_2_0() { return cExtensionsExtensionListParserRuleCall_2_0; }
+		
 		//(allInOne = 'allInOne' '=' (trueV=TRUE | falseF=FALSE))
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//allInOne = 'allInOne'
-		public Assignment getAllInOneAssignment_2_0() { return cAllInOneAssignment_2_0; }
+		public Assignment getAllInOneAssignment_3_0() { return cAllInOneAssignment_3_0; }
 		
 		//'allInOne'
-		public Keyword getAllInOneAllInOneKeyword_2_0_0() { return cAllInOneAllInOneKeyword_2_0_0; }
+		public Keyword getAllInOneAllInOneKeyword_3_0_0() { return cAllInOneAllInOneKeyword_3_0_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
+		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
 		
 		//(trueV=TRUE | falseF=FALSE)
-		public Alternatives getAlternatives_2_2() { return cAlternatives_2_2; }
+		public Alternatives getAlternatives_3_2() { return cAlternatives_3_2; }
 		
 		//trueV=TRUE
-		public Assignment getTrueVAssignment_2_2_0() { return cTrueVAssignment_2_2_0; }
+		public Assignment getTrueVAssignment_3_2_0() { return cTrueVAssignment_3_2_0; }
 		
 		//TRUE
-		public RuleCall getTrueVTRUEParserRuleCall_2_2_0_0() { return cTrueVTRUEParserRuleCall_2_2_0_0; }
+		public RuleCall getTrueVTRUEParserRuleCall_3_2_0_0() { return cTrueVTRUEParserRuleCall_3_2_0_0; }
 		
 		//falseF=FALSE
-		public Assignment getFalseFAssignment_2_2_1() { return cFalseFAssignment_2_2_1; }
+		public Assignment getFalseFAssignment_3_2_1() { return cFalseFAssignment_3_2_1; }
 		
 		//FALSE
-		public RuleCall getFalseFFALSEParserRuleCall_2_2_1_0() { return cFalseFFALSEParserRuleCall_2_2_1_0; }
+		public RuleCall getFalseFFALSEParserRuleCall_3_2_1_0() { return cFalseFFALSEParserRuleCall_3_2_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
 		//(elementBuild+=ElementBuild)*
-		public Assignment getElementBuildAssignment_4() { return cElementBuildAssignment_4; }
+		public Assignment getElementBuildAssignment_5() { return cElementBuildAssignment_5; }
 		
 		//ElementBuild
-		public RuleCall getElementBuildElementBuildParserRuleCall_4_0() { return cElementBuildElementBuildParserRuleCall_4_0; }
+		public RuleCall getElementBuildElementBuildParserRuleCall_5_0() { return cElementBuildElementBuildParserRuleCall_5_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class ExtensionListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.Grammar.ExtensionList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cExtensionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cExtensionsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cExtensionsSingleExtensionParserRuleCall_3_0_0 = (RuleCall)cExtensionsAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cExtensionsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cExtensionsSingleExtensionParserRuleCall_3_1_1_0 = (RuleCall)cExtensionsAssignment_3_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//ExtensionList:
+		//    'extensions' '=' '[' (extensions+=SingleExtension (',' extensions+=SingleExtension)*)? ']';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'extensions' '=' '[' (extensions+=SingleExtension (',' extensions+=SingleExtension)*)? ']'
+		public Group getGroup() { return cGroup; }
+		
+		//'extensions'
+		public Keyword getExtensionsKeyword_0() { return cExtensionsKeyword_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
+		
+		//(extensions+=SingleExtension (',' extensions+=SingleExtension)*)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//extensions+=SingleExtension
+		public Assignment getExtensionsAssignment_3_0() { return cExtensionsAssignment_3_0; }
+		
+		//SingleExtension
+		public RuleCall getExtensionsSingleExtensionParserRuleCall_3_0_0() { return cExtensionsSingleExtensionParserRuleCall_3_0_0; }
+		
+		//(',' extensions+=SingleExtension)*
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//','
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+		
+		//extensions+=SingleExtension
+		public Assignment getExtensionsAssignment_3_1_1() { return cExtensionsAssignment_3_1_1; }
+		
+		//SingleExtension
+		public RuleCall getExtensionsSingleExtensionParserRuleCall_3_1_1_0() { return cExtensionsSingleExtensionParserRuleCall_3_1_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
+	}
+	public class SingleExtensionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.Grammar.SingleExtension");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cXlsxAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cXlsxXlsxKeyword_0_0 = (Keyword)cXlsxAssignment_0.eContents().get(0);
+		private final Assignment cHtmlAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cHtmlHtmlKeyword_1_0 = (Keyword)cHtmlAssignment_1.eContents().get(0);
+		private final Assignment cPdfAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final Keyword cPdfPdfKeyword_2_0 = (Keyword)cPdfAssignment_2.eContents().get(0);
+		private final Assignment cDocAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final Keyword cDocDocxKeyword_3_0 = (Keyword)cDocAssignment_3.eContents().get(0);
+		
+		//SingleExtension:
+		//    xlsx='xlsx' | html='html' | pdf='pdf' | doc='docx';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//xlsx='xlsx' | html='html' | pdf='pdf' | doc='docx'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//xlsx='xlsx'
+		public Assignment getXlsxAssignment_0() { return cXlsxAssignment_0; }
+		
+		//'xlsx'
+		public Keyword getXlsxXlsxKeyword_0_0() { return cXlsxXlsxKeyword_0_0; }
+		
+		//html='html'
+		public Assignment getHtmlAssignment_1() { return cHtmlAssignment_1; }
+		
+		//'html'
+		public Keyword getHtmlHtmlKeyword_1_0() { return cHtmlHtmlKeyword_1_0; }
+		
+		//pdf='pdf'
+		public Assignment getPdfAssignment_2() { return cPdfAssignment_2; }
+		
+		//'pdf'
+		public Keyword getPdfPdfKeyword_2_0() { return cPdfPdfKeyword_2_0; }
+		
+		//doc='docx'
+		public Assignment getDocAssignment_3() { return cDocAssignment_3; }
+		
+		//'docx'
+		public Keyword getDocDocxKeyword_3_0() { return cDocDocxKeyword_3_0; }
 	}
 	public class ElementBuildElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.Grammar.ElementBuild");
@@ -2813,6 +2919,8 @@ public class GrammarGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final ArrayElements pArray;
 	private final NestedObjectElements pNestedObject;
 	private final BuildElements pBuild;
+	private final ExtensionListElements pExtensionList;
+	private final SingleExtensionElements pSingleExtension;
 	private final ElementBuildElements pElementBuild;
 	private final VariableElements pVariable;
 	private final SuperVariableElements pSuperVariable;
@@ -2888,6 +2996,8 @@ public class GrammarGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pArray = new ArrayElements();
 		this.pNestedObject = new NestedObjectElements();
 		this.pBuild = new BuildElements();
+		this.pExtensionList = new ExtensionListElements();
+		this.pSingleExtension = new SingleExtensionElements();
 		this.pElementBuild = new ElementBuildElements();
 		this.pVariable = new VariableElements();
 		this.pSuperVariable = new SuperVariableElements();
@@ -3047,7 +3157,7 @@ public class GrammarGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// Section de construction du document
 	//Build:
-	//    'document' variable=Variable (allInOne = 'allInOne' '=' (trueV=TRUE | falseF=FALSE)) '{'
+	//    'document' variable=Variable (extensions=ExtensionList)? (allInOne = 'allInOne' '=' (trueV=TRUE | falseF=FALSE)) '{'
 	//        (elementBuild+=ElementBuild)*
 	//    '}';
 	public BuildElements getBuildAccess() {
@@ -3056,6 +3166,26 @@ public class GrammarGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	public ParserRule getBuildRule() {
 		return getBuildAccess().getRule();
+	}
+	
+	//ExtensionList:
+	//    'extensions' '=' '[' (extensions+=SingleExtension (',' extensions+=SingleExtension)*)? ']';
+	public ExtensionListElements getExtensionListAccess() {
+		return pExtensionList;
+	}
+	
+	public ParserRule getExtensionListRule() {
+		return getExtensionListAccess().getRule();
+	}
+	
+	//SingleExtension:
+	//    xlsx='xlsx' | html='html' | pdf='pdf' | doc='docx';
+	public SingleExtensionElements getSingleExtensionAccess() {
+		return pSingleExtension;
+	}
+	
+	public ParserRule getSingleExtensionRule() {
+		return getSingleExtensionAccess().getRule();
 	}
 	
 	//ElementBuild:

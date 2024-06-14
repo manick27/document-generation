@@ -12,10 +12,10 @@ import org.xtext.example.myDsl.Page
 import org.xtext.example.myDsl.Value
 import java.util.HashMap
 import java.util.ArrayList
-import com.itextpdf.html2pdf.HtmlConverter
 import java.io.FileOutputStream
 import java.io.File
 import java.util.List
+import java.io.IOException
 
 /**
  * Generates code from your model files on save.
@@ -34,6 +34,9 @@ class GrammarGenerator extends AbstractGenerator {
                     
                 //val fileName = resource.URI.trimFileExtension.lastSegment
 		        val seqgeneratorHtml = new HtmlCodeGenerator(context1)
+		        val seqgeneratorXlsx = new ExcelFileGenerator(context1)
+		        val seqgeneratorPdf = new PdfFileGenerator(context1)
+		        val seqgeneratorDocx = new DocxFileGenerator(context1)
 		        
 		        var String fileName = seqgeneratorHtml.getValueOfVariableInData(element.build.variable.name, element.data) as String
             	fileName = fileName.replace(' ', '_')
@@ -60,7 +63,10 @@ class GrammarGenerator extends AbstractGenerator {
 			                							val StringBuilder nameOfPage = new StringBuilder
 												        seqgeneratedCode.append(buildHtmlCodeForPage(otherElement.page, element, null, seqgeneratorHtml))
 														nameOfPage.append(seqgeneratorHtml.getNameOfPage(otherElement.page, element.data, null))
-			                							fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
+			                							//fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
+			                							
+														generateDocument(element, seqgeneratedCode.toString, fileName, nameOfPage.toString, seqgeneratorPdf, seqgeneratorDocx, seqgeneratorXlsx, fsa)
+								            			
 			                							context1.incrementVariable(elementBuild.loop.forLoop.increment.name, 1)
 													}										
 												} else if(0 <= elementBuild.loop.forLoop.endWithInteger){
@@ -69,7 +75,10 @@ class GrammarGenerator extends AbstractGenerator {
 			                							val StringBuilder nameOfPage = new StringBuilder
 														seqgeneratedCode.append(buildHtmlCodeForPage(otherElement.page, element, null, seqgeneratorHtml))
 														nameOfPage.append(seqgeneratorHtml.getNameOfPage(otherElement.page, element.data, null))
-			                							fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
+			                							//fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
+			                							
+														generateDocument(element, seqgeneratedCode.toString, fileName, nameOfPage.toString, seqgeneratorPdf, seqgeneratorDocx, seqgeneratorXlsx, fsa)
+								            			
 			                							context1.incrementVariable(elementBuild.loop.forLoop.increment.name, 1)
 													}							
 												} 
@@ -87,7 +96,9 @@ class GrammarGenerator extends AbstractGenerator {
 													context1.setVariable(elementBuild.loop.withLoop.init.name, object)
 													seqgeneratedCode.append(buildHtmlCodeForPage(otherElement.page, element, elementBuild.loop.withLoop.init.name, seqgeneratorHtml))
 													nameOfPage.append(seqgeneratorHtml.getNameOfPage(otherElement.page, element.data, object))
-		                							fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
+		                							//fsa.generateFile(fileName+'/html/' + nameOfPage + ".html", seqgeneratedCode)
+		                							
+													generateDocument(element, seqgeneratedCode.toString, fileName, nameOfPage.toString, seqgeneratorPdf, seqgeneratorDocx, seqgeneratorXlsx, fsa)
 												}
 											}
 										}
@@ -96,19 +107,37 @@ class GrammarGenerator extends AbstractGenerator {
 							}
 						}
             		} else {
-	                	val seqgeneratedCode =  seqgeneratorHtml.generate(element, fileName.toString)		
-	                	
-						val htmlFilePath = fileName + '/html/' + fileName + ".html"
-						fsa.generateFile(htmlFilePath, seqgeneratedCode)
-						
-						//val seqgenerateExcel = new ExcelFileGenerator 
-						//val String filePath = fileName + '/excel/'
-						//seqgenerateExcel.generate(element, fileName.toString, filePath)
+		                val seqgeneratedCode =  seqgeneratorHtml.generate(element, fileName.toString)
+		                generateDocument(element, seqgeneratedCode, fileName, fileName, seqgeneratorPdf, seqgeneratorDocx, seqgeneratorXlsx, fsa)
             		}
 				}
             }
         }
-    }	    
+    }
+    
+    def void generateDocument(Document document, String seqgeneratedCode, String directoryName, String fileName, PdfFileGenerator seqgeneratorPdf, DocxFileGenerator seqgeneratorDocx, ExcelFileGenerator seqgeneratorXlsx, IFileSystemAccess2 fsa) {
+    	if(document.build.extensions !== null) {
+        	for(ex : document.build.extensions.extensions) {
+        		if(ex.pdf !== null){
+					seqgeneratorPdf.generate(seqgeneratedCode.toString, directoryName + '/pdf/' + fileName + ".pdf")
+        		}
+        		if(ex.doc !== null){
+					seqgeneratorDocx.generate(seqgeneratedCode.toString, directoryName + '/word/' + fileName + ".docx")
+        		}
+        		if(ex.xlsx !== null){
+					seqgeneratorXlsx.generate(seqgeneratedCode.toString, directoryName + '/excel/' + fileName + ".xlsx")
+        		}
+        		if(ex.html !== null){
+					fsa.generateFile(fileName + '/html/' + fileName + ".html", seqgeneratedCode.toString)
+        		}
+        	}
+        } else {
+			fsa.generateFile(fileName + '/html/' + fileName + ".html", seqgeneratedCode.toString)
+			seqgeneratorXlsx.generate(seqgeneratedCode.toString, directoryName + '/excel/' + fileName + ".xlsx")
+			seqgeneratorPdf.generate(seqgeneratedCode.toString, directoryName + '/pdf/' + fileName + ".pdf")
+			seqgeneratorDocx.generate(seqgeneratedCode.toString, directoryName + '/word/' + fileName + ".docx")
+		}
+    }
     
     def	buildHtmlCodeForPage(Page page, Document document, String withLoopInitName, HtmlCodeGenerator seqgeneratorHtml) {
     	val seqgeneratorCss = new CssCodeGenerator
@@ -117,7 +146,7 @@ class GrammarGenerator extends AbstractGenerator {
     	
     	var Value object = null as Value
     	if(withLoopInitName !== null) {
-    		object = context1.getVariable(withLoopInitName) as Value 
+    		object = context1.getVariable(withLoopInitName) as Value
     		seqgeneratorHtml.buildWithLoopPage(buildCode, page, document, withLoopInitName)
     	} else {
 	    	seqgeneratorHtml.buildPage(buildCode, page, document)

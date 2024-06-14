@@ -96,6 +96,24 @@ public interface MyDslFactory extends EFactory
   Build createBuild();
 
   /**
+   * Returns a new object of class '<em>Extension List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Extension List</em>'.
+   * @generated
+   */
+  ExtensionList createExtensionList();
+
+  /**
+   * Returns a new object of class '<em>Single Extension</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Single Extension</em>'.
+   * @generated
+   */
+  SingleExtension createSingleExtension();
+
+  /**
    * Returns a new object of class '<em>Element Build</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

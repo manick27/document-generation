@@ -4,7 +4,6 @@ import org.xtext.example.myDsl.Document
 import org.xtext.example.myDsl.Style
 import org.xtext.example.myDsl.Data
 import org.xtext.example.myDsl.Col
-import org.xtext.example.myDsl.Row
 import org.xtext.example.myDsl.Function
 import org.xtext.example.myDsl.ProdFunction
 import org.xtext.example.myDsl.SumFunction
@@ -19,6 +18,7 @@ import org.xtext.example.myDsl.Condition1
 import static extension org.eclipse.xtext.xbase.lib.ObjectExtensions.*
 import org.xtext.example.myDsl.Conditional
 import org.xtext.example.myDsl.ClassD
+import org.xtext.example.myDsl.Row
 
 class HtmlCodeGenerator {
     private Context context1;  // Déclaration de context1 comme champ de classe
@@ -670,7 +670,7 @@ class HtmlCodeGenerator {
 					url.append(getValueOfVariableInData(col.img.variable.name, document.data))
 				}
 			}
-			return "<img src='" + url + "' alt='" + a + "' class='" + c + "'>"
+			return "<img src='" + url + "' alt='" + a + "' class='" + c + "'/>"
 		} else if(col.function !== null) {
 			var nberArguments = 0
 			if(col.function.sumFunction !== null && col.function.sumFunction.argument1 !== null) {

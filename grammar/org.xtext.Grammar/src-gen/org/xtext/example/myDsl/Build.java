@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.myDsl.Build#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.xtext.example.myDsl.Build#getExtensions <em>Extensions</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Build#getAllInOne <em>All In One</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Build#getTrueV <em>True V</em>}</li>
  *   <li>{@link org.xtext.example.myDsl.Build#getFalseF <em>False F</em>}</li>
@@ -50,6 +51,28 @@ public interface Build extends EObject
    * @generated
    */
   void setVariable(Variable value);
+
+  /**
+   * Returns the value of the '<em><b>Extensions</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Extensions</em>' containment reference.
+   * @see #setExtensions(ExtensionList)
+   * @see org.xtext.example.myDsl.MyDslPackage#getBuild_Extensions()
+   * @model containment="true"
+   * @generated
+   */
+  ExtensionList getExtensions();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.myDsl.Build#getExtensions <em>Extensions</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Extensions</em>' containment reference.
+   * @see #getExtensions()
+   * @generated
+   */
+  void setExtensions(ExtensionList value);
 
   /**
    * Returns the value of the '<em><b>All In One</b></em>' attribute.

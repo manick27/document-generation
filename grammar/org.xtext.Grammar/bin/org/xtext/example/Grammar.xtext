@@ -5,7 +5,7 @@ generate myDsl "http://www.example.org/Grammar/MyDsl"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
-	document+=Document;
+	document+=Document; 
 	
 Document:
     (data=Data)? build=Build (style=Style)?;
@@ -29,10 +29,16 @@ NestedObject:
     
 // Section de construction du document
 Build:
-    'document' variable=Variable (allInOne = 'allInOne' '=' (trueV=TRUE | falseF=FALSE)) '{'
+    'document' variable=Variable (extensions=ExtensionList)? (allInOne = 'allInOne' '=' (trueV=TRUE | falseF=FALSE)) '{'
         (elementBuild+=ElementBuild)*
     '}';
-    
+
+ExtensionList:
+    'extensions' '=' '[' (extensions+=SingleExtension (',' extensions+=SingleExtension)*)? ']';
+
+SingleExtension:
+    xlsx='xlsx' | html='html' | pdf='pdf' | doc='docx';
+
 ElementBuild:
 	variableD=VariableD | page=Page | loop=Loop | conditional=Conditional
 ;
@@ -87,14 +93,14 @@ ElementRow:
 
 Col:
     'col' fusion=Fusion ( img=Img | variable=Variable (objectC=ObjectC)? (arrayC=ArrayC)? | variableD=VariableD | string=STRING | integer=INT | floatValue=Float | function=Function ) classD=ClassD
-;
+; 
 
 ArrayC:
     '[' position=Position ']';
     
 Position:
 	integer=INT | variable=Variable
-;
+; 
 
 ObjectC:
 	'.' name=ID

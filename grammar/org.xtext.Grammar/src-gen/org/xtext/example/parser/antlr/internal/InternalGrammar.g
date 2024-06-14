@@ -672,30 +672,49 @@ ruleBuild returns [EObject current=null]
 		)
 		(
 			(
+				{
+					newCompositeNode(grammarAccess.getBuildAccess().getExtensionsExtensionListParserRuleCall_2_0());
+				}
+				lv_extensions_2_0=ruleExtensionList
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBuildRule());
+					}
+					set(
+						$current,
+						"extensions",
+						lv_extensions_2_0,
+						"org.xtext.example.Grammar.ExtensionList");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
 				(
-					lv_allInOne_2_0='allInOne'
+					lv_allInOne_3_0='allInOne'
 					{
-						newLeafNode(lv_allInOne_2_0, grammarAccess.getBuildAccess().getAllInOneAllInOneKeyword_2_0_0());
+						newLeafNode(lv_allInOne_3_0, grammarAccess.getBuildAccess().getAllInOneAllInOneKeyword_3_0_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getBuildRule());
 						}
-						setWithLastConsumed($current, "allInOne", lv_allInOne_2_0, "allInOne");
+						setWithLastConsumed($current, "allInOne", lv_allInOne_3_0, "allInOne");
 					}
 				)
 			)
-			otherlv_3='='
+			otherlv_4='='
 			{
-				newLeafNode(otherlv_3, grammarAccess.getBuildAccess().getEqualsSignKeyword_2_1());
+				newLeafNode(otherlv_4, grammarAccess.getBuildAccess().getEqualsSignKeyword_3_1());
 			}
 			(
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getBuildAccess().getTrueVTRUEParserRuleCall_2_2_0_0());
+							newCompositeNode(grammarAccess.getBuildAccess().getTrueVTRUEParserRuleCall_3_2_0_0());
 						}
-						lv_trueV_4_0=ruleTRUE
+						lv_trueV_5_0=ruleTRUE
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getBuildRule());
@@ -703,7 +722,7 @@ ruleBuild returns [EObject current=null]
 							set(
 								$current,
 								"trueV",
-								lv_trueV_4_0,
+								lv_trueV_5_0,
 								"org.xtext.example.Grammar.TRUE");
 							afterParserOrEnumRuleCall();
 						}
@@ -713,9 +732,9 @@ ruleBuild returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getBuildAccess().getFalseFFALSEParserRuleCall_2_2_1_0());
+							newCompositeNode(grammarAccess.getBuildAccess().getFalseFFALSEParserRuleCall_3_2_1_0());
 						}
-						lv_falseF_5_0=ruleFALSE
+						lv_falseF_6_0=ruleFALSE
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getBuildRule());
@@ -723,7 +742,7 @@ ruleBuild returns [EObject current=null]
 							set(
 								$current,
 								"falseF",
-								lv_falseF_5_0,
+								lv_falseF_6_0,
 								"org.xtext.example.Grammar.FALSE");
 							afterParserOrEnumRuleCall();
 						}
@@ -731,16 +750,16 @@ ruleBuild returns [EObject current=null]
 				)
 			)
 		)
-		otherlv_6='{'
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getBuildAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_7, grammarAccess.getBuildAccess().getLeftCurlyBracketKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBuildAccess().getElementBuildElementBuildParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getBuildAccess().getElementBuildElementBuildParserRuleCall_5_0());
 				}
-				lv_elementBuild_7_0=ruleElementBuild
+				lv_elementBuild_8_0=ruleElementBuild
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getBuildRule());
@@ -748,16 +767,175 @@ ruleBuild returns [EObject current=null]
 					add(
 						$current,
 						"elementBuild",
-						lv_elementBuild_7_0,
+						lv_elementBuild_8_0,
 						"org.xtext.example.Grammar.ElementBuild");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_8='}'
+		otherlv_9='}'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getBuildAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_9, grammarAccess.getBuildAccess().getRightCurlyBracketKeyword_6());
 		}
+	)
+;
+
+// Entry rule entryRuleExtensionList
+entryRuleExtensionList returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExtensionListRule()); }
+	iv_ruleExtensionList=ruleExtensionList
+	{ $current=$iv_ruleExtensionList.current; }
+	EOF;
+
+// Rule ExtensionList
+ruleExtensionList returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='extensions'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getExtensionListAccess().getExtensionsKeyword_0());
+		}
+		otherlv_1='='
+		{
+			newLeafNode(otherlv_1, grammarAccess.getExtensionListAccess().getEqualsSignKeyword_1());
+		}
+		otherlv_2='['
+		{
+			newLeafNode(otherlv_2, grammarAccess.getExtensionListAccess().getLeftSquareBracketKeyword_2());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExtensionListAccess().getExtensionsSingleExtensionParserRuleCall_3_0_0());
+					}
+					lv_extensions_3_0=ruleSingleExtension
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExtensionListRule());
+						}
+						add(
+							$current,
+							"extensions",
+							lv_extensions_3_0,
+							"org.xtext.example.Grammar.SingleExtension");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_4=','
+				{
+					newLeafNode(otherlv_4, grammarAccess.getExtensionListAccess().getCommaKeyword_3_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExtensionListAccess().getExtensionsSingleExtensionParserRuleCall_3_1_1_0());
+						}
+						lv_extensions_5_0=ruleSingleExtension
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExtensionListRule());
+							}
+							add(
+								$current,
+								"extensions",
+								lv_extensions_5_0,
+								"org.xtext.example.Grammar.SingleExtension");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		otherlv_6=']'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getExtensionListAccess().getRightSquareBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleSingleExtension
+entryRuleSingleExtension returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSingleExtensionRule()); }
+	iv_ruleSingleExtension=ruleSingleExtension
+	{ $current=$iv_ruleSingleExtension.current; }
+	EOF;
+
+// Rule SingleExtension
+ruleSingleExtension returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_xlsx_0_0='xlsx'
+				{
+					newLeafNode(lv_xlsx_0_0, grammarAccess.getSingleExtensionAccess().getXlsxXlsxKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSingleExtensionRule());
+					}
+					setWithLastConsumed($current, "xlsx", lv_xlsx_0_0, "xlsx");
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_html_1_0='html'
+				{
+					newLeafNode(lv_html_1_0, grammarAccess.getSingleExtensionAccess().getHtmlHtmlKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSingleExtensionRule());
+					}
+					setWithLastConsumed($current, "html", lv_html_1_0, "html");
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_pdf_2_0='pdf'
+				{
+					newLeafNode(lv_pdf_2_0, grammarAccess.getSingleExtensionAccess().getPdfPdfKeyword_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSingleExtensionRule());
+					}
+					setWithLastConsumed($current, "pdf", lv_pdf_2_0, "pdf");
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_doc_3_0='docx'
+				{
+					newLeafNode(lv_doc_3_0, grammarAccess.getSingleExtensionAccess().getDocDocxKeyword_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSingleExtensionRule());
+					}
+					setWithLastConsumed($current, "doc", lv_doc_3_0, "docx");
+				}
+			)
+		)
 	)
 ;
 

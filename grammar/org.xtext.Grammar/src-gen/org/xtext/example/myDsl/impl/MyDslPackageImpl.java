@@ -33,6 +33,7 @@ import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
 import org.xtext.example.myDsl.ElseCondition;
+import org.xtext.example.myDsl.ExtensionList;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
@@ -55,6 +56,7 @@ import org.xtext.example.myDsl.Row;
 import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
+import org.xtext.example.myDsl.SingleExtension;
 import org.xtext.example.myDsl.Style;
 import org.xtext.example.myDsl.SubSubTitle;
 import org.xtext.example.myDsl.SubTitle;
@@ -130,6 +132,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass buildEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass extensionListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass singleExtensionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -814,9 +830,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getBuild_AllInOne()
+  public EReference getBuild_Extensions()
   {
-    return (EAttribute)buildEClass.getEStructuralFeatures().get(1);
+    return (EReference)buildEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -825,7 +841,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getBuild_TrueV()
+  public EAttribute getBuild_AllInOne()
   {
     return (EAttribute)buildEClass.getEStructuralFeatures().get(2);
   }
@@ -836,7 +852,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getBuild_FalseF()
+  public EAttribute getBuild_TrueV()
   {
     return (EAttribute)buildEClass.getEStructuralFeatures().get(3);
   }
@@ -847,9 +863,97 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EAttribute getBuild_FalseF()
+  {
+    return (EAttribute)buildEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getBuild_ElementBuild()
   {
-    return (EReference)buildEClass.getEStructuralFeatures().get(4);
+    return (EReference)buildEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExtensionList()
+  {
+    return extensionListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExtensionList_Extensions()
+  {
+    return (EReference)extensionListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSingleExtension()
+  {
+    return singleExtensionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSingleExtension_Xlsx()
+  {
+    return (EAttribute)singleExtensionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSingleExtension_Html()
+  {
+    return (EAttribute)singleExtensionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSingleExtension_Pdf()
+  {
+    return (EAttribute)singleExtensionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSingleExtension_Doc()
+  {
+    return (EAttribute)singleExtensionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3072,10 +3176,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     buildEClass = createEClass(BUILD);
     createEReference(buildEClass, BUILD__VARIABLE);
+    createEReference(buildEClass, BUILD__EXTENSIONS);
     createEAttribute(buildEClass, BUILD__ALL_IN_ONE);
     createEAttribute(buildEClass, BUILD__TRUE_V);
     createEAttribute(buildEClass, BUILD__FALSE_F);
     createEReference(buildEClass, BUILD__ELEMENT_BUILD);
+
+    extensionListEClass = createEClass(EXTENSION_LIST);
+    createEReference(extensionListEClass, EXTENSION_LIST__EXTENSIONS);
+
+    singleExtensionEClass = createEClass(SINGLE_EXTENSION);
+    createEAttribute(singleExtensionEClass, SINGLE_EXTENSION__XLSX);
+    createEAttribute(singleExtensionEClass, SINGLE_EXTENSION__HTML);
+    createEAttribute(singleExtensionEClass, SINGLE_EXTENSION__PDF);
+    createEAttribute(singleExtensionEClass, SINGLE_EXTENSION__DOC);
 
     elementBuildEClass = createEClass(ELEMENT_BUILD);
     createEReference(elementBuildEClass, ELEMENT_BUILD__VARIABLE_D);
@@ -3385,10 +3499,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(buildEClass, Build.class, "Build", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBuild_Variable(), this.getVariable(), null, "variable", null, 0, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBuild_Extensions(), this.getExtensionList(), null, "extensions", null, 0, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBuild_AllInOne(), ecorePackage.getEString(), "allInOne", null, 0, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBuild_TrueV(), ecorePackage.getEString(), "trueV", null, 0, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBuild_FalseF(), ecorePackage.getEString(), "falseF", null, 0, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBuild_ElementBuild(), this.getElementBuild(), null, "elementBuild", null, 0, -1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(extensionListEClass, ExtensionList.class, "ExtensionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExtensionList_Extensions(), this.getSingleExtension(), null, "extensions", null, 0, -1, ExtensionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(singleExtensionEClass, SingleExtension.class, "SingleExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSingleExtension_Xlsx(), ecorePackage.getEString(), "xlsx", null, 0, 1, SingleExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSingleExtension_Html(), ecorePackage.getEString(), "html", null, 0, 1, SingleExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSingleExtension_Pdf(), ecorePackage.getEString(), "pdf", null, 0, 1, SingleExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSingleExtension_Doc(), ecorePackage.getEString(), "doc", null, 0, 1, SingleExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementBuildEClass, ElementBuild.class, "ElementBuild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getElementBuild_VariableD(), this.getVariableD(), null, "variableD", null, 0, 1, ElementBuild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

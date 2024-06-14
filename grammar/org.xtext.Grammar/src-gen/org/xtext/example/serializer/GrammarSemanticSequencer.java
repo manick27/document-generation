@@ -37,6 +37,7 @@ import org.xtext.example.myDsl.ElementBuild;
 import org.xtext.example.myDsl.ElementPage;
 import org.xtext.example.myDsl.ElementRow;
 import org.xtext.example.myDsl.ElseCondition;
+import org.xtext.example.myDsl.ExtensionList;
 import org.xtext.example.myDsl.For;
 import org.xtext.example.myDsl.Function;
 import org.xtext.example.myDsl.Fusion;
@@ -58,6 +59,7 @@ import org.xtext.example.myDsl.Row;
 import org.xtext.example.myDsl.Rowspan;
 import org.xtext.example.myDsl.Rule;
 import org.xtext.example.myDsl.Selector;
+import org.xtext.example.myDsl.SingleExtension;
 import org.xtext.example.myDsl.Style;
 import org.xtext.example.myDsl.SubSubTitle;
 import org.xtext.example.myDsl.SubTitle;
@@ -154,6 +156,9 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case MyDslPackage.ELSE_CONDITION:
 				sequence_ElseCondition(context, (ElseCondition) semanticObject); 
 				return; 
+			case MyDslPackage.EXTENSION_LIST:
+				sequence_ExtensionList(context, (ExtensionList) semanticObject); 
+				return; 
 			case MyDslPackage.FLOAT:
 				sequence_Float(context, (org.xtext.example.myDsl.Float) semanticObject); 
 				return; 
@@ -216,6 +221,9 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case MyDslPackage.SELECTOR:
 				sequence_Selector(context, (Selector) semanticObject); 
+				return; 
+			case MyDslPackage.SINGLE_EXTENSION:
+				sequence_SingleExtension(context, (SingleExtension) semanticObject); 
 				return; 
 			case MyDslPackage.STYLE:
 				sequence_Style(context, (Style) semanticObject); 
@@ -342,7 +350,7 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Build returns Build
 	 *
 	 * Constraint:
-	 *     (variable=Variable allInOne='allInOne' (trueV=TRUE | falseF=FALSE) elementBuild+=ElementBuild*)
+	 *     (variable=Variable extensions=ExtensionList? allInOne='allInOne' (trueV=TRUE | falseF=FALSE) elementBuild+=ElementBuild*)
 	 * </pre>
 	 */
 	protected void sequence_Build(ISerializationContext context, Build semanticObject) {
@@ -634,6 +642,20 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 * </pre>
 	 */
 	protected void sequence_ElseCondition(ISerializationContext context, ElseCondition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ExtensionList returns ExtensionList
+	 *
+	 * Constraint:
+	 *     (extensions+=SingleExtension extensions+=SingleExtension*)
+	 * </pre>
+	 */
+	protected void sequence_ExtensionList(ISerializationContext context, ExtensionList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -963,6 +985,20 @@ public class GrammarSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 * </pre>
 	 */
 	protected void sequence_Selector(ISerializationContext context, Selector semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SingleExtension returns SingleExtension
+	 *
+	 * Constraint:
+	 *     (xlsx='xlsx' | html='html' | pdf='pdf' | doc='docx')
+	 * </pre>
+	 */
+	protected void sequence_SingleExtension(ISerializationContext context, SingleExtension semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
